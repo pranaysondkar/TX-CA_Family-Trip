@@ -276,6 +276,14 @@ for i, (sec, opt, price, det, status, lk) in enumerate(T.OPTIONS, start=2):
             op.cell(i, c).font = BOLD
         op.cell(i, 5).fill = YELLOW
 
+r0 = op.max_row + 2
+op.cell(r0, 1, "Visitor health insurance in plain words").font = TITLE
+for i, (k, v) in enumerate(T.INSURANCE_PRIMER, start=1):
+    op.cell(r0 + i, 1, k).font = BOLD
+    c = op.cell(r0 + i, 2, v); c.font = BODY; c.alignment = WRAP
+    op.merge_cells(start_row=r0 + i, start_column=2, end_row=r0 + i, end_column=4)
+    op.row_dimensions[r0 + i].height = 42
+
 # ------------------------------------------------------------------ All links
 al = wb.create_sheet("All Links")
 header(al, 1, ["Key", "URL"], [20, 120])

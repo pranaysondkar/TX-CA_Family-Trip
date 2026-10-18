@@ -62,7 +62,9 @@ todo = [dict(id=T.budget_id(cat, item), item=public(item), dates=dates, status=s
 credits = json.load(open(os.path.join(HERE, "..", "img", "credits.json")))
 data = dict(checked=T.PRICES_CHECKED, budget=T.BUDGET_TOTAL, days=days,
             categories=[dict(name=k, planned=round(v["planned"]), lean=round(v["lean"])) for k, v in cats.items()],
-            todo=todo, lines=lines, bookingsApi=T.BOOKINGS_API, bookingsEdit=T.BOOKINGS_EDIT, climate=T.CLIMATE, alertsNote=T.ALERTS_NOTE, credits=credits,
+            todo=todo, lines=lines, options=[dict(section=sec, option=public(opt), price=price, details=public(det), status=st, url=T.L.get(lk))
+                     for (sec, opt, price, det, st, lk) in T.OPTIONS],
+            insurancePrimer=T.INSURANCE_PRIMER, bookingsApi=T.BOOKINGS_API, bookingsEdit=T.BOOKINGS_EDIT, climate=T.CLIMATE, alertsNote=T.ALERTS_NOTE, credits=credits,
             quick=[{"label": a, "url": T.L[b]} for a, b in [
                 ("Caltrans QuickMap", "quickmap"), ("Chain controls", "chains"), ("Sequoia roads", "seki_roads"),
                 ("Sequoia alerts", "seki_conditions"), ("NWS", "nws"), ("FasTrak toll pay", "fastrak"),

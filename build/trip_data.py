@@ -82,6 +82,14 @@ L = {  # booking / info links
     "patel": "https://communityimpact.com/cedar-park/business/patel-brothers-grocery-store-now-open-in-cedar-park/",
     "indian_food": "https://austinot.com/indian-restaurants-austin",
     "insurance": "https://www.nerdwallet.com/article/travel/best-travel-insurance-for-parents-visiting-usa",
+    "ins_insubuy": "https://www.insubuy.com/visitors-insurance/",
+    "learn_fixed_vs_comp": "https://www.visitorguard.com/fixed-vs-comprehensive-coverage/",
+    "learn_parents_101": "https://www.visitorguard.com/visitor-insurance-for-parents-101/",
+    "ins_img": "https://www.imglobal.com/travel-medical-insurance/patriot-america-plus",
+    "ins_worldtrips": "https://www.worldtrips.com/",
+    "ins_vc_guide": "https://www.visitorscoverage.com/visitors-insurance-indian-parents-usa-guide/",
+    "ins_tata": "https://www.tataaig.com/travel-insurance",
+    "ins_icici": "https://www.icicilombard.com/travel-insurance",
     "sh130": "https://www.txdot.gov/discover/toll-roads-managed-lanes/txdot-toll-roads/central-texas-turnpike-system-toll-rates.html",
     "aaa_ca": "https://gasprices.aaa.com/?state=CA",
     "aaa_tx": "https://gasprices.aaa.com/?state=TX",
@@ -111,7 +119,7 @@ BUDGET = [
     ("TX – Food & misc", "Meals out in Texas (≈ 6 family meals × 5 people × $15)", "", 6, 75, 0.2625, "Estimate", 3 * 75 * 1.2625, "indian_food", "8.25% sales tax + 18% tip. Most meals cooked at home."),
     ("TX – Food & misc", "Snacks, Buc-ee's, coffee on day trips", "", 1, 120, 0, "Estimate", 60, None, ""),
 
-    ("Insurance & phones", "Visitor medical insurance, 3 people, 30 days (if not yet bought)", "Dec 6–Jan 4", 3, 150, 0, "Get quote", None, "insurance", "Sample 2026 quote: age 60, 30 days, $100k = $195 (NerdWallet). Younger brother cheaper. Strongly recommended. US medical bills are very high."),
+    ("Insurance & phones", "Visitor medical insurance, 3 people, 30 days (if not yet bought)", "Dec 6–Jan 4", 3, 150, 0, "To book", None, "ins_insubuy", "Not legally required for a US visitor visa, but strongly recommended: one ER visit can cost $5k+. Buy before they leave Mumbai, covering the whole stay. Look for ≥ $100k medical per person, ≤ $250 deductible, a comprehensive (not fixed-benefit) plan, and acute onset of pre-existing conditions. Sample: age 60, 30 days, $100k ≈ $195 (NerdWallet). Compare options in the Booking Options tab."),
     ("Insurance & phones", "US prepaid SIM / eSIM for 3 visitors (1 month)", "Dec 6–Jan 4", 3, 25, 0, "Estimate", None, None, "Tello / Mint / T-Mobile prepaid style plans. Or India roaming pack."),
 
     ("CA – Flights", "United AUS→SFO 6:05a–8:12a nonstop, Economy (5)", "Sat Dec 19", 1, 1325, 0, "To book", 1025, "gf_out", "Live Google Flights total incl. taxes for 5. Basic Economy $1,025 but NO carry-on bag. 8:40a nonstop is $1,831."),
@@ -160,6 +168,15 @@ OPTIONS = [
     ("Flights LAX→AUS Dec 27", "Southwest 10:40a–5:10p, 1 stop", "$1,291 / 5", "Cheapest reasonable daytime option.", "Alt", "gf_back"),
     ("Flights LAX→AUS Dec 27", "Southwest 4:30p–9:20p nonstop", "$1,542 / 5", "Late arrival.", "Alt", "gf_back"),
     ("Flights LAX→AUS Dec 27", "Delta 1:50p–6:50p nonstop", "$1,992 / 5", "", "Alt", "gf_back"),
+    ("Visitor insurance: learn first", "NerdWallet: best travel insurance for parents visiting the USA", "Read ≈ 10 min", "Independent overview: what to buy, sample prices by age. Start here.", "Chosen", "insurance"),
+    ("Visitor insurance: learn first", "VisitorsCoverage: guide for Indian parents visiting the US (2026)", "Read ≈ 10 min", "Written for exactly this situation: B-2 visa, seniors, pre-existing conditions. (Seller's site.)", "Alt", "ins_vc_guide"),
+    ("Visitor insurance: learn first", "VisitorGuard: visitor insurance for parents 101", "Read ≈ 5 min", "Plain-language basics and common mistakes. (Seller's site.)", "Alt", "learn_parents_101"),
+    ("Visitor insurance: learn first", "VisitorGuard: fixed vs comprehensive coverage", "Read ≈ 5 min", "Why cheap fixed-benefit plans leave big gaps in the US. (Seller's site.)", "Alt", "learn_fixed_vs_comp"),
+    ("Visitor medical insurance (3 people)", "Compare US visitor plans on Insubuy (Patriot America Plus, Atlas America, Safe Travels USA, …)", "≈ $150–200 per senior, less for younger", "Recommended starting point: side-by-side quotes, US-based claims. Enter exact ages and Dec 5/6 – Jan 4 dates.", "Chosen", "ins_insubuy"),
+    ("Visitor medical insurance (3 people)", "IMG Patriot America Plus (buy direct)", "Quote online", "Comprehensive plan; covers acute onset of pre-existing conditions within limits.", "Alt", "ins_img"),
+    ("Visitor medical insurance (3 people)", "WorldTrips Atlas America (buy direct)", "Sample $195 (age 60, 30 days, $100k)", "Comprehensive plan; NerdWallet sample quote.", "Alt", "ins_worldtrips"),
+    ("Visitor medical insurance (3 people)", "Tata AIG travel insurance (buy in India, INR)", "Quote online", "Buy before departure; check the USA medical limit is ≥ $100k and how US claims are paid.", "Alt", "ins_tata"),
+    ("Visitor medical insurance (3 people)", "ICICI Lombard travel insurance (buy in India)", "Quote online", "⚠ Its senior plan (71–85) caps claims at $15,000 per illness, too low for US hospital costs.", "Alt", "ins_icici"),
     ("Car SFO→LAX one-way", "Chrysler Pacifica minivan (Priceline/Expedia)", "$1,048–1,099 total", "Best for seniors: sliding doors, low step, room for bags.", "Chosen", "kayak_ca_van"),
     ("Car SFO→LAX one-way", "GMC Acadia 7-seat SUV", "$619 total", "Fold 3rd row for luggage. Higher step.", "Lean", "kayak_ca_suv"),
     ("Car SFO→LAX one-way", "Nissan Rogue (original sheet)", "$610–720 total", "Only 5 seats, too little luggage space for 9 days.", "Not advised", "kayak_ca_suv"),
@@ -201,8 +218,8 @@ DAYS = [
         "Wait in the free DFW cell-phone lot (up to 2 h). International arrivals clear customs in Terminal D",
         "Curbside pick-up at Terminal D once they text, or park in Terminal D garage ($3 up to 2 h) to greet inside",
         "Drive home with a dinner stop; keep the van overnight"],
-       "dfw", tips=["Arrival flight & time: to be added", "After ~24 h of travel from Mumbai: water, snacks and phone chargers ready in the van"],
-       links=["kayak_aus_dec", "dfw_cell", "dfw_customs"], drive="≈ 450 mi round trip, 8 h", place="Austin ↔ DFW"),
+       "dfw", tips=["Visitor medical insurance must already be active (buy before they leave Mumbai)", "Arrival flight & time: to be added", "After ~24 h of travel from Mumbai: water, snacks and phone chargers ready in the van"],
+       links=["kayak_aus_dec", "dfw_cell", "dfw_customs", "ins_insubuy"], drive="≈ 450 mi round trip, 8 h", place="Austin ↔ DFW"),
     tx("2026-12-07", "Rest & jet-lag day",
        ["Return the minivan to AUS in the morning", "Easy day at home; short evening walk", "Set up US SIM/eSIMs for the visitors"],
        "austin-skyline", tips=["Indian time is 11.5 h ahead. Sunlight in the afternoon helps reset sleep"]),
@@ -351,6 +368,17 @@ ROUTES = {  # date -> ordered stops
     "2026-12-27": ["RI", "LAX"],
     "2027-01-04": ["AUS", "DFW", "AUS"],
 }
+
+# ---------------------------------------------------------------- insurance primer (plain language)
+INSURANCE_PRIMER = [
+    ("Why buy it", "US visitors aren't covered by any public health system. One ER visit can cost $5,000+, a hospital stay $50,000+. Insurance isn't required for a B-2 visa but is strongly recommended."),
+    ("Policy maximum", "The most the plan pays in total. Aim for $100,000+ per person; some plans cap age 70+ at $100,000."),
+    ("Deductible", "What you pay first before the plan pays anything. $100–250 keeps the premium reasonable."),
+    ("Comprehensive vs fixed", "Comprehensive plans pay most of the actual bill after the deductible. Fixed-benefit plans pay a set amount per item (e.g. $500/day hospital) and leave the rest to you. Prefer comprehensive."),
+    ("Pre-existing conditions", "Ongoing conditions (BP, diabetes, heart) are usually NOT covered. Many plans cover an 'acute onset', a sudden, unexpected flare-up, up to a smaller limit. Check that limit for each parent's age."),
+    ("Dates", "Start the policy the day they leave Mumbai and end it the day they land back (≈ Dec 5 – Jan 5). Buy before they fly."),
+    ("How claims work", "Prefer plans with a US network (e.g. UnitedHealthcare/First Health PPO) so hospitals bill the insurer directly. Keep the insurance card on each phone and in their wallets."),
+]
 
 # ---------------------------------------------------------------- weather & safety
 CLIMATE = [  # place, avg high F, avg low F, precip days, snow note

@@ -148,6 +148,21 @@ section{padding:36px 0 8px}
 .bk .amt:focus-within{border-color:var(--ca)}
 .bk a{font-size:12.5px;font-weight:600;text-decoration:none;padding:4px 10px;border-radius:999px;background:var(--accent);color:var(--accent-ink)}
 .bk .saved{color:var(--ok);font-size:12px;font-weight:600}
+.primer{margin-top:14px;padding:16px 18px}
+.primer h3{font-size:18px;margin-bottom:8px}
+.primer dl{display:grid;grid-template-columns:170px 1fr;gap:8px 16px;margin:0;font-size:14px}
+.primer dt{font-weight:600}
+.primer dd{margin:0;color:var(--muted)}
+@media (max-width:760px){.primer dl{grid-template-columns:1fr}.primer dd{margin-bottom:6px}}
+.opt summary{padding:12px 16px;cursor:pointer;font-weight:600;font-size:14.5px;border-bottom:1px solid var(--line)}
+.opt:last-child summary{border-bottom:0}
+.opt[open] summary{border-bottom:1px solid var(--line)}
+.or{display:grid;grid-template-columns:1fr auto auto;gap:10px;align-items:center;padding:9px 16px 9px 28px;border-bottom:1px solid var(--line);font-size:13.5px}
+.or small{display:block;color:var(--muted);font-size:12px}
+.or .pr{font-variant-numeric:tabular-nums;color:var(--muted);font-size:12.5px;text-align:right}
+.or.pick{font-weight:600}
+.or a{font-size:12.5px;font-weight:600;text-decoration:none;padding:4px 10px;border-radius:999px;border:1px solid var(--line);color:var(--ink)}
+@media (max-width:760px){.or{grid-template-columns:1fr auto}.or .pr{display:none}}
 .bk-more summary{padding:12px 16px;cursor:pointer;font-weight:600;font-size:14px;border-top:1px solid var(--line)}
 .bk-note{padding:12px 16px;font-size:13px;color:var(--muted);border-bottom:1px solid var(--line)}
 @media (max-width:760px){.bk{grid-template-columns:22px 1fr 96px}.bk a{display:none}}
@@ -228,7 +243,8 @@ footer li{margin:2px 0}
     <a href="#now">Today</a>
     <a href="#plan">Day by day</a>
     <a href="#budget">Budget</a>
-    <a href="#book">To book</a>
+    <a href="#book">Bookings</a>
+    <a href="#options">Options</a>
     <a href="#weather">Weather</a>
     <span class="sp"></span>
     <button class="btn" id="jump">Jump to today</button>
@@ -260,6 +276,12 @@ footer li{margin:2px 0}
   <section id="book">
     <div class="sec-h"><h2>Bookings &amp; actual costs</h2><a class="sub" id="sheet-edit" target="_blank" rel="noopener">Open the Google Sheet ↗</a></div>
     <div class="card" id="todo"></div>
+  </section>
+
+  <section id="options">
+    <div class="sec-h"><h2>Compare options</h2><span class="sub">Live prices from Oct 18; the bold one is the current pick</span></div>
+    <div class="card" id="opts"></div>
+    <div class="card primer" id="primer"></div>
   </section>
 
   <section id="weather">
@@ -298,7 +320,7 @@ const pretty = k => ({gf_out:"Flights out",gf_back:"Flights home",kayak_aus_dec:
   "17mile":"17-Mile Drive",carmel_parking:"Carmel parking",camp_nelson:"Camp Nelson cabin",seki_fees:"Park fees",
   seki_roads:"Sequoia roads",seki_conditions:"Sequoia alerts",gsnm:"Sequoia Monument",resinn:"Residence Inn",
   santa_monica:"Santa Monica Pier",griffith:"Griffith Observatory",getty:"Getty Center",universal:"Universal",uber:"Uber XL",
-  outlets:"Outlets",nye:"Austin NYE",hamilton:"Hamilton Pool",bullock:"Bullock Museum"}[k] || k);
+  outlets:"Outlets",ins_insubuy:"Visitor insurance",insurance:"Insurance guide",nye:"Austin NYE",hamilton:"Hamilton Pool",bullock:"Bullock Museum"}[k] || k);
 
 // ---- dates
 const todayISO = (() => { const d = new Date(); return new Date(d.getTime() - d.getTimezoneOffset()*6e4).toISOString().slice(0,10); })();
@@ -543,6 +565,17 @@ function renderTodo(){
     amt.addEventListener("keydown", e => { if (e.key === "Enter") amt.blur(); });
   });
 }
+function renderOptions(){
+  const secs = [...new Set(T.options.map(o => o.section))];
+  $("#opts").innerHTML = secs.map(sec => `<details class="opt"${/insurance/i.test(sec)?" open":""}><summary>${esc(sec)}</summary>` +
+    T.options.filter(o => o.section === sec).map(o => `<div class="or${o.status==="Chosen"||o.status==="Booked"?" pick":""}">
+      <span>${esc(o.option)}<small>${esc(o.details)}${o.status!=="Chosen"&&o.status!=="Alt"?" · "+esc(o.status):""}</small></span>
+      <span class="pr">${esc(o.price)}</span>${o.url?`<a href="${o.url}" target="_blank" rel="noopener">Open ↗</a>`:"<span></span>"}</div>`).join("") + `</details>`).join("");
+}
+function renderPrimer(){
+  $("#primer").innerHTML = `<h3>Visitor health insurance in plain words</h3><dl>` +
+    T.insurancePrimer.map(([k,v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join("") + `</dl>`;
+}
 function renderWeather(){
   $("#climate").innerHTML = `<tr><th>Place</th><th>High</th><th>Low</th><th>Wet days</th><th>Snow</th></tr>` +
     T.climate.map(c => `<tr><td>${esc(c[0])}</td><td class="num">${c[1]}°F</td><td class="num">${c[2]}°F</td><td class="num">${c[3]}</td><td>${esc(c[4])}</td></tr>`).join("");
@@ -553,7 +586,7 @@ function renderWeather(){
 }
 
 function renderAll(){ renderNow(); renderDays(); }
-renderAll(); renderBudget(); renderTodo(); renderWeather();
+renderAll(); renderBudget(); renderTodo(); renderOptions(); renderPrimer(); renderWeather();
 loadBookings();
 setInterval(loadBookings, 5 * 60 * 1000);
 window.reloadBookings = loadBookings;

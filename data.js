@@ -22,6 +22,7 @@ window.TRIP = {
     "Drive home with a dinner stop; keep the van overnight"
    ],
    "tips": [
+    "Visitor medical insurance must already be active (buy before they leave Mumbai)",
     "Arrival flight & time: to be added",
     "After ~24 h of travel from Mumbai: water, snacks and phone chargers ready in the van"
    ],
@@ -37,6 +38,10 @@ window.TRIP = {
     {
      "key": "dfw_customs",
      "url": "https://dfwairport.com/guide/customs"
+    },
+    {
+     "key": "ins_insubuy",
+     "url": "https://www.insubuy.com/visitors-insurance/"
     }
    ],
    "route": {
@@ -24736,8 +24741,8 @@ window.TRIP = {
    "id": "insurance-phones-visitor-medical-insurance-3-peo",
    "item": "Visitor medical insurance, 3 people, 30 days (if not yet bought)",
    "dates": "Dec 6–Jan 4",
-   "status": "Get quote",
-   "url": "https://www.nerdwallet.com/article/travel/best-travel-insurance-for-parents-visiting-usa",
+   "status": "To book",
+   "url": "https://www.insubuy.com/visitors-insurance/",
    "cost": 450
   },
   {
@@ -25286,6 +25291,350 @@ window.TRIP = {
    "booked": false,
    "lean": 150
   }
+ ],
+ "options": [
+  {
+   "section": "Flights AUS→SFO Dec 19",
+   "option": "United 6:05a–8:12a nonstop, Economy",
+   "price": "$1,325 / 5",
+   "details": "Recommended. Full first day. 1 carry-on each.",
+   "status": "Chosen",
+   "url": "https://www.google.com/travel/flights?q=Flights%20to%20SFO%20from%20AUS%20on%202026-12-19%20one%20way%205%20adults%20nonstop"
+  },
+  {
+   "section": "Flights AUS→SFO Dec 19",
+   "option": "United 6:05a nonstop, Basic Economy",
+   "price": "$1,025 / 5",
+   "details": "No carry-on, last to board, no seat choice.",
+   "status": "Lean",
+   "url": "https://www.google.com/travel/flights?q=Flights%20to%20SFO%20from%20AUS%20on%202026-12-19%20one%20way%205%20adults%20nonstop"
+  },
+  {
+   "section": "Flights AUS→SFO Dec 19",
+   "option": "United 8:40a–10:48a nonstop, Economy",
+   "price": "$1,831 / 5",
+   "details": "Easier wake-up, +$506.",
+   "status": "Alt",
+   "url": "https://www.google.com/travel/flights?q=Flights%20to%20SFO%20from%20AUS%20on%202026-12-19%20one%20way%205%20adults%20nonstop"
+  },
+  {
+   "section": "Flights AUS→SFO Dec 19",
+   "option": "Southwest 11:05a–1:05p nonstop",
+   "price": "$1,217 / 5",
+   "details": "Southwest now charges bags.",
+   "status": "Alt",
+   "url": "https://www.google.com/travel/flights?q=Flights%20to%20SFO%20from%20AUS%20on%202026-12-19%20one%20way%205%20adults%20nonstop"
+  },
+  {
+   "section": "Flights AUS→SFO Dec 19",
+   "option": "Delta 10:59a–12:57p nonstop",
+   "price": "$1,842 / 5",
+   "details": "Delta bags $45/$55.",
+   "status": "Alt",
+   "url": "https://www.google.com/travel/flights?q=Flights%20to%20SFO%20from%20AUS%20on%202026-12-19%20one%20way%205%20adults%20nonstop"
+  },
+  {
+   "section": "Flights LAX→AUS Dec 27",
+   "option": "United 8:40a–1:40p nonstop, Economy",
+   "price": "$1,698 / 5",
+   "details": "Recommended. Home by afternoon.",
+   "status": "Chosen",
+   "url": "https://www.google.com/travel/flights?q=Flights%20to%20AUS%20from%20LAX%20on%202026-12-27%20one%20way%205%20adults%20nonstop"
+  },
+  {
+   "section": "Flights LAX→AUS Dec 27",
+   "option": "United 8:40a nonstop, Basic Economy",
+   "price": "$1,422 / 5",
+   "details": "No carry-on.",
+   "status": "Lean",
+   "url": "https://www.google.com/travel/flights?q=Flights%20to%20AUS%20from%20LAX%20on%202026-12-27%20one%20way%205%20adults%20nonstop"
+  },
+  {
+   "section": "Flights LAX→AUS Dec 27",
+   "option": "Southwest 10:40a–5:10p, 1 stop",
+   "price": "$1,291 / 5",
+   "details": "Cheapest reasonable daytime option.",
+   "status": "Alt",
+   "url": "https://www.google.com/travel/flights?q=Flights%20to%20AUS%20from%20LAX%20on%202026-12-27%20one%20way%205%20adults%20nonstop"
+  },
+  {
+   "section": "Flights LAX→AUS Dec 27",
+   "option": "Southwest 4:30p–9:20p nonstop",
+   "price": "$1,542 / 5",
+   "details": "Late arrival.",
+   "status": "Alt",
+   "url": "https://www.google.com/travel/flights?q=Flights%20to%20AUS%20from%20LAX%20on%202026-12-27%20one%20way%205%20adults%20nonstop"
+  },
+  {
+   "section": "Flights LAX→AUS Dec 27",
+   "option": "Delta 1:50p–6:50p nonstop",
+   "price": "$1,992 / 5",
+   "details": "",
+   "status": "Alt",
+   "url": "https://www.google.com/travel/flights?q=Flights%20to%20AUS%20from%20LAX%20on%202026-12-27%20one%20way%205%20adults%20nonstop"
+  },
+  {
+   "section": "Visitor insurance: learn first",
+   "option": "NerdWallet: best travel insurance for parents visiting the USA",
+   "price": "Read ≈ 10 min",
+   "details": "Independent overview: what to buy, sample prices by age. Start here.",
+   "status": "Chosen",
+   "url": "https://www.nerdwallet.com/article/travel/best-travel-insurance-for-parents-visiting-usa"
+  },
+  {
+   "section": "Visitor insurance: learn first",
+   "option": "VisitorsCoverage: guide for Indian parents visiting the US (2026)",
+   "price": "Read ≈ 10 min",
+   "details": "Written for exactly this situation: B-2 visa, seniors, pre-existing conditions. (Seller's site.)",
+   "status": "Alt",
+   "url": "https://www.visitorscoverage.com/visitors-insurance-indian-parents-usa-guide/"
+  },
+  {
+   "section": "Visitor insurance: learn first",
+   "option": "VisitorGuard: visitor insurance for parents 101",
+   "price": "Read ≈ 5 min",
+   "details": "Plain-language basics and common mistakes. (Seller's site.)",
+   "status": "Alt",
+   "url": "https://www.visitorguard.com/visitor-insurance-for-parents-101/"
+  },
+  {
+   "section": "Visitor insurance: learn first",
+   "option": "VisitorGuard: fixed vs comprehensive coverage",
+   "price": "Read ≈ 5 min",
+   "details": "Why cheap fixed-benefit plans leave big gaps in the US. (Seller's site.)",
+   "status": "Alt",
+   "url": "https://www.visitorguard.com/fixed-vs-comprehensive-coverage/"
+  },
+  {
+   "section": "Visitor medical insurance (3 people)",
+   "option": "Compare US visitor plans on Insubuy (Patriot America Plus, Atlas America, Safe Travels USA, …)",
+   "price": "≈ $150–200 per senior, less for younger",
+   "details": "Recommended starting point: side-by-side quotes, US-based claims. Enter exact ages and Dec 5/6 – Jan 4 dates.",
+   "status": "Chosen",
+   "url": "https://www.insubuy.com/visitors-insurance/"
+  },
+  {
+   "section": "Visitor medical insurance (3 people)",
+   "option": "IMG Patriot America Plus (buy direct)",
+   "price": "Quote online",
+   "details": "Comprehensive plan; covers acute onset of pre-existing conditions within limits.",
+   "status": "Alt",
+   "url": "https://www.imglobal.com/travel-medical-insurance/patriot-america-plus"
+  },
+  {
+   "section": "Visitor medical insurance (3 people)",
+   "option": "WorldTrips Atlas America (buy direct)",
+   "price": "Sample $195 (age 60, 30 days, $100k)",
+   "details": "Comprehensive plan; NerdWallet sample quote.",
+   "status": "Alt",
+   "url": "https://www.worldtrips.com/"
+  },
+  {
+   "section": "Visitor medical insurance (3 people)",
+   "option": "Tata AIG travel insurance (buy in India, INR)",
+   "price": "Quote online",
+   "details": "Buy before departure; check the USA medical limit is ≥ $100k and how US claims are paid.",
+   "status": "Alt",
+   "url": "https://www.tataaig.com/travel-insurance"
+  },
+  {
+   "section": "Visitor medical insurance (3 people)",
+   "option": "ICICI Lombard travel insurance (buy in India)",
+   "price": "Quote online",
+   "details": "⚠ Its senior plan (71–85) caps claims at $15,000 per illness, too low for US hospital costs.",
+   "status": "Alt",
+   "url": "https://www.icicilombard.com/travel-insurance"
+  },
+  {
+   "section": "Car SFO→LAX one-way",
+   "option": "Chrysler Pacifica minivan (Priceline/Expedia)",
+   "price": "$1,048–1,099 total",
+   "details": "Best for seniors: sliding doors, low step, room for bags.",
+   "status": "Chosen",
+   "url": "https://www.kayak.com/cars/SFO/LAX/2026-12-19-09h/2026-12-27-06h?sort=price_a&fs=carclass=VAN"
+  },
+  {
+   "section": "Car SFO→LAX one-way",
+   "option": "GMC Acadia 7-seat SUV",
+   "price": "$619 total",
+   "details": "Fold 3rd row for luggage. Higher step.",
+   "status": "Lean",
+   "url": "https://www.kayak.com/cars/SFO/LAX/2026-12-19-09h/2026-12-27-06h?sort=price_a&fs=carclass=SUV"
+  },
+  {
+   "section": "Car SFO→LAX one-way",
+   "option": "Nissan Rogue (original sheet)",
+   "price": "$610–720 total",
+   "details": "Only 5 seats, too little luggage space for 9 days.",
+   "status": "Not advised",
+   "url": "https://www.kayak.com/cars/SFO/LAX/2026-12-19-09h/2026-12-27-06h?sort=price_a&fs=carclass=SUV"
+  },
+  {
+   "section": "Car Austin (DFW runs)",
+   "option": "Pacifica / Grand Caravan, Dec 6",
+   "price": "$67–73 / day",
+   "details": "Live Kayak, Oct 18.",
+   "status": "Chosen",
+   "url": "https://www.kayak.com/cars/AUS/2026-12-06-08h/2026-12-07-12h?sort=price_a&fs=carclass=VAN"
+  },
+  {
+   "section": "Car Austin (DFW runs)",
+   "option": "Minivan, Jan 4",
+   "price": "≈ $70–90 / day",
+   "details": "Not listed yet. Check in Nov.",
+   "status": "To check",
+   "url": "https://www.kayak.com/cars/AUS/2027-01-04-06h/2027-01-04-23h?sort=price_a&fs=carclass=VAN"
+  },
+  {
+   "section": "Lodging Dec 19",
+   "option": "SpringHill Suites Milpitas (planning sheet)",
+   "price": "$132 + tax, $15 parking",
+   "details": "Breakfast, pool, 2Q + trundle.",
+   "status": "Chosen",
+   "url": "https://www.airbnb.com/rooms/1521825257187402021?adults=5&check_in=2026-12-19&check_out=2026-12-20"
+  },
+  {
+   "section": "Lodging Dec 19",
+   "option": "SF Sunset ground-floor 3BR suite, free parking",
+   "price": "$438",
+   "details": "4.9★ (291).",
+   "status": "Alt",
+   "url": "https://www.airbnb.com/rooms/39512393?adults=5&check_in=2026-12-21&check_out=2026-12-23"
+  },
+  {
+   "section": "Lodging Dec 20",
+   "option": "Cozy Cabin close to the lake (family pick)",
+   "price": "$303",
+   "details": "2BR, 4 beds incl. bunks, 1 bath. 4.72★ (134).",
+   "status": "Chosen",
+   "url": "https://www.airbnb.com/rooms/824165811505730320?adults=5&check_in=2026-12-20&check_out=2026-12-21"
+  },
+  {
+   "section": "Lodging Dec 20",
+   "option": "3 Peaks Resort 2BR/2BA condo (planning sheet)",
+   "price": "$216",
+   "details": "4.61★ (306). Pool/spa, front desk.",
+   "status": "Lean",
+   "url": "https://www.airbnb.com/rooms/36305539?adults=5&check_in=2026-12-20&check_out=2026-12-21"
+  },
+  {
+   "section": "Lodging Dec 20",
+   "option": "Cabin nestled in pines, 3BR/2BA",
+   "price": "$582",
+   "details": "4.97★ (210). Over $320 cap.",
+   "status": "Alt",
+   "url": "https://www.airbnb.com/rooms/26924637?adults=5&check_in=2026-12-20&check_out=2026-12-21"
+  },
+  {
+   "section": "Lodging Dec 21–23",
+   "option": "Oakland 2BR, 6 beds, W/D (planning sheet)",
+   "price": "$305 / 2 nights",
+   "details": "4.82★ (272). BART to SF.",
+   "status": "Chosen",
+   "url": "https://www.airbnb.com/rooms/53487305?adults=5&check_in=2026-12-21&check_out=2026-12-23"
+  },
+  {
+   "section": "Lodging Dec 21–23",
+   "option": "SF Sunset 3BR suite, free parking",
+   "price": "$697 / 2 nights",
+   "details": "In SF itself.",
+   "status": "Alt",
+   "url": "https://www.airbnb.com/rooms/39512393?adults=5&check_in=2026-12-21&check_out=2026-12-23"
+  },
+  {
+   "section": "Lodging Dec 21–23",
+   "option": "SF Outer Richmond 3BR home",
+   "price": "$1,090 / 2 nights",
+   "details": "Near Golden Gate Park.",
+   "status": "Alt",
+   "url": "https://www.airbnb.com/rooms/1276100159335477529?adults=5&check_in=2026-12-21&check_out=2026-12-23"
+  },
+  {
+   "section": "Lodging Dec 23–25",
+   "option": "Timber Nest Cabin, Camp Nelson (booked)",
+   "price": "$481 / 2 nights",
+   "details": "4.82★. 2h45m each way to General Sherman.",
+   "status": "Booked",
+   "url": "https://www.airbnb.com/rooms/18070596?adults=5&check_in=2026-12-23&check_out=2026-12-25"
+  },
+  {
+   "section": "Lodging Dec 23–25",
+   "option": "Three Rivers 3.5-acre retreat, 3BR/2.5BA",
+   "price": "$769 / 2 nights",
+   "details": "4.9★ (536). 2 mi from Sequoia NP entrance. Saves ≈ 4 h driving.",
+   "status": "Alt",
+   "url": "https://www.airbnb.com/rooms/8480016?adults=5&check_in=2026-12-23&check_out=2026-12-25"
+  },
+  {
+   "section": "Lodging Dec 23–25",
+   "option": "Three Rivers 2BR/2BA, minutes from park",
+   "price": "$563 / 2 nights",
+   "details": "4.91★ (193).",
+   "status": "Alt",
+   "url": "https://www.airbnb.com/rooms/645116978669299221?adults=5&check_in=2026-12-23&check_out=2026-12-25"
+  },
+  {
+   "section": "Lodging Dec 23–25",
+   "option": "Three Rivers 3BR/2BA, 8 mi from park",
+   "price": "$729 / 2 nights",
+   "details": "4.94★ (84).",
+   "status": "Alt",
+   "url": "https://www.airbnb.com/rooms/1196404010060432835?adults=5&check_in=2026-12-23&check_out=2026-12-25"
+  },
+  {
+   "section": "Lodging Dec 25–27",
+   "option": "Residence Inn LAX larger studio (planning sheet)",
+   "price": "$466 + 16.4% tax",
+   "details": "Breakfast, LAX shuttle, $54/night parking.",
+   "status": "Chosen",
+   "url": "https://www.booking.com/hotel/us/residence-inn-by-marriott-los-angeles-lax-century-boulevard.html?checkin=2026-12-25&checkout=2026-12-27&group_adults=5&no_rooms=1"
+  },
+  {
+   "section": "Lodging Dec 25–27",
+   "option": "Burbank 2BR home near Universal",
+   "price": "$767 / 2 nights",
+   "details": "4.92★ (353).",
+   "status": "Alt",
+   "url": "https://www.airbnb.com/rooms/874209746086100294?adults=5&check_in=2026-12-25&check_out=2026-12-27"
+  },
+  {
+   "section": "Lodging Dec 25–27",
+   "option": "LA renovated 2BR, gated parking",
+   "price": "$619 / 2 nights",
+   "details": "4.9★ (195).",
+   "status": "Alt",
+   "url": "https://www.airbnb.com/rooms/1078592452122778614?adults=5&check_in=2026-12-25&check_out=2026-12-27"
+  }
+ ],
+ "insurancePrimer": [
+  [
+   "Why buy it",
+   "US visitors aren't covered by any public health system. One ER visit can cost $5,000+, a hospital stay $50,000+. Insurance isn't required for a B-2 visa but is strongly recommended."
+  ],
+  [
+   "Policy maximum",
+   "The most the plan pays in total. Aim for $100,000+ per person; some plans cap age 70+ at $100,000."
+  ],
+  [
+   "Deductible",
+   "What you pay first before the plan pays anything. $100–250 keeps the premium reasonable."
+  ],
+  [
+   "Comprehensive vs fixed",
+   "Comprehensive plans pay most of the actual bill after the deductible. Fixed-benefit plans pay a set amount per item (e.g. $500/day hospital) and leave the rest to you. Prefer comprehensive."
+  ],
+  [
+   "Pre-existing conditions",
+   "Ongoing conditions (BP, diabetes, heart) are usually NOT covered. Many plans cover an 'acute onset', a sudden, unexpected flare-up, up to a smaller limit. Check that limit for each parent's age."
+  ],
+  [
+   "Dates",
+   "Start the policy the day they leave Mumbai and end it the day they land back (≈ Dec 5 – Jan 5). Buy before they fly."
+  ],
+  [
+   "How claims work",
+   "Prefer plans with a US network (e.g. UnitedHealthcare/First Health PPO) so hospitals bill the insurer directly. Keep the insurance card on each phone and in their wallets."
+  ]
  ],
  "bookingsApi": "https://script.google.com/macros/s/AKfycby4wJCq2euzOPYDSnrjPNStXa8xtgL_dD6qhAL8B70TRgN__8vvND_7hV7P-o9lP38RYA/exec",
  "bookingsEdit": "https://docs.google.com/spreadsheets/d/1jqNuzNnaSQSjtEj5n3MgIqRKl17hSZ4XGOqjkJ6pAh4/edit",
