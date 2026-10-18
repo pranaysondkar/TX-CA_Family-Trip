@@ -13,6 +13,27 @@ from openpyxl.worksheet.table import Table, TableStyleInfo
 
 import trip_data as T
 
+
+def live_bookings():
+    """Actual costs from the Google Sheet "Bookings" tab (id -> (booked, actual)). Empty if not reachable."""
+    import csv, io, re, subprocess
+    try:
+        raw = subprocess.run(["curl", "-sL", "-m", "20", T.BOOKINGS_CSV], capture_output=True, check=True).stdout.decode()
+        rows = list(csv.reader(io.StringIO(raw)))
+        h = [x.strip().lower() for x in rows[0]]
+        ii, ib, ia = h.index("id"), next(i for i, x in enumerate(h) if x.startswith("booked")), next(i for i, x in enumerate(h) if x.startswith("actual"))
+    except Exception:
+        return {}
+    out = {}
+    for r in rows[1:]:
+        v = re.sub(r"[^0-9.\-]", "", r[ia]) if len(r) > ia else ""
+        out[r[ii].strip()] = (r[ib].strip().lower().startswith("y"), float(v) if v else None)
+    return out
+
+
+LIVE = live_bookings()
+print("live bookings rows:", len(LIVE))
+
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, "..", "..", "Family_Trip_Dec2026_Plan.xlsx")
 
@@ -59,8 +80,8 @@ wb = Workbook()
 bs = wb.active
 bs.title = "Budget"
 cols = ["Category", "Item", "Date(s)", "Qty", "Unit cost ($)", "Subtotal ($)", "Tax / fees %", "In plan? (Y/N)",
-        "Total ($)", "Status", "Lean plan ($)", "Book / info", "Notes & source"]
-header(bs, 1, cols, [20, 52, 18, 7, 12, 12, 10, 9, 12, 13, 13, 12, 70])
+        "Total ($)", "Status", "Lean plan ($)", "Book / info", "Notes & source", "Actual paid ($)", "Projected ($)"]
+header(bs, 1, cols, [20, 52, 18, 7, 12, 12, 10, 9, 12, 13, 13, 12, 70, 13, 13])
 r = 2
 for (cat, item, dates, qty, unit, tax, status, lean, lk, note) in T.BUDGET:
     bs.cell(r, 1, cat); bs.cell(r, 2, item); bs.cell(r, 3, dates)
@@ -78,9 +99,14 @@ for (cat, item, dates, qty, unit, tax, status, lean, lk, note) in T.BUDGET:
         lc.font = BLUE
     link(bs.cell(r, 12), lk)
     bs.cell(r, 13, note)
+    booked, actual = LIVE.get(T.budget_id(cat, item), (False, None))
+    ac = bs.cell(r, 14, actual); ac.font = BLUE; ac.number_format = USD2
+    bs.cell(r, 15, f'=IF(N{r}="",I{r},N{r})').number_format = USD
+    if booked or actual is not None:
+        status = "Booked"; bs.cell(r, 10, "Booked")
     u.number_format = USD2
     t.number_format = PCT
-    for c in range(1, 14):
+    for c in range(1, 16):
         cell = bs.cell(r, c)
         if cell.font != BLUE and c != 12:
             cell.font = BODY
@@ -90,11 +116,12 @@ for (cat, item, dates, qty, unit, tax, status, lean, lk, note) in T.BUDGET:
         bs.cell(r, 10).fill = YELLOW
     r += 1
 last = r - 1
+BUDGET_TOTAL_ROW = r
 bs.cell(r, 2, "TOTAL").font = BOLD
-for col, letter in ((9, "I"), (11, "K")):
+for col, letter in ((9, "I"), (11, "K"), (14, "N"), (15, "O")):
     c = bs.cell(r, col, f"=SUM({letter}2:{letter}{last})")
     c.font, c.number_format = BOLD, USD
-tab = Table(displayName="BudgetLines", ref=f"A1:M{last}")
+tab = Table(displayName="BudgetLines", ref=f"A1:O{last}")
 tab.tableStyleInfo = TableStyleInfo(name="TableStyleLight1", showRowStripes=True)
 bs.add_table(tab)
 bs.cell(r + 2, 1, "Legend:").font = BOLD
@@ -113,7 +140,7 @@ sm["A1"] = "Family Trip · Dec 6, 2026 – Jan 4, 2027"; sm["A1"].font = TITLE
 sm["A2"] = f"{T.TRAVELERS}. Texas visit + California road trip Dec 19–27. Prices checked live {T.PRICES_CHECKED}."
 sm["A2"].font = SUB
 row = 4
-for i, h in enumerate(["Category", "Planned ($)", "Lean plan ($)", "Share of planned", "What's in it"], 1):
+for i, h in enumerate(["Category", "Planned ($)", "Lean plan ($)", "Projected ($)", "What's in it"], 1):
     c = sm.cell(row, i, h); c.font, c.fill = H_FONT, H_FILL
 cats = []
 for b in T.BUDGET:
@@ -137,7 +164,7 @@ for cat in cats:
     sm.cell(row, 1, cat).font = BODY
     sm.cell(row, 2, f'=SUMIF(Budget!$A:$A,A{row},Budget!$I:$I)').number_format = USD
     sm.cell(row, 3, f'=SUMIF(Budget!$A:$A,A{row},Budget!$K:$K)').number_format = USD
-    sm.cell(row, 4, f"=IF($B${first + len(cats)}=0,0,B{row}/$B${first + len(cats)})").number_format = PCT
+    sm.cell(row, 4, f'=SUMIF(Budget!$A:$A,A{row},Budget!$O:$O)').number_format = USD
     sm.cell(row, 5, desc.get(cat, "")).font = SUB
     for c in range(1, 5):
         sm.cell(row, c).border = THIN
@@ -145,22 +172,29 @@ tot = row + 1
 sm.cell(tot, 1, "TOTAL TRIP COST").font = BOLD
 sm.cell(tot, 2, f"=SUM(B{first}:B{row})").number_format = USD
 sm.cell(tot, 3, f"=SUM(C{first}:C{row})").number_format = USD
-for c in (2, 3):
+sm.cell(tot, 4, f"=SUM(D{first}:D{row})").number_format = USD
+for c in (2, 3, 4):
     sm.cell(tot, c).font = BOLD
 sm.cell(tot + 1, 1, "Original budget").font = BODY
 b = sm.cell(tot + 1, 2, T.BUDGET_TOTAL); b.font = BLUE; b.number_format = USD; b.fill = YELLOW
 sm.cell(tot + 1, 3, f"=B{tot + 1}").number_format = USD
+sm.cell(tot + 1, 4, f"=B{tot + 1}").number_format = USD
 sm.cell(tot + 2, 1, "Over (+) / under (−) budget").font = BOLD
 sm.cell(tot + 2, 2, f"=B{tot}-B{tot + 1}").number_format = USD
 sm.cell(tot + 2, 3, f"=C{tot}-C{tot + 1}").number_format = USD
+sm.cell(tot + 2, 4, f"=D{tot}-D{tot + 1}").number_format = USD
 sm.cell(tot + 3, 1, "California part only (Dec 19–27)").font = BODY
 sm.cell(tot + 3, 2, f'=SUMIF(Budget!$A:$A,"CA*",Budget!$I:$I)').number_format = USD
 sm.cell(tot + 3, 3, f'=SUMIF(Budget!$A:$A,"CA*",Budget!$K:$K)').number_format = USD
+sm.cell(tot + 3, 4, f'=SUMIF(Budget!$A:$A,"CA*",Budget!$O:$O)').number_format = USD
 sm.cell(tot + 4, 1, "California cost per person").font = BODY
 sm.cell(tot + 4, 2, f"=B{tot + 3}/5").number_format = USD
 sm.cell(tot + 4, 3, f"=C{tot + 3}/5").number_format = USD
+sm.cell(tot + 4, 4, f"=D{tot + 3}/5").number_format = USD
+sm.cell(tot + 5, 1, "Paid so far (from Google Sheet Bookings tab)").font = BOLD
+sm.cell(tot + 5, 4, f"=Budget!N{BUDGET_TOTAL_ROW}").number_format = USD
 
-n = tot + 6
+n = tot + 7
 sm.cell(n, 1, "Key findings").font = BOLD
 notes = [
     "Real prices are well above the sheet's $7,670. Main drivers: peak holiday fares, California gas at $6.18/gal (near record), and 5 adults needing a minivan.",

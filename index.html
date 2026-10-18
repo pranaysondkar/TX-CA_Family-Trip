@@ -137,6 +137,9 @@ section{padding:36px 0 8px}
 .todo .c{font-variant-numeric:tabular-nums;font-size:13px;color:var(--muted)}
 .todo a{font-size:12.5px;font-weight:600;text-decoration:none;padding:4px 10px;border-radius:999px;background:var(--accent);color:var(--accent-ink)}
 .todo label.chk .it{text-decoration:line-through;color:var(--muted)}
+.todo label.chk .c{color:var(--ok);font-weight:600}
+.todo input:disabled{opacity:1}
+.tag{display:inline-block;font-size:11px;font-weight:600;padding:1px 7px;border-radius:999px;background:var(--surface-2);color:var(--muted);margin-left:6px}
 
 /* climate */
 table{width:100%;border-collapse:collapse;font-size:14px}
@@ -236,11 +239,12 @@ footer li{margin:2px 0}
     <div class="sec-h"><h2>Budget</h2><span class="sub" id="checked"></span></div>
     <div class="kpis" id="kpis"></div>
     <div class="card bars" id="bars"></div>
-    <div class="legend"><span><i style="background:var(--accent)"></i>Lean plan</span><span><i style="background:color-mix(in srgb,var(--accent) 35%,transparent)"></i>Planned</span></div>
+    <div class="legend"><span><i style="background:var(--accent)"></i>Paid so far</span><span><i style="background:color-mix(in srgb,var(--accent) 35%,transparent)"></i>Projected (actual where paid, plan for the rest)</span></div>
+    <p class="sub" id="sheet-status"></p>
   </section>
 
   <section id="book">
-    <div class="sec-h"><h2>Still to book</h2><span class="sub">Check items off once confirmed</span></div>
+    <div class="sec-h"><h2>Bookings</h2><a class="sub" id="sheet-edit" target="_blank" rel="noopener">Update in the Google Sheet ↗</a></div>
     <div class="card todo" id="todo"></div>
   </section>
 
@@ -437,27 +441,80 @@ function renderNow(){
     <ul style="padding-left:18px;margin:8px 0">${d.plan.map(p=>`<li>${esc(p)}</li>`).join("")}</ul>
     <a href="#d-${d.date}" class="sub">See full day →</a></div>`;
 }
+// ---- live bookings from the Google Sheet "Bookings" tab
+let live = null;  // id -> {booked, actual, inPlan}
+function parseCSV(text){
+  const rows = []; let row = [], f = "", q = false;
+  for (let i = 0; i < text.length; i++){
+    const c = text[i];
+    if (q){ if (c === '"'){ if (text[i+1] === '"'){ f += '"'; i++; } else q = false; } else f += c; }
+    else if (c === '"') q = true;
+    else if (c === ","){ row.push(f); f = ""; }
+    else if (c === "\n"){ row.push(f); rows.push(row); row = []; f = ""; }
+    else if (c !== "\r") f += c;
+  }
+  if (f || row.length){ row.push(f); rows.push(row); }
+  return rows;
+}
+const num = v => { const n = parseFloat(String(v||"").replace(/[^0-9.\-]/g, "")); return isNaN(n) ? null : n; };
+async function loadBookings(){
+  try{
+    const res = await fetch(T.bookingsCsv + "&t=" + Date.now());
+    const rows = parseCSV(await res.text());
+    const h = rows[0].map(x => x.trim().toLowerCase());
+    const ix = name => h.findIndex(x => x.startsWith(name));
+    const iId = ix("id"), iB = ix("booked"), iA = ix("actual"), iP = ix("in plan");
+    if (iId < 0 || iA < 0) throw new Error("Bookings tab not found");
+    live = {};
+    rows.slice(1).forEach(r => { const id = (r[iId]||"").trim(); if (!id) return;
+      live[id] = {booked: /^y/i.test(r[iB]||""), actual: num(r[iA]), inPlan: iP < 0 ? null : !/^n/i.test(r[iP]||"y")}; });
+    $("#sheet-status").textContent = `Live from the family Google Sheet · refreshed ${new Date().toLocaleTimeString([], {hour:"numeric", minute:"2-digit"})}`;
+  }catch(e){
+    live = null;
+    $("#sheet-status").textContent = "Showing the plan only. The Bookings tab in the Google Sheet could not be read.";
+  }
+  renderBudget(); renderTodo();
+}
+function lineState(l){
+  const s = live && live[l.id];
+  const inPlan = s && s.inPlan !== null ? s.inPlan : l.inPlan;
+  const actual = s ? s.actual : null;
+  return {booked: !!(s && (s.booked || actual !== null)), actual, inPlan,
+          projected: actual !== null ? actual : (inPlan ? l.planned : 0), paid: actual || 0};
+}
 function renderBudget(){
-  const P = T.categories.reduce((a,c)=>a+c.planned,0), Lt = T.categories.reduce((a,c)=>a+c.lean,0);
-  const ca = T.categories.filter(c=>c.name.startsWith("CA")).reduce((a,c)=>a+c.planned,0);
+  const P = T.lines.reduce((a,l)=>a+(l.inPlan?l.planned:0),0), Lt = T.lines.reduce((a,l)=>a+l.lean,0);
+  const st = T.lines.map(lineState);
+  const proj = st.reduce((a,x)=>a+x.projected,0), paid = st.reduce((a,x)=>a+x.paid,0);
   const k = (l,v,n,cls="") => `<div class="card kpi"><div class="l">${l}</div><div class="v ${cls}">${v}</div><div class="n">${n}</div></div>`;
-  $("#kpis").innerHTML = k("Planned total", fmt(P), "everything incl. paid India flights") +
-    k("Lean plan", fmt(Lt), "cheaper fares, SUV, fewer meals out") +
-    k("Original budget", fmt(T.budget), `planned is ${fmt(P - T.budget)} over`, "") +
-    k("California only", fmt(ca), `${fmt(ca/5)} per person`);
-  const max = Math.max(...T.categories.map(c=>c.planned));
-  $("#bars").innerHTML = T.categories.map(c => `<div class="row"><div class="nm">${esc(c.name)}</div>
-    <div class="track"><div class="p" style="width:${c.planned/max*100}%"></div><div class="l" style="width:${c.lean/max*100}%"></div></div>
-    <div class="amt">${fmt(c.planned)}</div></div>`).join("");
+  const diff = proj - T.budget;
+  $("#kpis").innerHTML = k("Projected total", fmt(proj), live ? "actual costs where paid + plan for the rest" : "planned, incl. paid India flights") +
+    k("Paid so far", fmt(paid), live ? `${st.filter(x=>x.booked).length} of ${st.length} items booked` : "connect the Bookings tab") +
+    k("Original budget", fmt(T.budget), diff > 0 ? `projected is ${fmt(diff)} over` : `projected is ${fmt(-diff)} under`, "") +
+    k("Lean plan", fmt(Lt), `original plan ${fmt(P)}`);
+  const cats = [...new Set(T.lines.map(l=>l.cat))].map(c => {
+    const ls = T.lines.map((l,i)=>[l,st[i]]).filter(([l])=>l.cat===c);
+    return {name:c, proj:ls.reduce((a,[,x])=>a+x.projected,0), paid:ls.reduce((a,[,x])=>a+x.paid,0)};
+  });
+  const max = Math.max(...cats.map(c=>c.proj), 1);
+  $("#bars").innerHTML = cats.map(c => `<div class="row"><div class="nm">${esc(c.name)}</div>
+    <div class="track"><div class="p" style="width:${c.proj/max*100}%"></div><div class="l" style="width:${Math.min(c.paid,c.proj)/max*100}%"></div></div>
+    <div class="amt">${fmt(c.proj)}</div></div>`).join("");
   $("#checked").textContent = $("#checked2").textContent = "Prices checked " + T.checked;
 }
 function renderTodo(){
-  const st = store.get("trip.todo") || {};
-  $("#todo").innerHTML = T.todo.map((t,i) => `<label class="${st[i]?"chk":""}"><input type="checkbox" data-i="${i}" ${st[i]?"checked":""}>
-    <span class="it">${esc(t.item)}<small>${esc(t.dates||"")} · ${esc(t.status)}</small></span>
-    <span class="c">${t.cost?fmt(t.cost):""}</span>${t.url?`<a href="${t.url}" target="_blank" rel="noopener" class="noprint">Book ↗</a>`:"<span></span>"}</label>`).join("");
-  document.querySelectorAll("#todo input").forEach(cb => cb.addEventListener("change", e => {
-    st[e.target.dataset.i] = e.target.checked; store.set("trip.todo", st); e.target.closest("label").classList.toggle("chk", e.target.checked);
+  const local = store.get("trip.todo2") || {};
+  $("#sheet-edit").href = T.bookingsEdit;
+  $("#todo").innerHTML = T.todo.map(t => {
+    const l = T.lines.find(x => x.id === t.id), s = l ? lineState(l) : {booked:false, actual:null};
+    const done = live ? s.booked : !!local[t.id];
+    const cost = s.actual !== null && s.actual !== undefined ? `paid ${fmt(s.actual)}` : (t.cost ? `≈ ${fmt(t.cost)}` : "");
+    return `<label class="${done?"chk":""}"><input type="checkbox" data-id="${t.id}" ${done?"checked":""} ${live?"disabled":""}>
+      <span class="it">${esc(t.item)}<small>${esc(t.dates||"")} · ${done ? "booked" + (s.actual !== null && s.actual !== undefined ? " · paid " + fmt(s.actual) : "") : esc(t.status)}</small></span>
+      <span class="c">${cost}</span>${t.url?`<a href="${t.url}" target="_blank" rel="noopener" class="noprint">Book ↗</a>`:"<span></span>"}</label>`;
+  }).join("");
+  if (!live) document.querySelectorAll("#todo input").forEach(cb => cb.addEventListener("change", e => {
+    local[e.target.dataset.id] = e.target.checked; store.set("trip.todo2", local); e.target.closest("label").classList.toggle("chk", e.target.checked);
   }));
 }
 function renderWeather(){
@@ -471,6 +528,9 @@ function renderWeather(){
 
 function renderAll(){ renderNow(); renderDays(); }
 renderAll(); renderBudget(); renderTodo(); renderWeather();
+loadBookings();
+setInterval(loadBookings, 5 * 60 * 1000);
+window.reloadBookings = loadBookings;
 loadForecasts().then(renderAll);
 loadAlerts();
 

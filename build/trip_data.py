@@ -368,3 +368,15 @@ ALERTS_NOTE = ("No active NWS alerts at any trip location on Oct 18, 2026. NOAA 
                "(advisory Oct 8, 2026) and favors above-normal Nov–Jan rain for California. Expect at least one "
                "atmospheric-river storm and Sierra chain controls. The web itinerary pulls live NWS alerts and "
                "Open-Meteo forecasts automatically (forecasts appear ≈ 16 days before each date).")
+
+# ---------------------------------------------------------------- live bookings (Google Sheet "Bookings" tab)
+SHEET_ID = "11S4XNhwcOaxyrukREJb-E3T9EMn9F95HuoOEyIvq9B4"
+BOOKINGS_TAB = "Bookings"
+BOOKINGS_CSV = f"https://docs.google.com/spreadsheets/d/{SHEET_ID}/gviz/tq?tqx=out:csv&headers=1&sheet={BOOKINGS_TAB}"
+BOOKINGS_EDIT = f"https://docs.google.com/spreadsheets/d/{SHEET_ID}/edit"
+
+
+def budget_id(cat, item):
+    """Stable ID that links a budget line to its row in the Bookings tab. Don't change once imported."""
+    import re
+    return re.sub(r"[^a-z0-9]+", "-", f"{cat} {item}".lower()).strip("-")[:48].rstrip("-")

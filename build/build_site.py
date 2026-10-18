@@ -50,14 +50,18 @@ for (cat, item, dates, qty, unit, tax, status, lean, lk, note) in T.BUDGET:
     c["planned"] += planned
     c["lean"] += planned if lean is None else lean
 
-todo = [dict(item=public(item), dates=dates, status=status, url=T.L.get(lk), cost=round(qty * unit * (1 + tax)))
+lines = [dict(id=T.budget_id(cat, item), cat=cat, item=public(item), planned=round(qty * unit * (1 + tax), 2),
+              inPlan=status != "Optional", lean=round(qty * unit * (1 + tax) if lean is None else lean, 2))
+         for (cat, item, dates, qty, unit, tax, status, lean, lk, note) in T.BUDGET]
+
+todo = [dict(id=T.budget_id(cat, item), item=public(item), dates=dates, status=status, url=T.L.get(lk), cost=round(qty * unit * (1 + tax)))
         for (cat, item, dates, qty, unit, tax, status, lean, lk, note) in T.BUDGET
         if status in ("To book", "Reserve", "Book", "Book early", "Confirm", "Decide", "Get quote", "Buy", "Buy at gate", "Pay online")]
 
 credits = json.load(open(os.path.join(HERE, "..", "img", "credits.json")))
 data = dict(checked=T.PRICES_CHECKED, budget=T.BUDGET_TOTAL, days=days,
             categories=[dict(name=k, planned=round(v["planned"]), lean=round(v["lean"])) for k, v in cats.items()],
-            todo=todo, climate=T.CLIMATE, alertsNote=T.ALERTS_NOTE, credits=credits,
+            todo=todo, lines=lines, bookingsCsv=T.BOOKINGS_CSV, bookingsEdit=T.BOOKINGS_EDIT, climate=T.CLIMATE, alertsNote=T.ALERTS_NOTE, credits=credits,
             quick=[{"label": a, "url": T.L[b]} for a, b in [
                 ("Caltrans QuickMap", "quickmap"), ("Chain controls", "chains"), ("Sequoia roads", "seki_roads"),
                 ("Sequoia alerts", "seki_conditions"), ("NWS", "nws"), ("FasTrak toll pay", "fastrak"),

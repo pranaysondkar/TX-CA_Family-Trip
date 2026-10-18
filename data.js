@@ -24709,6 +24709,7 @@ window.TRIP = {
  ],
  "todo": [
   {
+   "id": "tx-airport-runs-minivan-rental-aus-keep-dec-6-7",
    "item": "Minivan rental AUS, keep Dec 6–7 (2 days)",
    "dates": "Dec 6–7",
    "status": "To book",
@@ -24716,6 +24717,7 @@ window.TRIP = {
    "cost": 154
   },
   {
+   "id": "tx-airport-runs-minivan-rental-aus-jan-4-1-day",
    "item": "Minivan rental AUS, Jan 4 (1 day)",
    "dates": "Jan 4",
    "status": "To book",
@@ -24723,6 +24725,7 @@ window.TRIP = {
    "cost": 88
   },
   {
+   "id": "tx-day-trips-space-center-houston-tickets-4-peop",
    "item": "Space Center Houston tickets (4 people, online)",
    "dates": "Dec 17",
    "status": "To book",
@@ -24730,6 +24733,7 @@ window.TRIP = {
    "cost": 144
   },
   {
+   "id": "insurance-phones-visitor-medical-insurance-3-peo",
    "item": "Visitor medical insurance, 3 people, 30 days (if not yet bought)",
    "dates": "Dec 6–Jan 4",
    "status": "Get quote",
@@ -24737,6 +24741,7 @@ window.TRIP = {
    "cost": 450
   },
   {
+   "id": "ca-flights-united-aus-sfo-6-05a-8-12a-nonstop-ec",
    "item": "United AUS→SFO 6:05a–8:12a nonstop, Economy (5)",
    "dates": "Sat Dec 19",
    "status": "To book",
@@ -24744,6 +24749,7 @@ window.TRIP = {
    "cost": 1325
   },
   {
+   "id": "ca-flights-united-lax-aus-8-40a-1-40p-nonstop-ec",
    "item": "United LAX→AUS 8:40a–1:40p nonstop, Economy (5)",
    "dates": "Sun Dec 27",
    "status": "To book",
@@ -24751,6 +24757,7 @@ window.TRIP = {
    "cost": 1698
   },
   {
+   "id": "ca-lodging-springhill-suites-milpitas-suite-airb",
    "item": "SpringHill Suites Milpitas suite (Airbnb), breakfast incl.",
    "dates": "Dec 19 (1 night)",
    "status": "To book",
@@ -24758,6 +24765,7 @@ window.TRIP = {
    "cost": 150
   },
   {
+   "id": "ca-lodging-cozy-cabin-close-to-the-lake-south-la",
    "item": "Cozy Cabin close to the lake, South Lake Tahoe",
    "dates": "Dec 20 (1 night)",
    "status": "To book",
@@ -24765,6 +24773,7 @@ window.TRIP = {
    "cost": 345
   },
   {
+   "id": "ca-lodging-oakland-2br-guest-suite-6-beds-washer",
    "item": "Oakland 2BR guest suite, 6 beds, washer/dryer",
    "dates": "Dec 21–23 (2 nights)",
    "status": "To book",
@@ -24772,6 +24781,7 @@ window.TRIP = {
    "cost": 348
   },
   {
+   "id": "ca-lodging-residence-inn-lax-century-blvd-larger",
    "item": "Residence Inn LAX/Century Blvd, larger studio (2Q + sofa), breakfast",
    "dates": "Dec 25–27 (2 nights)",
    "status": "To book",
@@ -24779,6 +24789,7 @@ window.TRIP = {
    "cost": 542
   },
   {
+   "id": "ca-car-driving-one-way-minivan-sfo-lax-chrysler",
    "item": "One-way minivan SFO → LAX (Chrysler Pacifica or similar)",
    "dates": "Dec 19–27",
    "status": "To book",
@@ -24786,6 +24797,7 @@ window.TRIP = {
    "cost": 1073
   },
   {
+   "id": "ca-car-driving-collision-damage-waiver-skip-if-t",
    "item": "Collision damage waiver (skip if the renter's credit card covers it)",
    "dates": "8 days",
    "status": "Decide",
@@ -24793,6 +24805,7 @@ window.TRIP = {
    "cost": 240
   },
   {
+   "id": "ca-car-driving-bridge-tolls-golden-gate-10-50-be",
    "item": "Bridge tolls: Golden Gate $10.50, Benicia $8.50, Carquinez $8.50 + rental toll fee",
    "dates": "Dec 19–21",
    "status": "Pay online",
@@ -24800,6 +24813,7 @@ window.TRIP = {
    "cost": 45
   },
   {
+   "id": "ca-car-driving-snow-chains-cable-chains-buy-retu",
    "item": "Snow chains / cable chains (buy, return if unused)",
    "dates": "Before Dec 20",
    "status": "Buy",
@@ -24807,6 +24821,7 @@ window.TRIP = {
    "cost": 87
   },
   {
+   "id": "ca-activities-sequoia-np-america-the-beautiful-n",
    "item": "Sequoia NP: America the Beautiful nonresident pass",
    "dates": "Dec 24",
    "status": "Buy at gate",
@@ -24814,6 +24829,7 @@ window.TRIP = {
    "cost": 250
   },
   {
+   "id": "ca-activities-alcatraz-day-tour-3-adult-47-95-2",
    "item": "Alcatraz day tour (3 adult $47.95, 2 senior 62+ $45.15)",
    "dates": "Dec 22",
    "status": "Book early",
@@ -24821,6 +24837,7 @@ window.TRIP = {
    "cost": 234
   },
   {
+   "id": "ca-activities-monterey-bay-aquarium-5-adults",
    "item": "Monterey Bay Aquarium (5 adults)",
    "dates": "Dec 23",
    "status": "Book",
@@ -24828,6 +24845,362 @@ window.TRIP = {
    "cost": 325
   }
  ],
+ "lines": [
+  {
+   "id": "already-paid-mumbai-dallas-flights-3-people",
+   "cat": "Already paid",
+   "item": "Mumbai ↔ Dallas flights (3 people)",
+   "planned": 3800,
+   "inPlan": true,
+   "lean": 3800
+  },
+  {
+   "id": "already-paid-buescher-state-park-cabin",
+   "cat": "Already paid",
+   "item": "Buescher State Park cabin",
+   "planned": 70,
+   "inPlan": true,
+   "lean": 70
+  },
+  {
+   "id": "tx-airport-runs-minivan-rental-aus-keep-dec-6-7",
+   "cat": "TX – Airport runs",
+   "item": "Minivan rental AUS, keep Dec 6–7 (2 days)",
+   "planned": 154.0,
+   "inPlan": true,
+   "lean": 154.0
+  },
+  {
+   "id": "tx-airport-runs-minivan-rental-aus-jan-4-1-day",
+   "cat": "TX – Airport runs",
+   "item": "Minivan rental AUS, Jan 4 (1 day)",
+   "planned": 88.0,
+   "inPlan": true,
+   "lean": 88.0
+  },
+  {
+   "id": "tx-airport-runs-gas-2-dfw-round-trips-900-mi-min",
+   "cat": "TX – Airport runs",
+   "item": "Gas, 2 DFW round trips (≈ 900 mi, minivan 24 mpg)",
+   "planned": 144.75,
+   "inPlan": true,
+   "lean": 144.75
+  },
+  {
+   "id": "tx-airport-runs-dfw-airport-entry-fees-terminal",
+   "cat": "TX – Airport runs",
+   "item": "DFW airport entry fees + Terminal D garage (meet inside)",
+   "planned": 16,
+   "inPlan": true,
+   "lean": 2
+  },
+  {
+   "id": "tx-day-trips-space-center-houston-tickets-4-peop",
+   "cat": "TX – Day trips",
+   "item": "Space Center Houston tickets (4 people, online)",
+   "planned": 144,
+   "inPlan": true,
+   "lean": 144
+  },
+  {
+   "id": "tx-day-trips-space-center-parking",
+   "cat": "TX – Day trips",
+   "item": "Space Center parking",
+   "planned": 11.0,
+   "inPlan": true,
+   "lean": 11.0
+  },
+  {
+   "id": "tx-day-trips-buescher-state-park-entry-5-10",
+   "cat": "TX – Day trips",
+   "item": "Buescher State Park entry (5 × $10)",
+   "planned": 50,
+   "inPlan": true,
+   "lean": 50
+  },
+  {
+   "id": "tx-day-trips-pacific-war-museum-fredericksburg-o",
+   "cat": "TX – Day trips",
+   "item": "Pacific War Museum, Fredericksburg (optional)",
+   "planned": 115,
+   "inPlan": false,
+   "lean": 0
+  },
+  {
+   "id": "tx-day-trips-mckinney-falls-state-park-5-6",
+   "cat": "TX – Day trips",
+   "item": "McKinney Falls State Park (5 × $6)",
+   "planned": 30,
+   "inPlan": true,
+   "lean": 30
+  },
+  {
+   "id": "tx-day-trips-gas-for-own-car-austin-outings-day",
+   "cat": "TX – Day trips",
+   "item": "Gas for own car, Austin outings + day trips (≈ 1,200 mi, 28 mpg)",
+   "planned": 165.98,
+   "inPlan": true,
+   "lean": 165.98
+  },
+  {
+   "id": "tx-day-trips-hamilton-pool-optional-12-car-cash",
+   "cat": "TX – Day trips",
+   "item": "Hamilton Pool (optional, $12/car + cash $8 adult, $3 senior)",
+   "planned": 39,
+   "inPlan": false,
+   "lean": 0
+  },
+  {
+   "id": "tx-food-misc-meals-out-in-texas-6-family-meals-5",
+   "cat": "TX – Food & misc",
+   "item": "Meals out in Texas (≈ 6 family meals × 5 people × $15)",
+   "planned": 568.12,
+   "inPlan": true,
+   "lean": 284.06
+  },
+  {
+   "id": "tx-food-misc-snacks-buc-ee-s-coffee-on-day-trips",
+   "cat": "TX – Food & misc",
+   "item": "Snacks, Buc-ee's, coffee on day trips",
+   "planned": 120,
+   "inPlan": true,
+   "lean": 60
+  },
+  {
+   "id": "insurance-phones-visitor-medical-insurance-3-peo",
+   "cat": "Insurance & phones",
+   "item": "Visitor medical insurance, 3 people, 30 days (if not yet bought)",
+   "planned": 450,
+   "inPlan": true,
+   "lean": 450
+  },
+  {
+   "id": "insurance-phones-us-prepaid-sim-esim-for-3-visit",
+   "cat": "Insurance & phones",
+   "item": "US prepaid SIM / eSIM for 3 visitors (1 month)",
+   "planned": 75,
+   "inPlan": true,
+   "lean": 75
+  },
+  {
+   "id": "ca-flights-united-aus-sfo-6-05a-8-12a-nonstop-ec",
+   "cat": "CA – Flights",
+   "item": "United AUS→SFO 6:05a–8:12a nonstop, Economy (5)",
+   "planned": 1325,
+   "inPlan": true,
+   "lean": 1025
+  },
+  {
+   "id": "ca-flights-united-lax-aus-8-40a-1-40p-nonstop-ec",
+   "cat": "CA – Flights",
+   "item": "United LAX→AUS 8:40a–1:40p nonstop, Economy (5)",
+   "planned": 1698,
+   "inPlan": true,
+   "lean": 1422
+  },
+  {
+   "id": "ca-flights-united-checked-bags-50-first-bag-3-ba",
+   "cat": "CA – Flights",
+   "item": "United checked bags, $50 first bag (3 bags each way)",
+   "planned": 300,
+   "inPlan": true,
+   "lean": 500
+  },
+  {
+   "id": "ca-flights-uber-xl-home-aus-4-15-am-afternoon-re",
+   "cat": "CA – Flights",
+   "item": "Uber XL home ↔ AUS (4:15 am + afternoon return)",
+   "planned": 84.0,
+   "inPlan": true,
+   "lean": 84.0
+  },
+  {
+   "id": "ca-lodging-springhill-suites-milpitas-suite-airb",
+   "cat": "CA – Lodging",
+   "item": "SpringHill Suites Milpitas suite (Airbnb), breakfast incl.",
+   "planned": 150.48,
+   "inPlan": true,
+   "lean": 150.48
+  },
+  {
+   "id": "ca-lodging-milpitas-parking",
+   "cat": "CA – Lodging",
+   "item": "Milpitas parking",
+   "planned": 15,
+   "inPlan": true,
+   "lean": 15
+  },
+  {
+   "id": "ca-lodging-cozy-cabin-close-to-the-lake-south-la",
+   "cat": "CA – Lodging",
+   "item": "Cozy Cabin close to the lake, South Lake Tahoe",
+   "planned": 344.81,
+   "inPlan": true,
+   "lean": 216
+  },
+  {
+   "id": "ca-lodging-oakland-2br-guest-suite-6-beds-washer",
+   "cat": "CA – Lodging",
+   "item": "Oakland 2BR guest suite, 6 beds, washer/dryer",
+   "planned": 347.7,
+   "inPlan": true,
+   "lean": 347.7
+  },
+  {
+   "id": "ca-lodging-timber-nest-cabin-camp-nelson-sequoia",
+   "cat": "CA – Lodging",
+   "item": "Timber Nest Cabin, Camp Nelson (Sequoia area)",
+   "planned": 529.1,
+   "inPlan": true,
+   "lean": 529.1
+  },
+  {
+   "id": "ca-lodging-residence-inn-lax-century-blvd-larger",
+   "cat": "CA – Lodging",
+   "item": "Residence Inn LAX/Century Blvd, larger studio (2Q + sofa), breakfast",
+   "planned": 542.28,
+   "inPlan": true,
+   "lean": 426
+  },
+  {
+   "id": "ca-lodging-residence-inn-parking-2-nights-54",
+   "cat": "CA – Lodging",
+   "item": "Residence Inn parking (2 nights × $54)",
+   "planned": 118.8,
+   "inPlan": true,
+   "lean": 118.8
+  },
+  {
+   "id": "ca-car-driving-one-way-minivan-sfo-lax-chrysler",
+   "cat": "CA – Car & driving",
+   "item": "One-way minivan SFO → LAX (Chrysler Pacifica or similar)",
+   "planned": 1073,
+   "inPlan": true,
+   "lean": 619
+  },
+  {
+   "id": "ca-car-driving-collision-damage-waiver-skip-if-t",
+   "cat": "CA – Car & driving",
+   "item": "Collision damage waiver (skip if the renter's credit card covers it)",
+   "planned": 240,
+   "inPlan": true,
+   "lean": 0
+  },
+  {
+   "id": "ca-car-driving-gas-1-320-mi-at-22-mpg-60-gal",
+   "cat": "CA – Car & driving",
+   "item": "Gas, ≈ 1,320 mi at ~22 mpg (≈ 60 gal)",
+   "planned": 375.0,
+   "inPlan": true,
+   "lean": 375.0
+  },
+  {
+   "id": "ca-car-driving-bridge-tolls-golden-gate-10-50-be",
+   "cat": "CA – Car & driving",
+   "item": "Bridge tolls: Golden Gate $10.50, Benicia $8.50, Carquinez $8.50 + rental toll fee",
+   "planned": 45,
+   "inPlan": true,
+   "lean": 30
+  },
+  {
+   "id": "ca-car-driving-snow-chains-cable-chains-buy-retu",
+   "cat": "CA – Car & driving",
+   "item": "Snow chains / cable chains (buy, return if unused)",
+   "planned": 87.0,
+   "inPlan": true,
+   "lean": 87.0
+  },
+  {
+   "id": "ca-car-driving-parking-monterey-hollywood-griffi",
+   "cat": "CA – Car & driving",
+   "item": "Parking: Monterey, Hollywood, Griffith, Getty",
+   "planned": 90,
+   "inPlan": true,
+   "lean": 60
+  },
+  {
+   "id": "ca-activities-sequoia-np-america-the-beautiful-n",
+   "cat": "CA – Activities",
+   "item": "Sequoia NP: America the Beautiful nonresident pass",
+   "planned": 250,
+   "inPlan": true,
+   "lean": 250
+  },
+  {
+   "id": "ca-activities-alcatraz-day-tour-3-adult-47-95-2",
+   "cat": "CA – Activities",
+   "item": "Alcatraz day tour (3 adult $47.95, 2 senior 62+ $45.15)",
+   "planned": 234.15,
+   "inPlan": true,
+   "lean": 234.15
+  },
+  {
+   "id": "ca-activities-muni-1-day-visitor-passport-cable",
+   "cat": "CA – Activities",
+   "item": "Muni 1-day Visitor Passport (cable cars + buses)",
+   "planned": 75,
+   "inPlan": true,
+   "lean": 75
+  },
+  {
+   "id": "ca-activities-bart-oakland-sf-round-trip",
+   "cat": "CA – Activities",
+   "item": "BART Oakland ↔ SF round trip",
+   "planned": 45,
+   "inPlan": true,
+   "lean": 45
+  },
+  {
+   "id": "ca-activities-monterey-bay-aquarium-5-adults",
+   "cat": "CA – Activities",
+   "item": "Monterey Bay Aquarium (5 adults)",
+   "planned": 325,
+   "inPlan": true,
+   "lean": 0
+  },
+  {
+   "id": "ca-activities-17-mile-drive-vehicle-fee",
+   "cat": "CA – Activities",
+   "item": "17-Mile Drive vehicle fee",
+   "planned": 12.5,
+   "inPlan": true,
+   "lean": 12.5
+  },
+  {
+   "id": "ca-activities-universal-studios-hollywood-option",
+   "cat": "CA – Activities",
+   "item": "Universal Studios Hollywood (optional, ~$160 holiday week)",
+   "planned": 800,
+   "inPlan": false,
+   "lean": 0
+  },
+  {
+   "id": "ca-food-misc-restaurant-meals-12-family-meals-5",
+   "cat": "CA – Food & misc",
+   "item": "Restaurant meals (≈ 12 family meals × 5 × $20)",
+   "planned": 1536.0,
+   "inPlan": true,
+   "lean": 1024.0
+  },
+  {
+   "id": "ca-food-misc-groceries-for-kitchens-tahoe-oaklan",
+   "cat": "CA – Food & misc",
+   "item": "Groceries for kitchens (Tahoe, Oakland, Camp Nelson)",
+   "planned": 250,
+   "inPlan": true,
+   "lean": 250
+  },
+  {
+   "id": "ca-food-misc-snacks-coffee-souvenirs",
+   "cat": "CA – Food & misc",
+   "item": "Snacks, coffee, souvenirs",
+   "planned": 300,
+   "inPlan": true,
+   "lean": 150
+  }
+ ],
+ "bookingsCsv": "https://docs.google.com/spreadsheets/d/11S4XNhwcOaxyrukREJb-E3T9EMn9F95HuoOEyIvq9B4/gviz/tq?tqx=out:csv&headers=1&sheet=Bookings",
+ "bookingsEdit": "https://docs.google.com/spreadsheets/d/11S4XNhwcOaxyrukREJb-E3T9EMn9F95HuoOEyIvq9B4/edit",
  "climate": [
   [
    "San Francisco",
