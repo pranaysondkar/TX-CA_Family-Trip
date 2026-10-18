@@ -22,8 +22,8 @@ window.TRIP = {
     "Drive home with a dinner stop; keep the van overnight"
    ],
    "tips": [
-    "Fill in their exact arrival time and flight number",
-    "Carry water, snacks, phone chargers. They'll be tired after ~24 h of travel"
+    "Arrival flight & time: to be added",
+    "After ~24 h of travel from Mumbai: water, snacks and phone chargers ready in the van"
    ],
    "links": [
     {
@@ -3256,7 +3256,7 @@ window.TRIP = {
    ],
    "tips": [
     "Bring bedding/pillows, towels and food. Texas park cabins are basic",
-    "Entry $10 per person (your note)"
+    "Park entry $10 per person"
    ],
    "links": [
     {
@@ -10120,7 +10120,7 @@ window.TRIP = {
     "Drive home"
    ],
    "tips": [
-    "You stay back; the other 4 go",
+    "4 travelers go; 1 stays home in Austin",
     "Tram tour seats go first-come. Arrive at opening"
    ],
    "links": [
@@ -23146,7 +23146,7 @@ window.TRIP = {
     "Drive back and return the van (or keep overnight)"
    ],
    "tips": [
-    "Fill in their departure flight time",
+    "Departure flight & time: to be added",
     "Allow extra time for I-35 traffic around Waco"
    ],
    "links": [
@@ -24786,7 +24786,7 @@ window.TRIP = {
    "cost": 1073
   },
   {
-   "item": "Collision damage waiver (skip if your credit card covers)",
+   "item": "Collision damage waiver (skip if the renter's credit card covers it)",
    "dates": "8 days",
    "status": "Decide",
    "url": null,

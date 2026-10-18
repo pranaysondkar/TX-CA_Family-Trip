@@ -7,7 +7,7 @@ update the numbers here and re-run both builders.
 
 PRICES_CHECKED = "2026-10-18"
 BUDGET_TOTAL = 12000
-TRAVELERS = "5 adults: you, your wife, your brother(-in-law), mother-in-law, father-in-law"
+TRAVELERS = "5 adults: 2 hosts in Austin + 3 family members visiting from Mumbai"
 
 L = {  # booking / info links
     "gf_out": "https://www.google.com/travel/flights?q=Flights%20to%20SFO%20from%20AUS%20on%202026-12-19%20one%20way%205%20adults%20nonstop",
@@ -92,8 +92,8 @@ L = {  # booking / info links
 # (category, item, dates, qty, unit_usd, tax_or_fee_rate, status, lean_override, link_key, note)
 # lean_override: None = same in lean plan, 0 = dropped in lean plan, number = cheaper alternative
 BUDGET = [
-    ("Already paid", "Mumbai ↔ Dallas flights (3 people)", "Dec 6 / Jan 4", 1, 3800, 0, "Paid", None, None, "Amount you gave. Not re-checked."),
-    ("Already paid", "Buescher State Park cabin", "Dec 13 (1 night)", 1, 70, 0, "Booked", None, "buescher", "Booked by you."),
+    ("Already paid", "Mumbai ↔ Dallas flights (3 people)", "Dec 6 / Jan 4", 1, 3800, 0, "Paid", None, None, "Amount already paid (family records). Not re-checked."),
+    ("Already paid", "Buescher State Park cabin", "Dec 13 (1 night)", 1, 70, 0, "Booked", None, "buescher", "Already booked."),
 
     ("TX – Airport runs", "Minivan rental AUS, keep Dec 6–7 (2 days)", "Dec 6–7", 2, 70, 0.10, "To book", None, "kayak_aus_dec", "Kayak live: Pacifica/Grand Caravan $67–73 for 1 day on Dec 6. +10% TX rental tax and $6.75/day AUS facility charge (in rate here). Keeping it overnight avoids a midnight return after ~8 h of driving."),
     ("TX – Airport runs", "Minivan rental AUS, Jan 4 (1 day)", "Jan 4", 1, 80, 0.10, "To book", None, "kayak_aus_jan", "January inventory not loaded yet on Kayak (checked Oct 18). Estimate based on Dec 6 rate. Book in Nov."),
@@ -102,7 +102,7 @@ BUDGET = [
 
     ("TX – Day trips", "Space Center Houston tickets (4 people, online)", "Dec 17", 4, 36, 0, "To book", None, "space_center", "Online $29.95–39.95 adult, $27.95–37.95 senior 65+, varies by date. Tram tours included."),
     ("TX – Day trips", "Space Center parking", "Dec 17", 1, 10, 0.10, "Pay there", None, "space_center", "$10 + service fee."),
-    ("TX – Day trips", "Buescher State Park entry (5 × $10)", "Dec 13", 5, 10, 0, "Pay there", None, "buescher", "Per your note. Texas parks charge per person per day, so check whether Dec 14 is also charged."),
+    ("TX – Day trips", "Buescher State Park entry (5 × $10)", "Dec 13", 5, 10, 0, "Pay there", None, "buescher", "Per booking note. Texas parks charge per person per day, so check whether Dec 14 is also charged."),
     ("TX – Day trips", "Pacific War Museum, Fredericksburg (optional)", "Dec 12", 5, 23, 0, "Optional", 0, "pacific_war", "Adult $26, senior 65+ $20. Closed Tuesdays."),
     ("TX – Day trips", "McKinney Falls State Park (5 × $6)", "Dec 8", 5, 6, 0, "Pay/reserve", None, "mckinney", "10 min from home."),
     ("TX – Day trips", "Gas for own car, Austin outings + day trips (≈ 1,200 mi, 28 mpg)", "Dec 7–18, Dec 28–Jan 3", 43, 3.86, 0, "Estimate", None, "aaa_tx", "Houston 380 mi, Wimberley + Fredericksburg loop ≈ 200, Buescher 75, local ≈ 500."),
@@ -119,22 +119,22 @@ BUDGET = [
     ("CA – Flights", "United checked bags, $50 first bag (3 bags each way)", "Dec 19, 27", 6, 50, 0, "Pay at check-in", 10 * 50, "united_bags", "United shows $50 first checked bag. Economy includes 1 carry-on each. Lean = Basic Economy needs a bag for all 5."),
     ("CA – Flights", "Uber XL home ↔ AUS (4:15 am + afternoon return)", "Dec 19, 27", 2, 35, 0.2, "Estimate", None, "uber", "Home is ~10 min from AUS. Alternative: AUS economy parking $14/day × 9 = $126."),
 
-    ("CA – Lodging", "SpringHill Suites Milpitas suite (Airbnb), breakfast incl.", "Dec 19 (1 night)", 1, 132, 0.14, "To book", None, "milpitas", "From your sheet. $132 incl. fees (was $149). 2 queens + trundle. +$25/night refundable deposit."),
+    ("CA – Lodging", "SpringHill Suites Milpitas suite (Airbnb), breakfast incl.", "Dec 19 (1 night)", 1, 132, 0.14, "To book", None, "milpitas", "From the family planning sheet. $132 incl. fees (was $149). 2 queens + trundle. +$25/night refundable deposit."),
     ("CA – Lodging", "Milpitas parking", "Dec 19", 1, 15, 0, "Pay there", None, "milpitas", "$15/night on-site."),
-    ("CA – Lodging", "Cozy Cabin close to the lake, South Lake Tahoe", "Dec 20 (1 night)", 1, 303, 0.138, "To book", 216, "tahoe_cabin", "Your pick. $303 incl. fees. 2BR, 4 beds (incl. bunk beds), 1 bath, 6 guests. Tax 12% TOT + $5.50 TID. Lean = 3 Peaks condo from your sheet, $216."),
-    ("CA – Lodging", "Oakland 2BR guest suite, 6 beds, washer/dryer", "Dec 21–23 (2 nights)", 1, 305, 0.14, "To book", None, "oakland", "From your sheet. $305 for 2 nights incl. fees. 4.82★ (272). Street/driveway parking. Use BART into SF."),
-    ("CA – Lodging", "Timber Nest Cabin, Camp Nelson (Sequoia area)", "Dec 23–25 (2 nights)", 1, 481, 0.10, "Booked", None, "camp_nelson", "Booked (from your sheet). $481 for 2 nights incl. fees. 5 guests, 2BR, 3 beds, 1 bath. ⚠ 2h45m each way to General Sherman Tree."),
-    ("CA – Lodging", "Residence Inn LAX/Century Blvd, larger studio (2Q + sofa), breakfast", "Dec 25–27 (2 nights)", 1, 466, 0.1637, "To book", 426, "resinn", "From your sheet. Booking.com $466 + 14% TOT + 2% city + 0.37% tourism. Free LAX shuttle. $250 refundable deposit. Lean = standard 2-queen studio $426."),
+    ("CA – Lodging", "Cozy Cabin close to the lake, South Lake Tahoe", "Dec 20 (1 night)", 1, 303, 0.138, "To book", 216, "tahoe_cabin", "Family pick. $303 incl. fees. 2BR, 4 beds (incl. bunk beds), 1 bath, 6 guests. Tax 12% TOT + $5.50 TID. Lean = 3 Peaks condo from the planning sheet, $216."),
+    ("CA – Lodging", "Oakland 2BR guest suite, 6 beds, washer/dryer", "Dec 21–23 (2 nights)", 1, 305, 0.14, "To book", None, "oakland", "From the family planning sheet. $305 for 2 nights incl. fees. 4.82★ (272). Street/driveway parking. Use BART into SF."),
+    ("CA – Lodging", "Timber Nest Cabin, Camp Nelson (Sequoia area)", "Dec 23–25 (2 nights)", 1, 481, 0.10, "Booked", None, "camp_nelson", "Booked. $481 for 2 nights incl. fees. 5 guests, 2BR, 3 beds, 1 bath. ⚠ 2h45m each way to General Sherman Tree."),
+    ("CA – Lodging", "Residence Inn LAX/Century Blvd, larger studio (2Q + sofa), breakfast", "Dec 25–27 (2 nights)", 1, 466, 0.1637, "To book", 426, "resinn", "From the family planning sheet. Booking.com $466 + 14% TOT + 2% city + 0.37% tourism. Free LAX shuttle. $250 refundable deposit. Lean = standard 2-queen studio $426."),
     ("CA – Lodging", "Residence Inn parking (2 nights × $54)", "Dec 25–27", 2, 54, 0.10, "Pay there", None, "resinn", "Third-party listings show $54/night self-park. LA parking tax 10%."),
 
     ("CA – Car & driving", "One-way minivan SFO → LAX (Chrysler Pacifica or similar)", "Dec 19–27", 1, 1073, 0, "To book", 619, "kayak_ca_van", "Kayak live total, taxes incl. ($1,048–1,099 range). Ask for AWD. Lean = 7-seat GMC Acadia SUV $619 (fold 3rd row for bags)."),
-    ("CA – Car & driving", "Collision damage waiver (skip if your credit card covers)", "8 days", 8, 30, 0, "Decide", 0, None, "Typical $20–45/day. Many cards cover it if you decline the rental company's CDW. Check card benefits."),
+    ("CA – Car & driving", "Collision damage waiver (skip if the renter's credit card covers it)", "8 days", 8, 30, 0, "Decide", 0, None, "Typical $20–45/day. Many credit cards cover it when the rental company's CDW is declined. Check card benefits."),
     ("CA – Car & driving", "Gas, ≈ 1,320 mi at ~22 mpg (≈ 60 gal)", "Dec 19–27", 60, 6.25, 0, "Estimate", None, "aaa_ca", "AAA CA avg regular $6.178 on Oct 18 2026 (SF $6.28, Visalia $6.11, LA $6.23). Near-record prices."),
     ("CA – Car & driving", "Bridge tolls: Golden Gate $10.50, Benicia $8.50, Carquinez $8.50 + rental toll fee", "Dec 19–21", 1, 45, 0, "Pay online", 30, "fastrak", "Pay each crossing with a one-time payment on bayareafastrak.org within 48 h to skip the rental company's daily toll fee."),
-    ("CA – Car & driving", "Snow chains / cable chains (buy, return if unused)", "Before Dec 20", 1, 80, 0.0875, "Buy", None, "chains", "Caltrans & NPS require chains to be carried in chain-control areas. Enterprise bans chains unless state law requires. Ask your rental company."),
+    ("CA – Car & driving", "Snow chains / cable chains (buy, return if unused)", "Before Dec 20", 1, 80, 0.0875, "Buy", None, "chains", "Caltrans & NPS require chains to be carried in chain-control areas. Enterprise bans chains unless state law requires. Ask the rental company."),
     ("CA – Car & driving", "Parking: Monterey, Hollywood, Griffith, Getty", "Dec 23–26", 1, 90, 0, "Estimate", 60, "getty", "Getty $25 (free Sat after 6 pm), Griffith paid lot, Hollywood garage ~$20 max."),
 
-    ("CA – Activities", "Sequoia NP: America the Beautiful nonresident pass", "Dec 24", 1, 250, 0, "Buy at gate", None, "seki_fees", "New 2026: $100 per non-US-resident 16+ on top of $35 car fee → 3 visitors = $335. $250 nonresident annual pass is cheaper. Confirm at 559-565-3341. Skip entirely if you stay in the free National Monument."),
+    ("CA – Activities", "Sequoia NP: America the Beautiful nonresident pass", "Dec 24", 1, 250, 0, "Buy at gate", None, "seki_fees", "New 2026: $100 per non-US-resident 16+ on top of $35 car fee → 3 visitors = $335. $250 nonresident annual pass is cheaper. Confirm at 559-565-3341. Not needed for the free Giant Sequoia National Monument."),
     ("CA – Activities", "Alcatraz day tour (3 adult $47.95, 2 senior 62+ $45.15)", "Dec 22", 1, 234.15, 0, "Book early", None, "alcatraz", "Sells out weeks ahead in December. Book official City Cruises only."),
     ("CA – Activities", "Muni 1-day Visitor Passport (cable cars + buses)", "Dec 22", 5, 15, 0, "Buy on app", None, "muni", "Single cable-car ride is $9."),
     ("CA – Activities", "BART Oakland ↔ SF round trip", "Dec 22", 5, 9, 0, "Clipper card", None, "bart", "≈ $4.50 each way Lake Merritt ↔ Embarcadero. No SF parking, no break-in risk."),
@@ -162,22 +162,22 @@ OPTIONS = [
     ("Flights LAX→AUS Dec 27", "Delta 1:50p–6:50p nonstop", "$1,992 / 5", "", "Alt", "gf_back"),
     ("Car SFO→LAX one-way", "Chrysler Pacifica minivan (Priceline/Expedia)", "$1,048–1,099 total", "Best for seniors: sliding doors, low step, room for bags.", "Chosen", "kayak_ca_van"),
     ("Car SFO→LAX one-way", "GMC Acadia 7-seat SUV", "$619 total", "Fold 3rd row for luggage. Higher step.", "Lean", "kayak_ca_suv"),
-    ("Car SFO→LAX one-way", "Nissan Rogue (your sheet)", "$610–720 total", "Only 5 seats, too little luggage space for 9 days.", "Not advised", "kayak_ca_suv"),
+    ("Car SFO→LAX one-way", "Nissan Rogue (original sheet)", "$610–720 total", "Only 5 seats, too little luggage space for 9 days.", "Not advised", "kayak_ca_suv"),
     ("Car Austin (DFW runs)", "Pacifica / Grand Caravan, Dec 6", "$67–73 / day", "Live Kayak, Oct 18.", "Chosen", "kayak_aus_dec"),
     ("Car Austin (DFW runs)", "Minivan, Jan 4", "≈ $70–90 / day", "Not listed yet. Check in Nov.", "To check", "kayak_aus_jan"),
-    ("Lodging Dec 19", "SpringHill Suites Milpitas (your sheet)", "$132 + tax, $15 parking", "Breakfast, pool, 2Q + trundle.", "Chosen", "milpitas"),
+    ("Lodging Dec 19", "SpringHill Suites Milpitas (planning sheet)", "$132 + tax, $15 parking", "Breakfast, pool, 2Q + trundle.", "Chosen", "milpitas"),
     ("Lodging Dec 19", "SF Sunset ground-floor 3BR suite, free parking", "$438", "4.9★ (291).", "Alt", "sf_suite"),
-    ("Lodging Dec 20", "Cozy Cabin close to the lake (your pick)", "$303", "2BR, 4 beds incl. bunks, 1 bath. 4.72★ (134).", "Chosen", "tahoe_cabin"),
-    ("Lodging Dec 20", "3 Peaks Resort 2BR/2BA condo (your sheet)", "$216", "4.61★ (306). Pool/spa, front desk.", "Lean", "tahoe_3peaks"),
+    ("Lodging Dec 20", "Cozy Cabin close to the lake (family pick)", "$303", "2BR, 4 beds incl. bunks, 1 bath. 4.72★ (134).", "Chosen", "tahoe_cabin"),
+    ("Lodging Dec 20", "3 Peaks Resort 2BR/2BA condo (planning sheet)", "$216", "4.61★ (306). Pool/spa, front desk.", "Lean", "tahoe_3peaks"),
     ("Lodging Dec 20", "Cabin nestled in pines, 3BR/2BA", "$582", "4.97★ (210). Over $320 cap.", "Alt", "tahoe_pines"),
-    ("Lodging Dec 21–23", "Oakland 2BR, 6 beds, W/D (your sheet)", "$305 / 2 nights", "4.82★ (272). BART to SF.", "Chosen", "oakland"),
+    ("Lodging Dec 21–23", "Oakland 2BR, 6 beds, W/D (planning sheet)", "$305 / 2 nights", "4.82★ (272). BART to SF.", "Chosen", "oakland"),
     ("Lodging Dec 21–23", "SF Sunset 3BR suite, free parking", "$697 / 2 nights", "In SF itself.", "Alt", "sf_suite"),
     ("Lodging Dec 21–23", "SF Outer Richmond 3BR home", "$1,090 / 2 nights", "Near Golden Gate Park.", "Alt", "sf_richmond"),
     ("Lodging Dec 23–25", "Timber Nest Cabin, Camp Nelson (booked)", "$481 / 2 nights", "4.82★. 2h45m each way to General Sherman.", "Booked", "camp_nelson"),
     ("Lodging Dec 23–25", "Three Rivers 3.5-acre retreat, 3BR/2.5BA", "$769 / 2 nights", "4.9★ (536). 2 mi from Sequoia NP entrance. Saves ≈ 4 h driving.", "Alt", "three_rivers_a"),
     ("Lodging Dec 23–25", "Three Rivers 2BR/2BA, minutes from park", "$563 / 2 nights", "4.91★ (193).", "Alt", "three_rivers_b"),
     ("Lodging Dec 23–25", "Three Rivers 3BR/2BA, 8 mi from park", "$729 / 2 nights", "4.94★ (84).", "Alt", "three_rivers_c"),
-    ("Lodging Dec 25–27", "Residence Inn LAX larger studio (your sheet)", "$466 + 16.4% tax", "Breakfast, LAX shuttle, $54/night parking.", "Chosen", "resinn"),
+    ("Lodging Dec 25–27", "Residence Inn LAX larger studio (planning sheet)", "$466 + 16.4% tax", "Breakfast, LAX shuttle, $54/night parking.", "Chosen", "resinn"),
     ("Lodging Dec 25–27", "Burbank 2BR home near Universal", "$767 / 2 nights", "4.92★ (353).", "Alt", "burbank"),
     ("Lodging Dec 25–27", "LA renovated 2BR, gated parking", "$619 / 2 nights", "4.9★ (195).", "Alt", "la_home"),
 ]
@@ -201,7 +201,7 @@ DAYS = [
         "Wait in the free DFW cell-phone lot (up to 2 h). International arrivals clear customs in Terminal D",
         "Curbside pick-up at Terminal D once they text, or park in Terminal D garage ($3 up to 2 h) to greet inside",
         "Drive home with a dinner stop; keep the van overnight"],
-       "dfw", tips=["Fill in their exact arrival time and flight number", "Carry water, snacks, phone chargers. They'll be tired after ~24 h of travel"],
+       "dfw", tips=["Arrival flight & time: to be added", "After ~24 h of travel from Mumbai: water, snacks and phone chargers ready in the van"],
        links=["kayak_aus_dec", "dfw_cell", "dfw_customs"], drive="≈ 450 mi round trip, 8 h", place="Austin ↔ DFW"),
     tx("2026-12-07", "Rest & jet-lag day",
        ["Return the minivan to AUS in the morning", "Easy day at home; short evening walk", "Set up US SIM/eSIMs for the visitors"],
@@ -232,7 +232,7 @@ DAYS = [
     tx("2026-12-13", "Buescher State Park cabin night ⛺ (booked)",
        ["Drive to Buescher SP (≈ 50 min); stop at Buc-ee's Bastrop", "Easy loop on the Buescher hiking trail through the Lost Pines", "Scenic Park Road 1C toward Bastrop State Park", "Campfire dinner at the cabin"],
        "buescher", stay="Buescher State Park cabin (booked, $70)", drive="37 mi, ≈ 50 min", place="Buescher SP (Smithville)", lat=30.0388, lon=-97.1590,
-       tips=["Bring bedding/pillows, towels and food. Texas park cabins are basic", "Entry $10 per person (your note)"], links=["buescher"]),
+       tips=["Bring bedding/pillows, towels and food. Texas park cabins are basic", "Park entry $10 per person"], links=["buescher"]),
     tx("2026-12-14", "Rest day after camping",
        ["Slow morning at Buescher, check out by noon", "Drive home (≈ 50 min)", "Unpack, laundry, rest. No plans"],
        "buescher", drive="37 mi, ≈ 50 min", links=["buescher"]),
@@ -245,7 +245,7 @@ DAYS = [
     tx("2026-12-17", "NASA Space Center Houston (4 people)",
        ["Leave ≈ 6:45 am via SH-71/I-10 (184 mi, ≈ 3.5 h). Buc-ee's Bastrop stop", "Space Center opens 10 am. Go straight to the free NASA tram tour", "Optional evening: Kemah Boardwalk (free entry)", "Drive home"],
        "space-center", drive="≈ 370 mi round trip, 7 h", place="Houston", lat=29.5518, lon=-95.0977,
-       tips=["You stay back; the other 4 go", "Tram tour seats go first-come. Arrive at opening"], links=["space_center", "space_hours", "kemah"]),
+       tips=["4 travelers go; 1 stays home in Austin", "Tram tour seats go first-come. Arrive at opening"], links=["space_center", "space_hours", "kemah"]),
     tx("2026-12-18", "Pack for California",
        ["Laundry & packing (3 checked bags + carry-ons)", "Check in online for UA flight (24 h before)", "Early night: wake-up 3:30 am"],
        "zilker", tips=["Pack warm layers. Tahoe & Sequoia nights are ≈ 18°F", "Bring passports for the 3 visitors (needed for Sequoia nonresident pass)"],
@@ -312,7 +312,7 @@ DAYS = [
     tx("2027-01-04", "Drop-off day: home → DFW → home",
        ["Pick up minivan at AUS early", "Drive to DFW Terminal D (≈ 4 h); arrive 3 h before the international flight", "Drop off, say goodbyes", "Drive back and return the van (or keep overnight)"],
        "dfw", drive="≈ 450 mi round trip, 8 h", place="Austin ↔ DFW",
-       tips=["Fill in their departure flight time", "Allow extra time for I-35 traffic around Waco"],
+       tips=["Departure flight & time: to be added", "Allow extra time for I-35 traffic around Waco"],
        links=["kayak_aus_jan", "dfw_cell"]),
 ]
 
