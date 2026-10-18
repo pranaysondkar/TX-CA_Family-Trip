@@ -17,10 +17,10 @@ The page shows a countdown or "Day N of 30", highlights today, pulls live foreca
 check-offs in the browser. Use **Save as PDF** for an offline copy.
 
 ## Live bookings & actual costs
-The page reads the **Bookings** tab of the family Google Sheet every time it loads (and every 5 minutes).
-Set *Booked?* to Yes and type the *Actual paid ($)* there; the site's totals and checklist update for everyone.
-The sheet must stay shared as "Anyone with the link can view". Don't edit the ID column.
-`build/make_bookings_tab.py` creates the tab file to import; `build_excel.py` pulls the actuals into the Excel.
+One Google Sheet (the uploaded `Family_Trip_Dec2026_Plan.xlsx`) is the shared record. Its **Bookings** tab is read and
+written by the website through a small Google Apps Script web app (`build/apps_script.gs`):
+tick *Booked* and type the actual amount on the website, enter the family PIN once, and it saves for everyone.
+Put the web-app URL in `BOOKINGS_API` (and the sheet link in `BOOKINGS_EDIT`) in `build/trip_data.py`, then rebuild.
 
 ## Publish on GitHub Pages
 1. Create a repo (e.g. `family-trip-2026`) and push this folder's contents.

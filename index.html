@@ -137,6 +137,20 @@ section{padding:36px 0 8px}
 .todo .c{font-variant-numeric:tabular-nums;font-size:13px;color:var(--muted)}
 .todo a{font-size:12.5px;font-weight:600;text-decoration:none;padding:4px 10px;border-radius:999px;background:var(--accent);color:var(--accent-ink)}
 .todo label.chk .it{text-decoration:line-through;color:var(--muted)}
+.bk{display:grid;grid-template-columns:22px 1fr 108px auto;gap:10px;align-items:center;padding:10px 16px;border-bottom:1px solid var(--line)}
+.bk:last-child{border-bottom:0}
+.bk input[type=checkbox]{width:18px;height:18px;accent-color:var(--ok)}
+.bk .it{font-size:14px}
+.bk .it small{display:block;color:var(--muted);font-size:12px}
+.bk.done .it{color:var(--muted)}
+.bk .amt{display:flex;align-items:center;gap:4px;border:1px solid var(--line);border-radius:8px;padding:4px 8px;background:var(--surface)}
+.bk .amt input{width:100%;border:0;background:none;color:var(--ink);font:500 14px Inter,sans-serif;outline:none;font-variant-numeric:tabular-nums}
+.bk .amt:focus-within{border-color:var(--ca)}
+.bk a{font-size:12.5px;font-weight:600;text-decoration:none;padding:4px 10px;border-radius:999px;background:var(--accent);color:var(--accent-ink)}
+.bk .saved{color:var(--ok);font-size:12px;font-weight:600}
+.bk-more summary{padding:12px 16px;cursor:pointer;font-weight:600;font-size:14px;border-top:1px solid var(--line)}
+.bk-note{padding:12px 16px;font-size:13px;color:var(--muted);border-bottom:1px solid var(--line)}
+@media (max-width:760px){.bk{grid-template-columns:22px 1fr 96px}.bk a{display:none}}
 .todo label.chk .c{color:var(--ok);font-weight:600}
 .todo input:disabled{opacity:1}
 .tag{display:inline-block;font-size:11px;font-weight:600;padding:1px 7px;border-radius:999px;background:var(--surface-2);color:var(--muted);margin-left:6px}
@@ -244,8 +258,8 @@ footer li{margin:2px 0}
   </section>
 
   <section id="book">
-    <div class="sec-h"><h2>Bookings</h2><a class="sub" id="sheet-edit" target="_blank" rel="noopener">Update in the Google Sheet ↗</a></div>
-    <div class="card todo" id="todo"></div>
+    <div class="sec-h"><h2>Bookings &amp; actual costs</h2><a class="sub" id="sheet-edit" target="_blank" rel="noopener">Open the Google Sheet ↗</a></div>
+    <div class="card" id="todo"></div>
   </section>
 
   <section id="weather">
@@ -443,37 +457,36 @@ function renderNow(){
 }
 // ---- live bookings from the Google Sheet "Bookings" tab
 let live = null;  // id -> {booked, actual, inPlan}
-function parseCSV(text){
-  const rows = []; let row = [], f = "", q = false;
-  for (let i = 0; i < text.length; i++){
-    const c = text[i];
-    if (q){ if (c === '"'){ if (text[i+1] === '"'){ f += '"'; i++; } else q = false; } else f += c; }
-    else if (c === '"') q = true;
-    else if (c === ","){ row.push(f); f = ""; }
-    else if (c === "\n"){ row.push(f); rows.push(row); row = []; f = ""; }
-    else if (c !== "\r") f += c;
-  }
-  if (f || row.length){ row.push(f); rows.push(row); }
-  return rows;
-}
 const num = v => { const n = parseFloat(String(v||"").replace(/[^0-9.\-]/g, "")); return isNaN(n) ? null : n; };
-async function loadBookings(){
-  try{
-    const res = await fetch(T.bookingsCsv + "&t=" + Date.now());
-    const rows = parseCSV(await res.text());
-    const h = rows[0].map(x => x.trim().toLowerCase());
-    const ix = name => h.findIndex(x => x.startsWith(name));
-    const iId = ix("id"), iB = ix("booked"), iA = ix("actual"), iP = ix("in plan");
-    if (iId < 0 || iA < 0) throw new Error("Bookings tab not found");
+async function loadBookings(rowsFromSave){
+  if (!T.bookingsApi){
+    live = null;
+    $("#sheet-status").textContent = "Bookings sheet not connected yet. Showing the plan.";
+  } else try{
+    const rows = rowsFromSave || (await (await fetch(T.bookingsApi + "?t=" + Date.now())).json()).rows;
     live = {};
-    rows.slice(1).forEach(r => { const id = (r[iId]||"").trim(); if (!id) return;
-      live[id] = {booked: /^y/i.test(r[iB]||""), actual: num(r[iA]), inPlan: iP < 0 ? null : !/^n/i.test(r[iP]||"y")}; });
+    rows.forEach(r => live[r.id] = r);
     $("#sheet-status").textContent = `Live from the family Google Sheet · refreshed ${new Date().toLocaleTimeString([], {hour:"numeric", minute:"2-digit"})}`;
   }catch(e){
-    live = null;
-    $("#sheet-status").textContent = "Showing the plan only. The Bookings tab in the Google Sheet could not be read.";
+    $("#sheet-status").textContent = "Could not reach the bookings sheet right now. Showing the last known numbers.";
   }
   renderBudget(); renderTodo();
+}
+async function saveBooking(id, booked, actual, rowEl){
+  if (!T.bookingsApi) return;
+  let pin = store.get("trip.pin");
+  if (!pin){ pin = prompt("Family PIN to save bookings:"); if (!pin) { renderTodo(); return; } }
+  rowEl.querySelector(".saved").textContent = "Saving…";
+  try{
+    const res = await (await fetch(T.bookingsApi, {method:"POST", body: JSON.stringify({pin, id, booked, actual})})).json();
+    if (!res.ok){
+      if (/pin/i.test(res.error||"")){ store.set("trip.pin", null); alert("That PIN didn't work. Try again."); }
+      else alert("Couldn't save: " + (res.error || "unknown error"));
+      renderTodo(); return;
+    }
+    store.set("trip.pin", pin);
+    await loadBookings(res.rows);
+  }catch(e){ alert("Couldn't reach the bookings sheet. Check the internet connection."); renderTodo(); }
 }
 function lineState(l){
   const s = live && live[l.id];
@@ -502,20 +515,33 @@ function renderBudget(){
     <div class="amt">${fmt(c.proj)}</div></div>`).join("");
   $("#checked").textContent = $("#checked2").textContent = "Prices checked " + T.checked;
 }
+function bookingRow(l, url, dates, status){
+  const s = lineState(l);
+  const val = s.actual !== null && s.actual !== undefined ? s.actual : "";
+  const off = T.bookingsApi ? "" : "disabled";
+  return `<div class="bk${s.booked?" done":""}" data-id="${l.id}">
+    <input type="checkbox" ${s.booked?"checked":""} ${off} aria-label="Booked">
+    <span class="it">${esc(l.item)}<small>${esc(dates||"")}${dates?" · ":""}${s.booked ? "booked" : esc(status)} · plan ${fmt(l.planned)} <span class="saved"></span></small></span>
+    <label class="amt" title="Actual paid">$<input type="text" inputmode="decimal" placeholder="actual" value="${val}" ${off}></label>
+    ${url ? `<a href="${url}" target="_blank" rel="noopener" class="noprint">Book ↗</a>` : "<span></span>"}</div>`;
+}
 function renderTodo(){
-  const local = store.get("trip.todo2") || {};
-  $("#sheet-edit").href = T.bookingsEdit;
-  $("#todo").innerHTML = T.todo.map(t => {
-    const l = T.lines.find(x => x.id === t.id), s = l ? lineState(l) : {booked:false, actual:null};
-    const done = live ? s.booked : (s.booked || !!local[t.id]);
-    const cost = s.actual !== null && s.actual !== undefined ? `paid ${fmt(s.actual)}` : (t.cost ? `≈ ${fmt(t.cost)}` : "");
-    return `<label class="${done?"chk":""}"><input type="checkbox" data-id="${t.id}" ${done?"checked":""} ${live?"disabled":""}>
-      <span class="it">${esc(t.item)}<small>${esc(t.dates||"")} · ${done ? "booked" + (s.actual !== null && s.actual !== undefined ? " · paid " + fmt(s.actual) : "") : esc(t.status)}</small></span>
-      <span class="c">${cost}</span>${t.url?`<a href="${t.url}" target="_blank" rel="noopener" class="noprint">Book ↗</a>`:"<span></span>"}</label>`;
-  }).join("");
-  if (!live) document.querySelectorAll("#todo input").forEach(cb => cb.addEventListener("change", e => {
-    local[e.target.dataset.id] = e.target.checked; store.set("trip.todo2", local); e.target.closest("label").classList.toggle("chk", e.target.checked);
-  }));
+  if (T.bookingsEdit) { $("#sheet-edit").href = T.bookingsEdit; $("#sheet-edit").style.display = ""; } else $("#sheet-edit").style.display = "none";
+  const todoIds = new Set(T.todo.map(t => t.id));
+  const top = T.todo.map(t => bookingRow(T.lines.find(l => l.id === t.id), t.url, t.dates, t.status)).join("");
+  const rest = T.lines.filter(l => !todoIds.has(l.id)).map(l => bookingRow(l, null, "", l.cat)).join("");
+  $("#todo").innerHTML = (T.bookingsApi ? `<div class="bk-note">Tick <b>Booked</b> and type the <b>actual amount paid</b> (incl. taxes &amp; fees). It saves to the family Google Sheet for everyone. You'll be asked for the family PIN once.</div>`
+      : `<div class="bk-note">Editing turns on once the family Google Sheet is connected.</div>`) +
+    top + `<details class="bk-more"><summary>Other costs: gas, food, fees, already paid (${T.lines.length - T.todo.length})</summary>${rest}</details>`;
+  document.querySelectorAll(".bk").forEach(row => {
+    const id = row.dataset.id, cb = row.querySelector("input[type=checkbox]"), amt = row.querySelector(".amt input");
+    const send = () => { const v = amt.value.trim() === "" ? null : num(amt.value);
+      if (v !== null && !cb.checked) cb.checked = true;
+      saveBooking(id, cb.checked, v, row); };
+    cb.addEventListener("change", send);
+    amt.addEventListener("change", send);
+    amt.addEventListener("keydown", e => { if (e.key === "Enter") amt.blur(); });
+  });
 }
 function renderWeather(){
   $("#climate").innerHTML = `<tr><th>Place</th><th>High</th><th>Low</th><th>Wet days</th><th>Snow</th></tr>` +

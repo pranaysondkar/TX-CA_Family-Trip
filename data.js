@@ -25287,8 +25287,8 @@ window.TRIP = {
    "lean": 150
   }
  ],
- "bookingsCsv": "https://docs.google.com/spreadsheets/d/11S4XNhwcOaxyrukREJb-E3T9EMn9F95HuoOEyIvq9B4/gviz/tq?tqx=out:csv&headers=1&sheet=Bookings",
- "bookingsEdit": "https://docs.google.com/spreadsheets/d/11S4XNhwcOaxyrukREJb-E3T9EMn9F95HuoOEyIvq9B4/edit",
+ "bookingsApi": "",
+ "bookingsEdit": "",
  "climate": [
   [
    "San Francisco",

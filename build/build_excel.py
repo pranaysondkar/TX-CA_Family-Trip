@@ -15,20 +15,16 @@ import trip_data as T
 
 
 def live_bookings():
-    """Actual costs from the Google Sheet "Bookings" tab (id -> (booked, actual)). Empty if not reachable."""
-    import csv, io, re, subprocess
+    """Current Bookings rows from the online sheet (id -> (booked, actual)). Empty if not reachable."""
+    import subprocess
+    if not T.BOOKINGS_API:
+        return {}
     try:
-        raw = subprocess.run(["curl", "-sL", "-m", "20", T.BOOKINGS_CSV], capture_output=True, check=True).stdout.decode()
-        rows = list(csv.reader(io.StringIO(raw)))
-        h = [x.strip().lower() for x in rows[0]]
-        ii, ib, ia = h.index("id"), next(i for i, x in enumerate(h) if x.startswith("booked")), next(i for i, x in enumerate(h) if x.startswith("actual"))
+        raw = subprocess.run(["curl", "-sL", "-m", "30", T.BOOKINGS_API], capture_output=True, check=True).stdout
+        rows = json.loads(raw)["rows"]
     except Exception:
         return {}
-    out = {}
-    for r in rows[1:]:
-        v = re.sub(r"[^0-9.\-]", "", r[ia]) if len(r) > ia else ""
-        out[r[ii].strip()] = (r[ib].strip().lower().startswith("y"), float(v) if v else None)
-    return out
+    return {r["id"]: (bool(r.get("booked")), r.get("actual")) for r in rows}
 
 
 LIVE = live_bookings()
@@ -44,6 +40,7 @@ BODY = Font(name=F, size=10)
 BLUE = Font(name=F, size=10, color="0000FF")
 BOLD = Font(name=F, size=10, bold=True)
 LINK = Font(name=F, size=10, color="0563C1", underline="single")
+GREEN = Font(name=F, size=10, color="008000")
 TITLE = Font(name=F, size=16, bold=True, color="1F3A5F")
 SUB = Font(name=F, size=10, italic=True, color="555555")
 YELLOW = PatternFill("solid", fgColor="FFF59D")
@@ -75,13 +72,14 @@ def link(cell, key, text=None):
 
 
 wb = Workbook()
+BOOK_ROWS = []
 
 # ------------------------------------------------------------------ Budget (built first; Summary references it)
 bs = wb.active
 bs.title = "Budget"
 cols = ["Category", "Item", "Date(s)", "Qty", "Unit cost ($)", "Subtotal ($)", "Tax / fees %", "In plan? (Y/N)",
-        "Total ($)", "Status", "Lean plan ($)", "Book / info", "Notes & source", "Actual paid ($)", "Projected ($)"]
-header(bs, 1, cols, [20, 52, 18, 7, 12, 12, 10, 9, 12, 13, 13, 12, 70, 13, 13])
+        "Total ($)", "Status", "Lean plan ($)", "Book / info", "Notes & source", "Actual paid ($)", "Projected ($)", "ID"]
+header(bs, 1, cols, [20, 52, 18, 7, 12, 12, 10, 9, 12, 13, 13, 12, 70, 13, 13, 30])
 r = 2
 for (cat, item, dates, qty, unit, tax, status, lean, lk, note) in T.BUDGET:
     bs.cell(r, 1, cat); bs.cell(r, 2, item); bs.cell(r, 3, dates)
@@ -92,25 +90,29 @@ for (cat, item, dates, qty, unit, tax, status, lean, lk, note) in T.BUDGET:
     inc = bs.cell(r, 8, "N" if status == "Optional" else "Y"); inc.font = BLUE
     inc.alignment = Alignment(horizontal="center")
     bs.cell(r, 9, f'=IF(H{r}="N",0,F{r}*(1+G{r}))').number_format = USD
-    bs.cell(r, 10, status)
+    bid = T.budget_id(cat, item)
+    bs.cell(r, 16, bid)
+    look = lambda col: f"INDEX(Bookings!${col}:${col},MATCH($P{r},Bookings!$A:$A,0))"
+    bs.cell(r, 10, f'=IFERROR(IF({look("G")}="Yes","Booked","{status}"),"{status}")')
     lc = bs.cell(r, 11, f"=I{r}" if lean is None else round(lean, 2))
     lc.number_format = USD
     if lean is not None:
         lc.font = BLUE
     link(bs.cell(r, 12), lk)
     bs.cell(r, 13, note)
-    booked, actual = LIVE.get(T.budget_id(cat, item), (False, None))
-    if actual is None and cat == "Already paid":
-        booked, actual = True, round(qty * unit * (1 + tax), 2)
-    ac = bs.cell(r, 14, actual); ac.font = BLUE; ac.number_format = USD2
+    ac = bs.cell(r, 14, f'=IFERROR(IF({look("H")}="","",{look("H")}),"")'); ac.font = GREEN; ac.number_format = USD2
     bs.cell(r, 15, f'=IF(N{r}="",I{r},N{r})').number_format = USD
-    if booked or actual is not None:
-        status = "Booked"; bs.cell(r, 10, "Booked")
+    booked, actual = LIVE.get(bid, (False, None))
+    BOOK_ROWS.append((bid, cat, item, dates, "N" if status == "Optional" else "Y", round(qty * unit * (1 + tax), 2),
+                      "Yes" if booked or cat == "Already paid" or status == "Booked" else "No",
+                      actual if actual is not None else (round(qty * unit * (1 + tax), 2) if cat == "Already paid" else None)))
+    if booked or actual is not None or status == "Booked":
+        status = "Booked"
     u.number_format = USD2
     t.number_format = PCT
-    for c in range(1, 16):
+    for c in range(1, 17):
         cell = bs.cell(r, c)
-        if cell.font != BLUE and c != 12:
+        if cell.font not in (BLUE, GREEN) and c != 12:
             cell.font = BODY
         cell.alignment = WRAP
         cell.border = THIN
@@ -123,11 +125,12 @@ bs.cell(r, 2, "TOTAL").font = BOLD
 for col, letter in ((9, "I"), (11, "K"), (14, "N"), (15, "O")):
     c = bs.cell(r, col, f"=SUM({letter}2:{letter}{last})")
     c.font, c.number_format = BOLD, USD
-tab = Table(displayName="BudgetLines", ref=f"A1:O{last}")
+tab = Table(displayName="BudgetLines", ref=f"A1:P{last}")
 tab.tableStyleInfo = TableStyleInfo(name="TableStyleLight1", showRowStripes=True)
 bs.add_table(tab)
 bs.cell(r + 2, 1, "Legend:").font = BOLD
-bs.cell(r + 2, 2, "Blue = inputs you can change (qty, price, tax, In plan Y/N). Black = formulas. Optional items start as N. "
+bs.cell(r + 2, 2, "Blue = inputs you can change (qty, price, tax, In plan Y/N). Black = formulas. Green = pulled from the Bookings tab. "
+        "Mark bookings and actual costs on the website or in the Bookings tab, not here. Optional items start as N. "
         "Yellow status = still needs booking or a decision. Lean plan column = cheaper version "
         "(0 = dropped). Prices checked live " + T.PRICES_CHECKED + ".").font = SUB
 bs.cell(r + 2, 2).alignment = WRAP
@@ -244,6 +247,22 @@ for i, d in enumerate(T.DAYS, start=2):
         cell.border = THIN
     it.cell(i, 3).font = BOLD
     it.row_dimensions[i].height = max(45, 15 * max(len(d["plan"]), len(d["tips"]), len(lk), 2))
+
+# ------------------------------------------------------------------ Bookings (edited by the website or by hand)
+from openpyxl.worksheet.datavalidation import DataValidation
+bk = wb.create_sheet(T.BOOKINGS_TAB, 1)
+header(bk, 1, ["ID", "Category", "Item", "Dates", "In plan?", "Planned ($)", "Booked?", "Actual paid ($)", "Paid by", "Notes"],
+       [30, 20, 52, 18, 9, 12, 10, 14, 14, 40])
+yn = DataValidation(type="list", formula1='"Yes,No"', allow_blank=True)
+bk.add_data_validation(yn)
+for i, row_ in enumerate(BOOK_ROWS, start=2):
+    for c, v in enumerate(row_, start=1):
+        cell = bk.cell(i, c, v); cell.font = BODY; cell.alignment = WRAP; cell.border = THIN
+    for c in (5, 7, 8, 9, 10):
+        bk.cell(i, c).fill = YELLOW
+    bk.cell(i, 6).number_format = bk.cell(i, 8).number_format = USD2
+    yn.add(f"G{i}")
+bk.cell(len(BOOK_ROWS) + 3, 2, "The website reads and writes this tab. Edit only the yellow columns; never change the ID column.").font = SUB
 
 # ------------------------------------------------------------------ Options
 op = wb.create_sheet("Booking Options")
