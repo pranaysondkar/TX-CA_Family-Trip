@@ -265,7 +265,7 @@ DAYS = [
        tips=["4 travelers go; 1 stays home in Austin", "Tram tour seats go first-come. Arrive at opening"], links=["space_center", "space_hours", "kemah"]),
     tx("2026-12-18", "Pack for California",
        ["Laundry & packing (3 checked bags + carry-ons)", "Check in online for UA flight (24 h before)", "Early night: wake-up 3:30 am"],
-       "zilker", tips=["Pack warm layers. Tahoe & Sequoia nights are ≈ 18°F (−8°C)", "Bring passports for the 3 visitors (needed for Sequoia nonresident pass)"],
+       "zilker", tips=["Pack warm layers. Tahoe & Sequoia nights are ≈ 18°F (−8°C)", "Pack all regular medicines for the whole trip + a few spare days, in carry-on bags, with prescriptions and a doctor's letter", "Bring passports for the 3 visitors (needed for Sequoia nonresident pass)"],
        links=["united"]),
 
     ca("2026-12-19", "Fly to SF → Golden Gate → Milpitas",
@@ -377,6 +377,7 @@ INSURANCE_PRIMER = [
     ("Comprehensive vs fixed", "Comprehensive plans pay most of the actual bill after the deductible. Fixed-benefit plans pay a set amount per item (e.g. $500/day hospital) and leave the rest to you. Prefer comprehensive."),
     ("Pre-existing conditions", "Ongoing conditions (BP, diabetes, heart) are usually NOT covered. Many plans cover an 'acute onset', a sudden, unexpected flare-up, up to a smaller limit. Check that limit for each parent's age."),
     ("Dates", "Start the policy the day they leave Mumbai and end it the day they land back (≈ Dec 5 – Jan 5). Buy before they fly."),
+    ("Ongoing conditions", "Routine care for an existing condition (check-ups, refills, supplies) is not covered by visitor plans. Bring a full supply of medicines from India with a doctor's letter, and choose a plan whose acute-onset limit is as high as possible. Answer the plan's health questions honestly; hiding a condition can void a claim."),
     ("How claims work", "Prefer plans with a US network (e.g. UnitedHealthcare/First Health PPO) so hospitals bill the insurer directly. Keep the insurance card on each phone and in their wallets."),
 ]
 

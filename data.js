@@ -11700,6 +11700,7 @@ window.TRIP = {
    ],
    "tips": [
     "Pack warm layers. Tahoe & Sequoia nights are ≈ 18°F (−8°C)",
+    "Pack all regular medicines for the whole trip + a few spare days, in carry-on bags, with prescriptions and a doctor's letter",
     "Bring passports for the 3 visitors (needed for Sequoia nonresident pass)"
    ],
    "links": [
@@ -25630,6 +25631,10 @@ window.TRIP = {
   [
    "Dates",
    "Start the policy the day they leave Mumbai and end it the day they land back (≈ Dec 5 – Jan 5). Buy before they fly."
+  ],
+  [
+   "Ongoing conditions",
+   "Routine care for an existing condition (check-ups, refills, supplies) is not covered by visitor plans. Bring a full supply of medicines from India with a doctor's letter, and choose a plan whose acute-onset limit is as high as possible. Answer the plan's health questions honestly; hiding a condition can void a claim."
   ],
   [
    "How claims work",
