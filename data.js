@@ -25288,7 +25288,7 @@ window.TRIP = {
   }
  ],
  "bookingsApi": "",
- "bookingsEdit": "",
+ "bookingsEdit": "https://docs.google.com/spreadsheets/d/1jqNuzNnaSQSjtEj5n3MgIqRKl17hSZ4XGOqjkJ6pAh4/edit",
  "climate": [
   [
    "San Francisco",
