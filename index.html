@@ -485,9 +485,15 @@ async function loadBookings(rowsFromSave){
     live = null;
     $("#sheet-status").textContent = "Bookings sheet not connected yet. Showing the plan.";
   } else try{
+    if (!rowsFromSave && !live){
+      const cached = store.get("trip.bookingsCache");
+      if (cached){ live = {}; cached.rows.forEach(r => live[r.id] = r); renderBudget(); renderTodo(); }
+      $("#sheet-status").textContent = cached ? `Showing bookings from ${new Date(cached.at).toLocaleString([], {month:"short", day:"numeric", hour:"numeric", minute:"2-digit"})}; refreshing from the family sheet…` : "Loading bookings from the family sheet (can take ~10 s)…";
+    }
     const rows = rowsFromSave || (await (await fetch(T.bookingsApi + "?t=" + Date.now())).json()).rows;
     live = {};
     rows.forEach(r => live[r.id] = r);
+    store.set("trip.bookingsCache", {at: Date.now(), rows});
     $("#sheet-status").textContent = `Live from the family Google Sheet · refreshed ${new Date().toLocaleTimeString([], {hour:"numeric", minute:"2-digit"})}`;
   }catch(e){
     $("#sheet-status").textContent = "Could not reach the bookings sheet right now. Showing the last known numbers.";
