@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Family Trip 2026</title>
+<meta name="description" content="Live day-by-day itinerary: Texas visit + California road trip, Dec 6 2026 – Jan 4 2027.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f7f3ec; --surface:#ffffff; --surface-2:#f1ebe1; --ink:#1d2433; --muted:#5d6577; --line:#e3dccf;
+  --accent:#d0563b; --accent-ink:#ffffff; --ca:#2f6db5; --ca-soft:#e6eef9; --tx:#c26a1f; --tx-soft:#fbeedf;
+  --ok:#2e7d4f; --warn:#b5541d; --warn-soft:#fdeee4; --shadow:0 1px 2px rgba(20,24,40,.06),0 6px 24px rgba(20,24,40,.06);
+  --radius:16px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#12151c; --surface:#1b2029; --surface-2:#232a36; --ink:#eef1f6; --muted:#a3abba; --line:#2f3744;
+    --accent:#ef7a5d; --accent-ink:#1b1110; --ca:#7fb0ef; --ca-soft:#1d2a3d; --tx:#f0a35c; --tx-soft:#33261a;
+    --ok:#6fcf97; --warn:#f2a06c; --warn-soft:#3a2418; --shadow:0 1px 2px rgba(0,0,0,.3),0 6px 24px rgba(0,0,0,.25);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#12151c; --surface:#1b2029; --surface-2:#232a36; --ink:#eef1f6; --muted:#a3abba; --line:#2f3744;
+  --accent:#ef7a5d; --accent-ink:#1b1110; --ca:#7fb0ef; --ca-soft:#1d2a3d; --tx:#f0a35c; --tx-soft:#33261a;
+  --ok:#6fcf97; --warn:#f2a06c; --warn-soft:#3a2418; --shadow:0 1px 2px rgba(0,0,0,.3),0 6px 24px rgba(0,0,0,.25);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 Inter,system-ui,-apple-system,Segoe UI,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--ca)}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;letter-spacing:-.01em;margin:0}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+
+/* hero */
+.hero{position:relative;color:#fff;min-height:420px;display:flex;align-items:flex-end;overflow:hidden;background:#1d2433}
+.hero .bg{position:absolute;inset:0;display:grid;grid-template-columns:2fr 1fr 1fr;gap:3px}
+.hero .bg div{background-size:cover;background-position:center}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,14,24,.15) 0%,rgba(10,14,24,.78) 100%)}
+.hero .wrap{position:relative;z-index:1;padding-bottom:36px;padding-top:80px;width:100%}
+.kicker{text-transform:uppercase;letter-spacing:.14em;font-size:12px;font-weight:600;opacity:.9}
+.hero h1{font-size:clamp(34px,6vw,62px);line-height:1.02;margin:10px 0 12px}
+.hero p{max-width:640px;margin:0;opacity:.92}
+.status{display:inline-flex;gap:10px;align-items:center;margin-top:18px;background:rgba(255,255,255,.14);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.25);padding:8px 14px;border-radius:999px;font-weight:600}
+.dot{width:9px;height:9px;border-radius:50%;background:#7dffb0;box-shadow:0 0 0 4px rgba(125,255,176,.25)}
+
+/* nav */
+nav{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;gap:6px;align-items:center;overflow-x:auto;padding-top:10px;padding-bottom:10px;scrollbar-width:none}
+nav a,nav button{flex:none;font:600 13px Inter,sans-serif;color:var(--ink);text-decoration:none;padding:7px 12px;border-radius:999px;border:1px solid transparent;background:none;cursor:pointer}
+nav a:hover,nav button:hover{background:var(--surface-2)}
+nav .sp{flex:1}
+nav .btn{border-color:var(--line);background:var(--surface)}
+
+section{padding:36px 0 8px}
+.sec-h{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:16px;flex-wrap:wrap}
+.sec-h h2{font-size:28px}
+.sub{color:var(--muted);font-size:13px}
+
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+
+/* now */
+.now{display:grid;grid-template-columns:1.1fr 1fr;overflow:hidden}
+.now .ph{background-size:cover;background-position:center;min-height:260px}
+.now .bd{padding:22px}
+.now h3{font-size:24px;margin:4px 0 10px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.chip{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:999px;background:var(--surface-2);color:var(--ink)}
+.chip.ca{background:var(--ca-soft);color:var(--ca)}
+.chip.tx{background:var(--tx-soft);color:var(--tx)}
+.chip.warn{background:var(--warn-soft);color:var(--warn)}
+.chip.ok{color:var(--ok)}
+
+/* alerts */
+#alerts{margin-top:14px;display:grid;gap:8px}
+.alert{padding:12px 14px;border-radius:12px;background:var(--warn-soft);color:var(--ink);border:1px solid color-mix(in srgb,var(--warn) 35%,transparent);font-size:14px}
+.alert b{color:var(--warn)}
+.alert.calm{background:var(--surface);border-color:var(--line);color:var(--muted)}
+
+/* phases & days */
+.phase{display:flex;align-items:center;gap:12px;margin:26px 0 12px}
+.phase h3{font-size:20px}
+.phase .bar{flex:1;height:2px;background:var(--line)}
+.days{display:grid;gap:14px}
+.day{display:grid;grid-template-columns:240px 1fr;overflow:hidden;scroll-margin-top:70px;transition:outline-color .2s}
+.day .ph{background-size:cover;background-position:center;position:relative;min-height:190px}
+.day .date{position:absolute;left:12px;top:12px;background:var(--surface);color:var(--ink);border-radius:12px;padding:6px 10px;text-align:center;line-height:1.1;box-shadow:var(--shadow)}
+.day .date b{display:block;font:700 22px Fraunces,serif}
+.day .date span{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600}
+.day .bd{padding:16px 18px}
+.day .top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.day h4{font:600 18px/1.25 Fraunces,serif;margin:2px 0 4px}
+.place{font-size:12.5px;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+.ca .place{color:var(--ca)} .tx .place{color:var(--tx)}
+.day ul{margin:8px 0 6px;padding-left:18px}
+.day li{margin:2px 0}
+.tips{margin:8px 0 0;padding:8px 12px;border-radius:10px;background:var(--surface-2);font-size:13.5px}
+.tips div+div{margin-top:3px}
+.links{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.links a{font-size:12.5px;font-weight:600;text-decoration:none;padding:4px 10px;border-radius:999px;border:1px solid var(--line);color:var(--ink);background:var(--surface)}
+.links a:hover{border-color:var(--ca);color:var(--ca)}
+.done{display:flex;align-items:center;gap:6px;font-size:12.5px;color:var(--muted);white-space:nowrap;cursor:pointer;user-select:none}
+.done input{width:16px;height:16px;accent-color:var(--ok)}
+.day.is-today{outline:3px solid var(--accent);outline-offset:2px}
+.day.is-done{opacity:.62}
+.day.is-done .ph{filter:grayscale(.6)}
+.wx{font-weight:600}
+
+/* budget */
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:14px}
+.kpi{padding:16px}
+.kpi .l{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600}
+.kpi .v{font:700 30px Fraunces,serif;margin-top:4px}
+.kpi .n{font-size:12.5px;color:var(--muted)}
+.over{color:var(--warn)} .under{color:var(--ok)}
+.bars{padding:16px 18px}
+.row{display:grid;grid-template-columns:170px 1fr 92px;gap:12px;align-items:center;padding:7px 0;border-bottom:1px solid var(--line)}
+.row:last-child{border-bottom:0}
+.row .nm{font-size:13.5px;font-weight:500}
+.track{position:relative;height:12px;background:var(--surface-2);border-radius:6px;overflow:hidden}
+.track .p{position:absolute;inset:0 auto 0 0;background:color-mix(in srgb,var(--accent) 35%,transparent);border-radius:6px}
+.track .l{position:absolute;inset:0 auto 0 0;background:var(--accent);border-radius:6px}
+.row .amt{text-align:right;font-variant-numeric:tabular-nums;font-size:13.5px}
+.legend{display:flex;gap:16px;font-size:12.5px;color:var(--muted);margin-top:10px}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:-2px;margin-right:5px}
+
+/* todo */
+.todo{padding:6px 0}
+.todo label{display:grid;grid-template-columns:22px 1fr auto auto;gap:10px;align-items:center;padding:10px 16px;border-bottom:1px solid var(--line);cursor:pointer}
+.todo label:last-child{border-bottom:0}
+.todo input{width:17px;height:17px;accent-color:var(--ok)}
+.todo .it{font-size:14px}
+.todo .it small{display:block;color:var(--muted);font-size:12px}
+.todo .c{font-variant-numeric:tabular-nums;font-size:13px;color:var(--muted)}
+.todo a{font-size:12.5px;font-weight:600;text-decoration:none;padding:4px 10px;border-radius:999px;background:var(--accent);color:var(--accent-ink)}
+.todo label.chk .it{text-decoration:line-through;color:var(--muted)}
+
+/* climate */
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line)}
+th{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+td.num{font-variant-numeric:tabular-nums}
+.quick{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.quick a{font-size:13px;font-weight:600;text-decoration:none;padding:7px 12px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
+
+/* route maps */
+.route{margin-top:12px;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--surface-2)}
+.route .map{height:240px;background:var(--surface-2)}
+.route .rb{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;justify-content:space-between;padding:10px 12px;font-size:13px}
+.route ol{margin:0;padding-left:18px;color:var(--muted)}
+.route ol li{margin:1px 0}
+.route ol b{color:var(--ink);font-weight:600}
+.gm{font-size:12.5px;font-weight:600;text-decoration:none;padding:6px 12px;border-radius:999px;background:var(--ca);color:var(--bg);white-space:nowrap}
+.leaflet-tooltip.stop{font:600 11px Inter,sans-serif;padding:2px 6px;border-radius:6px}
+.leaflet-container{font:12px Inter,sans-serif}
+
+footer{padding:36px 0 60px;color:var(--muted);font-size:12px}
+footer details{margin-top:10px}
+footer li{margin:2px 0}
+
+@media (max-width:760px){
+  .hero{min-height:360px}
+  .hero .bg{grid-template-columns:1fr}
+  .hero .bg div:not(:first-child){display:none}
+  .now{grid-template-columns:1fr}
+  .now .ph{min-height:180px}
+  .day{grid-template-columns:1fr}
+  .day .ph{min-height:150px}
+  .kpis{grid-template-columns:1fr 1fr}
+  .row{grid-template-columns:110px 1fr 74px}
+  .todo label{grid-template-columns:22px 1fr auto}
+  .todo .c{display:none}
+}
+@media print{
+  nav,.done,#theme,.noprint{display:none!important}
+  body{background:#fff;color:#000;font-size:11.5px}
+  .hero{min-height:200px}
+  .card{box-shadow:none}
+  .day{grid-template-columns:150px 1fr;break-inside:avoid}
+  .day .ph{min-height:120px}
+  .day.is-done{opacity:1}
+  .now{break-inside:avoid}
+  section{padding-top:16px}
+  a{color:#000}
+  .links a::after{content:" " attr(href);font-weight:400;font-size:9px;word-break:break-all}
+  .route{break-inside:avoid}
+  .gm{background:none;color:#000;border:1px solid #999}
+}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="bg">
+    <div style="background-image:url(img/golden-gate.jpg)"></div>
+    <div style="background-image:url(img/sherman.jpg)"></div>
+    <div style="background-image:url(img/austin-skyline.jpg)"></div>
+  </div>
+  <div class="wrap">
+    <div class="kicker">Dec 6, 2026 – Jan 4, 2027 · 5 travelers</div>
+    <h1>Texas &amp; California<br>Family Trip</h1>
+    <p>From the DFW pick-up to the DFW goodbye: Austin and the Hill Country, then 9 days on the road from San Francisco through Tahoe, Monterey and the Giant Sequoias to Los Angeles.</p>
+    <div class="status"><span class="dot"></span><span id="status">Loading…</span></div>
+  </div>
+</header>
+
+<nav>
+  <div class="wrap">
+    <a href="#now">Today</a>
+    <a href="#plan">Day by day</a>
+    <a href="#budget">Budget</a>
+    <a href="#book">To book</a>
+    <a href="#weather">Weather</a>
+    <span class="sp"></span>
+    <button class="btn" id="jump">Jump to today</button>
+    <button class="btn" onclick="window.print()">Save as PDF</button>
+    <button class="btn" id="theme" aria-label="Toggle dark mode">◐</button>
+  </div>
+</nav>
+
+<main class="wrap">
+  <section id="now">
+    <div class="sec-h"><h2 id="now-h">Up next</h2><span class="sub" id="now-sub"></span></div>
+    <div class="card now" id="now-card"></div>
+    <div id="alerts"></div>
+  </section>
+
+  <section id="plan">
+    <div class="sec-h"><h2>Day by day</h2><span class="sub">Tick a day off as you go. Ticks are saved on this device.</span></div>
+    <div id="days"></div>
+  </section>
+
+  <section id="budget">
+    <div class="sec-h"><h2>Budget</h2><span class="sub" id="checked"></span></div>
+    <div class="kpis" id="kpis"></div>
+    <div class="card bars" id="bars"></div>
+    <div class="legend"><span><i style="background:var(--accent)"></i>Lean plan</span><span><i style="background:color-mix(in srgb,var(--accent) 35%,transparent)"></i>Planned</span></div>
+  </section>
+
+  <section id="book">
+    <div class="sec-h"><h2>Still to book</h2><span class="sub">Check items off once confirmed</span></div>
+    <div class="card todo" id="todo"></div>
+  </section>
+
+  <section id="weather">
+    <div class="sec-h"><h2>Weather &amp; road safety</h2><span class="sub">December normals (NOAA 1991–2020)</span></div>
+    <div class="card" style="overflow-x:auto"><table id="climate"></table></div>
+    <p class="sub" id="alerts-note" style="max-width:780px"></p>
+    <div class="quick" id="quick"></div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <div>Prices checked live <span id="checked2"></span>; they change, so confirm before booking. Live forecasts from Open-Meteo appear about 16 days before each date; alerts from the U.S. National Weather Service.</div>
+  <details><summary>Photo credits (Wikimedia Commons, free licenses)</summary><ul id="credits"></ul></details>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="data.js"></script>
+<script>
+(function(){
+const T = window.TRIP;
+const $ = s => document.querySelector(s);
+const store = {
+  get(k){ try{ return JSON.parse(localStorage.getItem(k)||"null"); }catch(e){ return null; } },
+  set(k,v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} }
+};
+const fmt = n => "$" + Math.round(n).toLocaleString("en-US");
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const pretty = k => ({gf_out:"Flights out",gf_back:"Flights home",kayak_aus_dec:"Minivan Dec",kayak_aus_jan:"Minivan Jan",
+  dfw_cell:"DFW cell lot",dfw_customs:"DFW arrivals",mckinney:"McKinney Falls",capitol:"Capitol tours",trail_lights:"Trail of Lights",
+  zilker_tree:"Zilker Tree",radha:"Radha Madhav Dham",indian_food:"Indian food",patel:"Patel Brothers",jacobs_well:"Jacob's Well",
+  blue_hole:"Blue Hole",old_baldy:"Old Baldy",glassworks:"Glassworks",buescher:"Buescher SP",mayfield:"Mayfield Park",blanton:"Blanton",
+  pacific_war:"Pacific War Museum",fbg_lights:"Nights of Lights",lbj:"LBJ Park",
+  space_center:"Space Center tickets",space_hours:"Hours",kemah:"Kemah",united:"United",milpitas:"Milpitas stay",fastrak:"Pay tolls",
+  ggb_rental:"Bridge tolls (rentals)",tahoe_cabin:"Tahoe cabin",quickmap:"Road conditions",chains:"Chain rules",heavenly:"Heavenly",
+  oakland:"Oakland stay",alcatraz:"Alcatraz tickets",muni:"Muni passport",bart:"BART",aquarium:"Aquarium tickets",
+  "17mile":"17-Mile Drive",carmel_parking:"Carmel parking",camp_nelson:"Camp Nelson cabin",seki_fees:"Park fees",
+  seki_roads:"Sequoia roads",seki_conditions:"Sequoia alerts",gsnm:"Sequoia Monument",resinn:"Residence Inn",
+  santa_monica:"Santa Monica Pier",griffith:"Griffith Observatory",getty:"Getty Center",universal:"Universal",uber:"Uber XL",
+  outlets:"Outlets",nye:"Austin NYE",hamilton:"Hamilton Pool",bullock:"Bullock Museum"}[k] || k);
+
+// ---- dates
+const todayISO = (() => { const d = new Date(); return new Date(d.getTime() - d.getTimezoneOffset()*6e4).toISOString().slice(0,10); })();
+const dayMs = 864e5;
+const toDate = iso => new Date(iso + "T12:00:00");
+const first = T.days[0].date, last = T.days[T.days.length-1].date;
+const nDays = Math.round((toDate(last) - toDate(first))/dayMs) + 1;
+const done = store.get("trip.done") || {};
+
+function statusText(){
+  const diff = Math.round((toDate(first) - toDate(todayISO))/dayMs);
+  if (diff > 0) return `${diff} day${diff===1?"":"s"} until the DFW pick-up`;
+  if (todayISO > last) return "Trip complete. Welcome home!";
+  const n = Math.round((toDate(todayISO) - toDate(first))/dayMs) + 1;
+  return `Day ${n} of ${nDays} · ${T.days.find(d=>d.date===todayISO)?.place || ""}`;
+}
+$("#status").textContent = statusText();
+const focus = T.days.find(d => d.date >= todayISO) || T.days[T.days.length-1];
+
+// ---- weather
+const WMO = {0:["☀️","Clear"],1:["🌤","Mostly clear"],2:["⛅","Partly cloudy"],3:["☁️","Cloudy"],45:["🌫","Fog"],48:["🌫","Icy fog"],
+  51:["🌦","Drizzle"],53:["🌦","Drizzle"],55:["🌧","Drizzle"],61:["🌧","Light rain"],63:["🌧","Rain"],65:["🌧","Heavy rain"],
+  66:["🌧","Freezing rain"],67:["🌧","Freezing rain"],71:["🌨","Light snow"],73:["🌨","Snow"],75:["❄️","Heavy snow"],77:["🌨","Snow grains"],
+  80:["🌦","Showers"],81:["🌧","Showers"],82:["⛈","Heavy showers"],85:["🌨","Snow showers"],86:["❄️","Snow showers"],95:["⛈","Thunderstorm"],96:["⛈","Thunderstorm"],99:["⛈","Thunderstorm"]};
+const wx = {};  // date -> text
+async function loadForecasts(){
+  const horizon = new Date(toDate(todayISO).getTime() + 15*dayMs).toISOString().slice(0,10);
+  const want = T.days.filter(d => d.date >= todayISO && d.date <= horizon);
+  if (!want.length) return;
+  const groups = {};
+  want.forEach(d => { const k = d.lat.toFixed(3)+","+d.lon.toFixed(3)+","+d.tz; (groups[k] = groups[k] || []).push(d); });
+  await Promise.all(Object.entries(groups).map(async ([k, ds]) => {
+    const [lat, lon, tz] = k.split(",");
+    const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&daily=temperature_2m_max,temperature_2m_min,precipitation_probability_max,weathercode,snowfall_sum&temperature_unit=fahrenheit&precipitation_unit=inch&timezone=${encodeURIComponent(tz)}&forecast_days=16`;
+    try{
+      const j = await (await fetch(url)).json();
+      ds.forEach(d => {
+        const i = j.daily.time.indexOf(d.date); if (i < 0) return;
+        const [ic, tx] = WMO[j.daily.weathercode[i]] || ["🌡",""];
+        const snow = j.daily.snowfall_sum[i] > 0.1 ? ` · ${j.daily.snowfall_sum[i].toFixed(1)}" snow` : "";
+        wx[d.date] = `${ic} ${Math.round(j.daily.temperature_2m_max[i])}° / ${Math.round(j.daily.temperature_2m_min[i])}° · ${tx}${j.daily.precipitation_probability_max[i] != null ? " · " + j.daily.precipitation_probability_max[i] + "% rain" : ""}${snow}`;
+      });
+    }catch(e){}
+  }));
+}
+async function loadAlerts(){
+  const pts = {};
+  T.days.filter(d => d.date >= todayISO).slice(0, 10).forEach(d => pts[d.lat.toFixed(4)+","+d.lon.toFixed(4)] = d.place);
+  if (!Object.keys(pts).length) T.days.slice(0,1).forEach(d => pts[d.lat.toFixed(4)+","+d.lon.toFixed(4)] = d.place);
+  const seen = new Set(), out = [];
+  await Promise.all(Object.entries(pts).map(async ([p, place]) => {
+    try{
+      const j = await (await fetch(`https://api.weather.gov/alerts/active?point=${p}`, {headers:{Accept:"application/geo+json"}})).json();
+      (j.features||[]).forEach(f => { if (seen.has(f.id)) return; seen.add(f.id);
+        out.push(`<div class="alert"><b>${esc(f.properties.event)}</b> · ${esc(place)}<br>${esc(f.properties.headline||"")}</div>`); });
+    }catch(e){}
+  }));
+  const when = new Date().toLocaleString([], {month:"short", day:"numeric", hour:"numeric", minute:"2-digit"});
+  $("#alerts").innerHTML = out.length ? out.join("") :
+    `<div class="alert calm">No active National Weather Service alerts for the next stops (checked ${when}).</div>`;
+}
+
+// ---- render
+function weatherChip(d){
+  if (wx[d.date]) return `<span class="chip wx">${wx[d.date]}</span>`;
+  return "";
+}
+function dayCard(d, i){
+  const dt = toDate(d.date);
+  const cls = d.phase === "California" ? "ca" : "tx";
+  const isToday = d.date === todayISO;
+  return `<article class="card day ${cls}${isToday?" is-today":""}${done[d.date]?" is-done":""}" id="d-${d.date}">
+    <div class="ph" style="background-image:url(img/${d.photo}.jpg)">
+      <div class="date"><span>${dt.toLocaleDateString("en-US",{weekday:"short"})}</span><b>${dt.getDate()}</b><span>${dt.toLocaleDateString("en-US",{month:"short"})}</span></div>
+    </div>
+    <div class="bd">
+      <div class="top">
+        <div><div class="place">Day ${i+1} · ${esc(d.place)}</div><h4>${esc(d.title)}</h4></div>
+        <label class="done"><input type="checkbox" data-day="${d.date}" ${done[d.date]?"checked":""}> Done</label>
+      </div>
+      <div class="chips">
+        <span class="chip ${cls}">🛏 ${esc(d.stay)}</span>
+        ${d.route ? `<span class="chip">🚗 ${d.route.miles} mi · ${hm(d.route.minutes)} driving</span>` : (d.drive ? `<span class="chip">🚗 ${esc(d.drive)}</span>` : "")}
+        ${weatherChip(d)}
+      </div>
+      <ul>${d.plan.map(p => `<li>${esc(p)}</li>`).join("")}</ul>
+      ${d.tips.length ? `<div class="tips">${d.tips.map(t => `<div>${/⚠/.test(t)?"":"💡 "}${esc(t)}</div>`).join("")}</div>` : ""}
+      ${d.links.length ? `<div class="links">${d.links.map(l => `<a href="${l.url}" target="_blank" rel="noopener">${esc(pretty(l.key))} ↗</a>`).join("")}</div>` : ""}
+      ${routeBlock(d)}
+    </div>
+  </article>`;
+}
+const hm = m => m >= 60 ? `${Math.floor(m/60)} h ${String(m%60).padStart(2,"0")} m` : `${m} min`;
+function routeBlock(d){
+  const r = d.route; if (!r) return "";
+  const legs = r.legs.map((l,i) => `<li><b>${esc(r.stops[i].name)} → ${esc(r.stops[i+1].name)}</b> · ${l.miles} mi · ${hm(l.minutes)}</li>`).join("");
+  return `<div class="route"><div class="map" data-map="${d.date}" role="img" aria-label="Driving route map"></div>
+    <div class="rb"><ol>${legs}</ol>
+    <a class="gm" href="${r.gmaps}" target="_blank" rel="noopener">Open in Google Maps ↗</a></div></div>`;
+}
+const maps = {};
+function initMap(el){
+  const date = el.dataset.map; if (!window.L || el._done) return; el._done = true;
+  const r = T.days.find(d => d.date === date).route;
+  const m = L.map(el, {scrollWheelZoom:false, attributionControl:true, zoomSnap:0.25});
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {maxZoom:18,
+    attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> · route: OSRM'}).addTo(m);
+  const ca = getComputedStyle(document.documentElement).getPropertyValue("--accent").trim() || "#d0563b";
+  const line = L.polyline(r.line, {color:ca, weight:4, opacity:.9}).addTo(m);
+  const seen = {};
+  r.stops.forEach((s,i) => { const k = s.lat+","+s.lon;
+    if (seen[k]){ seen[k].setTooltipContent(seen[k].getTooltip().getContent() + " / " + (i+1)); return; }
+    seen[k] = L.circleMarker([s.lat,s.lon], {radius:6, color:"#fff", weight:2, fillColor:ca, fillOpacity:1}).addTo(m)
+      .bindTooltip(`${i+1}. ${esc(s.name)}`, {permanent:r.stops.length <= 5, direction:"top", className:"stop", offset:[0,-6]});
+  });
+  m.fitBounds(line.getBounds(), {padding:[24,24]});
+  maps[date] = m;
+}
+function wireMaps(){
+  const els = document.querySelectorAll("[data-map]");
+  if (!("IntersectionObserver" in window)) { els.forEach(initMap); return; }
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting){ initMap(e.target); io.unobserve(e.target); } }), {rootMargin:"300px"});
+  els.forEach(el => io.observe(el));
+}
+window.addEventListener("beforeprint", () => { document.querySelectorAll("[data-map]").forEach(initMap); Object.values(maps).forEach(m => m.invalidateSize()); });
+
+function renderDays(){
+  let html = "", phase = null, block = [];
+  const phaseName = (d, idx) => d.phase === "California" ? "California road trip · Dec 19–27" :
+    (d.date < "2026-12-19" ? "Austin & Hill Country · Dec 6–18" : "Back in Austin · Dec 28 – Jan 4");
+  T.days.forEach((d, i) => {
+    const p = phaseName(d);
+    if (p !== phase){ if (block.length) html += `<div class="days">${block.join("")}</div>`; block = [];
+      html += `<div class="phase"><h3>${p}</h3><div class="bar"></div></div>`; phase = p; }
+    block.push(dayCard(d, i));
+  });
+  html += `<div class="days">${block.join("")}</div>`;
+  $("#days").innerHTML = html;
+  Object.keys(maps).forEach(k => delete maps[k]);
+  wireMaps();
+  document.querySelectorAll(".done input").forEach(cb => cb.addEventListener("change", e => {
+    const k = e.target.dataset.day; done[k] = e.target.checked; store.set("trip.done", done);
+    e.target.closest(".day").classList.toggle("is-done", e.target.checked);
+  }));
+}
+function renderNow(){
+  const d = focus, i = T.days.indexOf(d), isToday = d.date === todayISO;
+  $("#now-h").textContent = isToday ? "Today" : (todayISO > last ? "Last day" : "Up next");
+  $("#now-sub").textContent = toDate(d.date).toLocaleDateString("en-US",{weekday:"long",month:"long",day:"numeric",year:"numeric"});
+  const cls = d.phase === "California" ? "ca" : "tx";
+  $("#now-card").innerHTML = `<div class="ph" style="background-image:url(img/${d.photo}.jpg)"></div>
+    <div class="bd"><div class="place" style="color:var(--${cls})">Day ${i+1} · ${esc(d.place)}</div><h3>${esc(d.title)}</h3>
+    <div class="chips"><span class="chip ${cls}">🛏 ${esc(d.stay)}</span>${d.drive?`<span class="chip">🚗 ${esc(d.drive)}</span>`:""}${weatherChip(d)}</div>
+    <ul style="padding-left:18px;margin:8px 0">${d.plan.map(p=>`<li>${esc(p)}</li>`).join("")}</ul>
+    <a href="#d-${d.date}" class="sub">See full day →</a></div>`;
+}
+function renderBudget(){
+  const P = T.categories.reduce((a,c)=>a+c.planned,0), Lt = T.categories.reduce((a,c)=>a+c.lean,0);
+  const ca = T.categories.filter(c=>c.name.startsWith("CA")).reduce((a,c)=>a+c.planned,0);
+  const k = (l,v,n,cls="") => `<div class="card kpi"><div class="l">${l}</div><div class="v ${cls}">${v}</div><div class="n">${n}</div></div>`;
+  $("#kpis").innerHTML = k("Planned total", fmt(P), "everything incl. paid India flights") +
+    k("Lean plan", fmt(Lt), "cheaper fares, SUV, fewer meals out") +
+    k("Original budget", fmt(T.budget), `planned is ${fmt(P - T.budget)} over`, "") +
+    k("California only", fmt(ca), `${fmt(ca/5)} per person`);
+  const max = Math.max(...T.categories.map(c=>c.planned));
+  $("#bars").innerHTML = T.categories.map(c => `<div class="row"><div class="nm">${esc(c.name)}</div>
+    <div class="track"><div class="p" style="width:${c.planned/max*100}%"></div><div class="l" style="width:${c.lean/max*100}%"></div></div>
+    <div class="amt">${fmt(c.planned)}</div></div>`).join("");
+  $("#checked").textContent = $("#checked2").textContent = "Prices checked " + T.checked;
+}
+function renderTodo(){
+  const st = store.get("trip.todo") || {};
+  $("#todo").innerHTML = T.todo.map((t,i) => `<label class="${st[i]?"chk":""}"><input type="checkbox" data-i="${i}" ${st[i]?"checked":""}>
+    <span class="it">${esc(t.item)}<small>${esc(t.dates||"")} · ${esc(t.status)}</small></span>
+    <span class="c">${t.cost?fmt(t.cost):""}</span>${t.url?`<a href="${t.url}" target="_blank" rel="noopener" class="noprint">Book ↗</a>`:"<span></span>"}</label>`).join("");
+  document.querySelectorAll("#todo input").forEach(cb => cb.addEventListener("change", e => {
+    st[e.target.dataset.i] = e.target.checked; store.set("trip.todo", st); e.target.closest("label").classList.toggle("chk", e.target.checked);
+  }));
+}
+function renderWeather(){
+  $("#climate").innerHTML = `<tr><th>Place</th><th>High</th><th>Low</th><th>Wet days</th><th>Snow</th></tr>` +
+    T.climate.map(c => `<tr><td>${esc(c[0])}</td><td class="num">${c[1]}°F</td><td class="num">${c[2]}°F</td><td class="num">${c[3]}</td><td>${esc(c[4])}</td></tr>`).join("");
+  $("#alerts-note").textContent = T.alertsNote;
+  $("#quick").innerHTML = T.quick.map(q => `<a href="${q.url}" target="_blank" rel="noopener">${esc(q.label)} ↗</a>`).join("");
+  $("#credits").innerHTML = Object.entries(T.credits).sort().map(([k,v]) =>
+    `<li>${esc(k)}: <a href="${v.page}" target="_blank" rel="noopener">${esc(v.title.replace("File:",""))}</a> by ${esc(v.artist)}, ${esc(v.license)}</li>`).join("");
+}
+
+function renderAll(){ renderNow(); renderDays(); }
+renderAll(); renderBudget(); renderTodo(); renderWeather();
+loadForecasts().then(renderAll);
+loadAlerts();
+
+$("#jump").addEventListener("click", () => document.getElementById("d-" + focus.date)?.scrollIntoView({behavior:"smooth", block:"start"}));
+const root = document.documentElement, saved = store.get("trip.theme");
+if (saved) root.dataset.theme = saved;
+$("#theme").addEventListener("click", () => {
+  const dark = root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+  root.dataset.theme = dark ? "light" : "dark"; store.set("trip.theme", root.dataset.theme);
+});
+})();
+</script>
+</body>
+</html>
