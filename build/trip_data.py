@@ -123,7 +123,7 @@ BUDGET = [
     ("CA – Lodging", "Milpitas parking", "Dec 19", 1, 15, 0, "Pay there", None, "milpitas", "$15/night on-site."),
     ("CA – Lodging", "Cozy Cabin close to the lake, South Lake Tahoe", "Dec 20 (1 night)", 1, 303, 0.138, "To book", 216, "tahoe_cabin", "Family pick. $303 incl. fees. 2BR, 4 beds (incl. bunk beds), 1 bath, 6 guests. Tax 12% TOT + $5.50 TID. Lean = 3 Peaks condo from the planning sheet, $216."),
     ("CA – Lodging", "Oakland 2BR guest suite, 6 beds, washer/dryer", "Dec 21–23 (2 nights)", 1, 305, 0.14, "To book", None, "oakland", "From the family planning sheet. $305 for 2 nights incl. fees. 4.82★ (272). Street/driveway parking. Use BART into SF."),
-    ("CA – Lodging", "Timber Nest Cabin, Camp Nelson (Sequoia area)", "Dec 23–25 (2 nights)", 1, 481, 0.10, "Booked", None, "camp_nelson", "Booked. $481 for 2 nights incl. fees. 5 guests, 2BR, 3 beds, 1 bath. ⚠ 2h45m each way to General Sherman Tree."),
+    ("CA – Lodging", "Timber Nest Cabin, Camp Nelson (Sequoia area)", "Dec 23–25 (2 nights)", 1, 481, 0.10, "Booked", None, "camp_nelson", "Booked, not paid yet. $481 for 2 nights incl. fees. 5 guests, 2BR, 3 beds, 1 bath. ⚠ 2h45m each way to General Sherman Tree."),
     ("CA – Lodging", "Residence Inn LAX/Century Blvd, larger studio (2Q + sofa), breakfast", "Dec 25–27 (2 nights)", 1, 466, 0.1637, "To book", 426, "resinn", "From the family planning sheet. Booking.com $466 + 14% TOT + 2% city + 0.37% tourism. Free LAX shuttle. $250 refundable deposit. Lean = standard 2-queen studio $426."),
     ("CA – Lodging", "Residence Inn parking (2 nights × $54)", "Dec 25–27", 2, 54, 0.10, "Pay there", None, "resinn", "Third-party listings show $54/night self-park. LA parking tax 10%."),
 
