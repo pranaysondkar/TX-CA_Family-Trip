@@ -296,12 +296,14 @@ ws = wb.create_sheet("Weather & Safety")
 ws["A1"] = "December climate (NOAA 1991–2020 normals) & live alerts"; ws["A1"].font = TITLE
 ws["A2"] = T.ALERTS_NOTE; ws["A2"].font = SUB; ws["A2"].alignment = WRAP
 ws.merge_cells("A2:E2"); ws.row_dimensions[2].height = 60
-for i, h in enumerate(["Place", "Avg high °F", "Avg low °F", "Wet days in Dec", "Snow"], 1):
+for i, h in enumerate(["Place", "Avg high °F", "Avg low °F", "Wet days in Dec", "Snow", "Avg high °C", "Avg low °C"], 1):
     c = ws.cell(4, i, h); c.font, c.fill = H_FONT, H_FILL
 for i, row_ in enumerate(T.CLIMATE, start=5):
     for c, v in enumerate(row_, start=1):
         ws.cell(i, c, v).font = BODY
-for col, w in zip("ABCDE", [36, 12, 12, 15, 44]):
+    for c, src in ((6, "B"), (7, "C")):
+        cc = ws.cell(i, c, f"=ROUND(({src}{i}-32)*5/9,0)"); cc.font = BODY; cc.number_format = '0"°C"'
+for col, w in zip("ABCDEFG", [36, 12, 12, 15, 44, 12, 12]):
     ws.column_dimensions[col].width = w
 k = 5 + len(T.CLIMATE) + 1
 ws.cell(k, 1, "Check every morning").font = BOLD

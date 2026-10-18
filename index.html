@@ -346,6 +346,8 @@ const WMO = {0:["☀️","Clear"],1:["🌤","Mostly clear"],2:["⛅","Partly clo
   66:["🌧","Freezing rain"],67:["🌧","Freezing rain"],71:["🌨","Light snow"],73:["🌨","Snow"],75:["❄️","Heavy snow"],77:["🌨","Snow grains"],
   80:["🌦","Showers"],81:["🌧","Showers"],82:["⛈","Heavy showers"],85:["🌨","Snow showers"],86:["❄️","Snow showers"],95:["⛈","Thunderstorm"],96:["⛈","Thunderstorm"],99:["⛈","Thunderstorm"]};
 const wx = {};  // date -> text
+const C = f => Math.round((f - 32) * 5 / 9);
+const both = f => `${Math.round(f)}°F (${C(f)}°C)`;
 async function loadForecasts(){
   const horizon = new Date(toDate(todayISO).getTime() + 15*dayMs).toISOString().slice(0,10);
   const want = T.days.filter(d => d.date >= todayISO && d.date <= horizon);
@@ -361,7 +363,7 @@ async function loadForecasts(){
         const i = j.daily.time.indexOf(d.date); if (i < 0) return;
         const [ic, tx] = WMO[j.daily.weathercode[i]] || ["🌡",""];
         const snow = j.daily.snowfall_sum[i] > 0.1 ? ` · ${j.daily.snowfall_sum[i].toFixed(1)}" snow` : "";
-        wx[d.date] = `${ic} ${Math.round(j.daily.temperature_2m_max[i])}° / ${Math.round(j.daily.temperature_2m_min[i])}° · ${tx}${j.daily.precipitation_probability_max[i] != null ? " · " + j.daily.precipitation_probability_max[i] + "% rain" : ""}${snow}`;
+        wx[d.date] = `${ic} ${both(j.daily.temperature_2m_max[i])} / ${both(j.daily.temperature_2m_min[i])} · ${tx}${j.daily.precipitation_probability_max[i] != null ? " · " + j.daily.precipitation_probability_max[i] + "% rain" : ""}${snow}`;
       });
     }catch(e){}
   }));
@@ -584,7 +586,7 @@ function renderPrimer(){
 }
 function renderWeather(){
   $("#climate").innerHTML = `<tr><th>Place</th><th>High</th><th>Low</th><th>Wet days</th><th>Snow</th></tr>` +
-    T.climate.map(c => `<tr><td>${esc(c[0])}</td><td class="num">${c[1]}°F</td><td class="num">${c[2]}°F</td><td class="num">${c[3]}</td><td>${esc(c[4])}</td></tr>`).join("");
+    T.climate.map(c => `<tr><td>${esc(c[0])}</td><td class="num">${both(c[1])}</td><td class="num">${both(c[2])}</td><td class="num">${c[3]}</td><td>${esc(c[4])}</td></tr>`).join("");
   $("#alerts-note").textContent = T.alertsNote;
   $("#quick").innerHTML = T.quick.map(q => `<a href="${q.url}" target="_blank" rel="noopener">${esc(q.label)} ↗</a>`).join("");
   $("#credits").innerHTML = Object.entries(T.credits).sort().map(([k,v]) =>

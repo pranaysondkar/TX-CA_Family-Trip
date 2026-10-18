@@ -265,7 +265,7 @@ DAYS = [
        tips=["4 travelers go; 1 stays home in Austin", "Tram tour seats go first-come. Arrive at opening"], links=["space_center", "space_hours", "kemah"]),
     tx("2026-12-18", "Pack for California",
        ["Laundry & packing (3 checked bags + carry-ons)", "Check in online for UA flight (24 h before)", "Early night: wake-up 3:30 am"],
-       "zilker", tips=["Pack warm layers. Tahoe & Sequoia nights are ≈ 18°F", "Bring passports for the 3 visitors (needed for Sequoia nonresident pass)"],
+       "zilker", tips=["Pack warm layers. Tahoe & Sequoia nights are ≈ 18°F (−8°C)", "Bring passports for the 3 visitors (needed for Sequoia nonresident pass)"],
        links=["united"]),
 
     ca("2026-12-19", "Fly to SF → Golden Gate → Milpitas",

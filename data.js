@@ -11699,7 +11699,7 @@ window.TRIP = {
     "Early night: wake-up 3:30 am"
    ],
    "tips": [
-    "Pack warm layers. Tahoe & Sequoia nights are ≈ 18°F",
+    "Pack warm layers. Tahoe & Sequoia nights are ≈ 18°F (−8°C)",
     "Bring passports for the 3 visitors (needed for Sequoia nonresident pass)"
    ],
    "links": [
