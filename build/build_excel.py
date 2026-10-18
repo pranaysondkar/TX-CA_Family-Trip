@@ -100,6 +100,8 @@ for (cat, item, dates, qty, unit, tax, status, lean, lk, note) in T.BUDGET:
     link(bs.cell(r, 12), lk)
     bs.cell(r, 13, note)
     booked, actual = LIVE.get(T.budget_id(cat, item), (False, None))
+    if actual is None and cat == "Already paid":
+        booked, actual = True, round(qty * unit * (1 + tax), 2)
     ac = bs.cell(r, 14, actual); ac.font = BLUE; ac.number_format = USD2
     bs.cell(r, 15, f'=IF(N{r}="",I{r},N{r})').number_format = USD
     if booked or actual is not None:

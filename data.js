@@ -24852,6 +24852,8 @@ window.TRIP = {
    "item": "Mumbai ↔ Dallas flights (3 people)",
    "planned": 3800,
    "inPlan": true,
+   "paid": 3800,
+   "booked": true,
    "lean": 3800
   },
   {
@@ -24860,6 +24862,8 @@ window.TRIP = {
    "item": "Buescher State Park cabin",
    "planned": 70,
    "inPlan": true,
+   "paid": 70,
+   "booked": true,
    "lean": 70
   },
   {
@@ -24868,6 +24872,8 @@ window.TRIP = {
    "item": "Minivan rental AUS, keep Dec 6–7 (2 days)",
    "planned": 154.0,
    "inPlan": true,
+   "paid": null,
+   "booked": false,
    "lean": 154.0
   },
   {
@@ -24876,6 +24882,8 @@ window.TRIP = {
    "item": "Minivan rental AUS, Jan 4 (1 day)",
    "planned": 88.0,
    "inPlan": true,
+   "paid": null,
+   "booked": false,
    "lean": 88.0
   },
   {
@@ -24884,6 +24892,8 @@ window.TRIP = {
    "item": "Gas, 2 DFW round trips (≈ 900 mi, minivan 24 mpg)",
    "planned": 144.75,
    "inPlan": true,
+   "paid": null,
+   "booked": false,
    "lean": 144.75
   },
   {
@@ -24892,6 +24902,8 @@ window.TRIP = {
    "item": "DFW airport entry fees + Terminal D garage (meet inside)",
    "planned": 16,
    "inPlan": true,
+   "paid": null,
+   "booked": false,
    "lean": 2
   },
   {
@@ -24900,6 +24912,8 @@ window.TRIP = {
    "item": "Space Center Houston tickets (4 people, online)",
    "planned": 144,
    "inPlan": true,
+   "paid": null,
+   "booked": false,
    "lean": 144
   },
   {
@@ -24908,6 +24922,8 @@ window.TRIP = {
    "item": "Space Center parking",
    "planned": 11.0,
    "inPlan": true,
+   "paid": null,
+   "booked": false,
    "lean": 11.0
   },
   {
@@ -24916,6 +24932,8 @@ window.TRIP = {
    "item": "Buescher State Park entry (5 × $10)",
    "planned": 50,
    "inPlan": true,
+   "paid": null,
+   "booked": false,
    "lean": 50
   },
   {
@@ -24924,6 +24942,8 @@ window.TRIP = {
    "item": "Pacific War Museum, Fredericksburg (optional)",
    "planned": 115,
    "inPlan": false,
+   "paid": null,
+   "booked": false,
    "lean": 0
   },
   {
@@ -24932,6 +24952,8 @@ window.TRIP = {
    "item": "McKinney Falls State Park (5 × $6)",
    "planned": 30,
    "inPlan": true,
+   "paid": null,
+   "booked": false,
    "lean": 30
   },
   {
@@ -24940,6 +24962,8 @@ window.TRIP = {
    "item": "Gas for own car, Austin outings + day trips (≈ 1,200 mi, 28 mpg)",
    "planned": 165.98,
    "inPlan": true,
+   "paid": null,
+   "booked": false,
    "lean": 165.98
   },
   {
@@ -24948,6 +24972,8 @@ window.TRIP = {
    "item": "Hamilton Pool (optional, $12/car + cash $8 adult, $3 senior)",
    "planned": 39,
    "inPlan": false,
+   "paid": null,
+   "booked": false,
    "lean": 0
   },
   {
@@ -24956,6 +24982,8 @@ window.TRIP = {
    "item": "Meals out in Texas (≈ 6 family meals × 5 people × $15)",
    "planned": 568.12,
    "inPlan": true,
+   "paid": null,
+   "booked": false,
    "lean": 284.06
   },
   {
@@ -24964,6 +24992,8 @@ window.TRIP = {
    "item": "Snacks, Buc-ee's, coffee on day trips",
    "planned": 120,
    "inPlan": true,
+   "paid": null,
+   "booked": false,
    "lean": 60
   },
   {
@@ -24972,6 +25002,8 @@ window.TRIP = {
    "item": "Visitor medical insurance, 3 people, 30 days (if not yet bought)",
    "planned": 450,
    "inPlan": true,
+   "paid": null,
+   "booked": false,
    "lean": 450
   },
   {
@@ -24980,6 +25012,8 @@ window.TRIP = {
    "item": "US prepaid SIM / eSIM for 3 visitors (1 month)",
    "planned": 75,
    "inPlan": true,
+   "paid": null,
+   "booked": false,
    "lean": 75
   },
   {
@@ -24988,6 +25022,8 @@ window.TRIP = {
    "item": "United AUS→SFO 6:05a–8:12a nonstop, Economy (5)",
    "planned": 1325,
    "inPlan": true,
+   "paid": null,
+   "booked": false,
    "lean": 1025
   },
   {
@@ -24996,6 +25032,8 @@ window.TRIP = {
    "item": "United LAX→AUS 8:40a–1:40p nonstop, Economy (5)",
    "planned": 1698,
    "inPlan": true,
+   "paid": null,
+   "booked": false,
    "lean": 1422
   },
   {
@@ -25004,6 +25042,8 @@ window.TRIP = {
    "item": "United checked bags, $50 first bag (3 bags each way)",
    "planned": 300,
    "inPlan": true,
+   "paid": null,
+   "booked": false,
    "lean": 500
   },
   {
@@ -25012,6 +25052,8 @@ window.TRIP = {
    "item": "Uber XL home ↔ AUS (4:15 am + afternoon return)",
    "planned": 84.0,
    "inPlan": true,
+   "paid": null,
+   "booked": false,
    "lean": 84.0
   },
   {
@@ -25020,6 +25062,8 @@ window.TRIP = {
    "item": "SpringHill Suites Milpitas suite (Airbnb), breakfast incl.",
    "planned": 150.48,
    "inPlan": true,
+   "paid": null,
+   "booked": false,
    "lean": 150.48
   },
   {
@@ -25028,6 +25072,8 @@ window.TRIP = {
    "item": "Milpitas parking",
    "planned": 15,
    "inPlan": true,
+   "paid": null,
+   "booked": false,
    "lean": 15
   },
   {
@@ -25036,6 +25082,8 @@ window.TRIP = {
    "item": "Cozy Cabin close to the lake, South Lake Tahoe",
    "planned": 344.81,
    "inPlan": true,
+   "paid": null,
+   "booked": false,
    "lean": 216
   },
   {
@@ -25044,6 +25092,8 @@ window.TRIP = {
    "item": "Oakland 2BR guest suite, 6 beds, washer/dryer",
    "planned": 347.7,
    "inPlan": true,
+   "paid": null,
+   "booked": false,
    "lean": 347.7
   },
   {
@@ -25052,6 +25102,8 @@ window.TRIP = {
    "item": "Timber Nest Cabin, Camp Nelson (Sequoia area)",
    "planned": 529.1,
    "inPlan": true,
+   "paid": null,
+   "booked": true,
    "lean": 529.1
   },
   {
@@ -25060,6 +25112,8 @@ window.TRIP = {
    "item": "Residence Inn LAX/Century Blvd, larger studio (2Q + sofa), breakfast",
    "planned": 542.28,
    "inPlan": true,
+   "paid": null,
+   "booked": false,
    "lean": 426
   },
   {
@@ -25068,6 +25122,8 @@ window.TRIP = {
    "item": "Residence Inn parking (2 nights × $54)",
    "planned": 118.8,
    "inPlan": true,
+   "paid": null,
+   "booked": false,
    "lean": 118.8
   },
   {
@@ -25076,6 +25132,8 @@ window.TRIP = {
    "item": "One-way minivan SFO → LAX (Chrysler Pacifica or similar)",
    "planned": 1073,
    "inPlan": true,
+   "paid": null,
+   "booked": false,
    "lean": 619
   },
   {
@@ -25084,6 +25142,8 @@ window.TRIP = {
    "item": "Collision damage waiver (skip if the renter's credit card covers it)",
    "planned": 240,
    "inPlan": true,
+   "paid": null,
+   "booked": false,
    "lean": 0
   },
   {
@@ -25092,6 +25152,8 @@ window.TRIP = {
    "item": "Gas, ≈ 1,320 mi at ~22 mpg (≈ 60 gal)",
    "planned": 375.0,
    "inPlan": true,
+   "paid": null,
+   "booked": false,
    "lean": 375.0
   },
   {
@@ -25100,6 +25162,8 @@ window.TRIP = {
    "item": "Bridge tolls: Golden Gate $10.50, Benicia $8.50, Carquinez $8.50 + rental toll fee",
    "planned": 45,
    "inPlan": true,
+   "paid": null,
+   "booked": false,
    "lean": 30
   },
   {
@@ -25108,6 +25172,8 @@ window.TRIP = {
    "item": "Snow chains / cable chains (buy, return if unused)",
    "planned": 87.0,
    "inPlan": true,
+   "paid": null,
+   "booked": false,
    "lean": 87.0
   },
   {
@@ -25116,6 +25182,8 @@ window.TRIP = {
    "item": "Parking: Monterey, Hollywood, Griffith, Getty",
    "planned": 90,
    "inPlan": true,
+   "paid": null,
+   "booked": false,
    "lean": 60
   },
   {
@@ -25124,6 +25192,8 @@ window.TRIP = {
    "item": "Sequoia NP: America the Beautiful nonresident pass",
    "planned": 250,
    "inPlan": true,
+   "paid": null,
+   "booked": false,
    "lean": 250
   },
   {
@@ -25132,6 +25202,8 @@ window.TRIP = {
    "item": "Alcatraz day tour (3 adult $47.95, 2 senior 62+ $45.15)",
    "planned": 234.15,
    "inPlan": true,
+   "paid": null,
+   "booked": false,
    "lean": 234.15
   },
   {
@@ -25140,6 +25212,8 @@ window.TRIP = {
    "item": "Muni 1-day Visitor Passport (cable cars + buses)",
    "planned": 75,
    "inPlan": true,
+   "paid": null,
+   "booked": false,
    "lean": 75
   },
   {
@@ -25148,6 +25222,8 @@ window.TRIP = {
    "item": "BART Oakland ↔ SF round trip",
    "planned": 45,
    "inPlan": true,
+   "paid": null,
+   "booked": false,
    "lean": 45
   },
   {
@@ -25156,6 +25232,8 @@ window.TRIP = {
    "item": "Monterey Bay Aquarium (5 adults)",
    "planned": 325,
    "inPlan": true,
+   "paid": null,
+   "booked": false,
    "lean": 0
   },
   {
@@ -25164,6 +25242,8 @@ window.TRIP = {
    "item": "17-Mile Drive vehicle fee",
    "planned": 12.5,
    "inPlan": true,
+   "paid": null,
+   "booked": false,
    "lean": 12.5
   },
   {
@@ -25172,6 +25252,8 @@ window.TRIP = {
    "item": "Universal Studios Hollywood (optional, ~$160 holiday week)",
    "planned": 800,
    "inPlan": false,
+   "paid": null,
+   "booked": false,
    "lean": 0
   },
   {
@@ -25180,6 +25262,8 @@ window.TRIP = {
    "item": "Restaurant meals (≈ 12 family meals × 5 × $20)",
    "planned": 1536.0,
    "inPlan": true,
+   "paid": null,
+   "booked": false,
    "lean": 1024.0
   },
   {
@@ -25188,6 +25272,8 @@ window.TRIP = {
    "item": "Groceries for kitchens (Tahoe, Oakland, Camp Nelson)",
    "planned": 250,
    "inPlan": true,
+   "paid": null,
+   "booked": false,
    "lean": 250
   },
   {
@@ -25196,6 +25282,8 @@ window.TRIP = {
    "item": "Snacks, coffee, souvenirs",
    "planned": 300,
    "inPlan": true,
+   "paid": null,
+   "booked": false,
    "lean": 150
   }
  ],

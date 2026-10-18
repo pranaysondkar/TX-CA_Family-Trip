@@ -51,7 +51,8 @@ for (cat, item, dates, qty, unit, tax, status, lean, lk, note) in T.BUDGET:
     c["lean"] += planned if lean is None else lean
 
 lines = [dict(id=T.budget_id(cat, item), cat=cat, item=public(item), planned=round(qty * unit * (1 + tax), 2),
-              inPlan=status != "Optional", lean=round(qty * unit * (1 + tax) if lean is None else lean, 2))
+              inPlan=status != "Optional", paid=round(qty * unit * (1 + tax), 2) if cat == "Already paid" else None,
+              booked=cat == "Already paid" or status == "Booked", lean=round(qty * unit * (1 + tax) if lean is None else lean, 2))
          for (cat, item, dates, qty, unit, tax, status, lean, lk, note) in T.BUDGET]
 
 todo = [dict(id=T.budget_id(cat, item), item=public(item), dates=dates, status=status, url=T.L.get(lk), cost=round(qty * unit * (1 + tax)))

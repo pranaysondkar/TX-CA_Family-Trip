@@ -478,8 +478,8 @@ async function loadBookings(){
 function lineState(l){
   const s = live && live[l.id];
   const inPlan = s && s.inPlan !== null ? s.inPlan : l.inPlan;
-  const actual = s ? s.actual : null;
-  return {booked: !!(s && (s.booked || actual !== null)), actual, inPlan,
+  const actual = s && s.actual !== null ? s.actual : (l.paid ?? null);
+  return {booked: !!((s && s.booked) || l.booked || actual !== null), actual, inPlan,
           projected: actual !== null ? actual : (inPlan ? l.planned : 0), paid: actual || 0};
 }
 function renderBudget(){
@@ -489,7 +489,7 @@ function renderBudget(){
   const k = (l,v,n,cls="") => `<div class="card kpi"><div class="l">${l}</div><div class="v ${cls}">${v}</div><div class="n">${n}</div></div>`;
   const diff = proj - T.budget;
   $("#kpis").innerHTML = k("Projected total", fmt(proj), live ? "actual costs where paid + plan for the rest" : "planned, incl. paid India flights") +
-    k("Paid so far", fmt(paid), live ? `${st.filter(x=>x.booked).length} of ${st.length} items booked` : "connect the Bookings tab") +
+    k("Paid so far", fmt(paid), `${st.filter(x=>x.booked).length} of ${st.length} items booked`) +
     k("Original budget", fmt(T.budget), diff > 0 ? `projected is ${fmt(diff)} over` : `projected is ${fmt(-diff)} under`, "") +
     k("Lean plan", fmt(Lt), `original plan ${fmt(P)}`);
   const cats = [...new Set(T.lines.map(l=>l.cat))].map(c => {
@@ -507,7 +507,7 @@ function renderTodo(){
   $("#sheet-edit").href = T.bookingsEdit;
   $("#todo").innerHTML = T.todo.map(t => {
     const l = T.lines.find(x => x.id === t.id), s = l ? lineState(l) : {booked:false, actual:null};
-    const done = live ? s.booked : !!local[t.id];
+    const done = live ? s.booked : (s.booked || !!local[t.id]);
     const cost = s.actual !== null && s.actual !== undefined ? `paid ${fmt(s.actual)}` : (t.cost ? `≈ ${fmt(t.cost)}` : "");
     return `<label class="${done?"chk":""}"><input type="checkbox" data-id="${t.id}" ${done?"checked":""} ${live?"disabled":""}>
       <span class="it">${esc(t.item)}<small>${esc(t.dates||"")} · ${done ? "booked" + (s.actual !== null && s.actual !== undefined ? " · paid " + fmt(s.actual) : "") : esc(t.status)}</small></span>
