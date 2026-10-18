@@ -371,7 +371,7 @@ ALERTS_NOTE = ("No active NWS alerts at any trip location on Oct 18, 2026. NOAA 
 
 # ---------------------------------------------------------------- live bookings (online Google Sheet "Bookings" tab)
 # BOOKINGS_API: the Google Apps Script web-app URL (ends in /exec) from build/apps_script.gs. Empty = plan only.
-BOOKINGS_API = ""
+BOOKINGS_API = "https://script.google.com/macros/s/AKfycby4wJCq2euzOPYDSnrjPNStXa8xtgL_dD6qhAL8B70TRgN__8vvND_7hV7P-o9lP38RYA/exec"
 BOOKINGS_TAB = "Bookings"
 BOOKINGS_EDIT = "https://docs.google.com/spreadsheets/d/1jqNuzNnaSQSjtEj5n3MgIqRKl17hSZ4XGOqjkJ6pAh4/edit"
 

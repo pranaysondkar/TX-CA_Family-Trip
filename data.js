@@ -25287,7 +25287,7 @@ window.TRIP = {
    "lean": 150
   }
  ],
- "bookingsApi": "",
+ "bookingsApi": "https://script.google.com/macros/s/AKfycby4wJCq2euzOPYDSnrjPNStXa8xtgL_dD6qhAL8B70TRgN__8vvND_7hV7P-o9lP38RYA/exec",
  "bookingsEdit": "https://docs.google.com/spreadsheets/d/1jqNuzNnaSQSjtEj5n3MgIqRKl17hSZ4XGOqjkJ6pAh4/edit",
  "climate": [
   [
