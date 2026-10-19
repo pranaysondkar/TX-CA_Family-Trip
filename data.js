@@ -44,6 +44,42 @@ window.TRIP = {
      "url": "https://www.insubuy.com/visitors-insurance/"
     }
    ],
+   "phones": [
+    {
+     "name": "Emergency: police, fire, ambulance",
+     "phone": "911",
+     "note": "Free from any phone, works without a US SIM",
+     "key": "emergency"
+    },
+    {
+     "name": "Austin airport (AUS)",
+     "phone": "(512) 530-2242",
+     "source": "https://www.flyaustin.com/contact",
+     "note": "24/7. Lost & found (512) 530-5678",
+     "key": "aus_airport"
+    },
+    {
+     "name": "DFW Airport",
+     "phone": "(972) 973-3112",
+     "source": "https://www.dfwairport.com/contact/",
+     "note": "Customer service",
+     "key": "dfw_airport"
+    },
+    {
+     "name": "Texas road conditions (TxDOT)",
+     "phone": "(800) 452-9292",
+     "source": "https://www.txdot.gov/about/newsroom/stories/be-your-own-traffic-reporter.html",
+     "note": "Also drivetexas.org",
+     "key": "txdot_roads"
+    },
+    {
+     "name": "Baylor Scott & White Grapevine (near DFW ER)",
+     "phone": "(817) 481-1588",
+     "source": "https://www.bswhealth.com/locations/hospital/grapevine/phone-directory",
+     "note": "≈ 10 min from DFW",
+     "key": "hosp_dfw"
+    }
+   ],
    "route": {
     "stops": [
      {
@@ -1558,7 +1594,22 @@ window.TRIP = {
    "tips": [
     "Indian time is 11.5 h ahead. Sunlight in the afternoon helps reset sleep"
    ],
-   "links": []
+   "links": [],
+   "phones": [
+    {
+     "name": "Emergency: police, fire, ambulance",
+     "phone": "911",
+     "note": "Free from any phone, works without a US SIM",
+     "key": "emergency"
+    },
+    {
+     "name": "Dell Seton Medical Center (Austin ER)",
+     "phone": "(512) 324-7000",
+     "source": "https://healthcare.ascension.org/find-care/location/hospitals/austin--texas",
+     "note": "1500 Red River St. ER (512) 324-7010",
+     "key": "hosp_austin"
+    }
+   ]
   },
   {
    "date": "2026-12-08",
@@ -1583,6 +1634,28 @@ window.TRIP = {
     {
      "key": "mckinney",
      "url": "https://tpwd.texas.gov/state-parks/mckinney-falls"
+    }
+   ],
+   "phones": [
+    {
+     "name": "Emergency: police, fire, ambulance",
+     "phone": "911",
+     "note": "Free from any phone, works without a US SIM",
+     "key": "emergency"
+    },
+    {
+     "name": "McKinney Falls State Park",
+     "phone": "(512) 243-1643",
+     "source": "https://tpwd.texas.gov/state-parks/nearby/austin",
+     "note": "",
+     "key": "mckinney"
+    },
+    {
+     "name": "Dell Seton Medical Center (Austin ER)",
+     "phone": "(512) 324-7000",
+     "source": "https://healthcare.ascension.org/find-care/location/hospitals/austin--texas",
+     "note": "1500 Red River St. ER (512) 324-7010",
+     "key": "hosp_austin"
     }
    ]
   },
@@ -1610,6 +1683,28 @@ window.TRIP = {
     {
      "key": "capitol",
      "url": "https://tspb.texas.gov/plan/tours/tours.html"
+    }
+   ],
+   "phones": [
+    {
+     "name": "Emergency: police, fire, ambulance",
+     "phone": "911",
+     "note": "Free from any phone, works without a US SIM",
+     "key": "emergency"
+    },
+    {
+     "name": "Texas Capitol Visitors Center",
+     "phone": "(512) 305-8400",
+     "source": "https://tspb.texas.gov/plan/hours/hours.html",
+     "note": "Tour guides (512) 463-0063",
+     "key": "capitol_tours"
+    },
+    {
+     "name": "Dell Seton Medical Center (Austin ER)",
+     "phone": "(512) 324-7000",
+     "source": "https://healthcare.ascension.org/find-care/location/hospitals/austin--texas",
+     "note": "1500 Red River St. ER (512) 324-7010",
+     "key": "hosp_austin"
     }
    ]
   },
@@ -1642,6 +1737,21 @@ window.TRIP = {
      "key": "zilker_tree",
      "url": "https://www.austintexas.gov/parks/programs/zilker-holiday-tree"
     }
+   ],
+   "phones": [
+    {
+     "name": "Emergency: police, fire, ambulance",
+     "phone": "911",
+     "note": "Free from any phone, works without a US SIM",
+     "key": "emergency"
+    },
+    {
+     "name": "Dell Seton Medical Center (Austin ER)",
+     "phone": "(512) 324-7000",
+     "source": "https://healthcare.ascension.org/find-care/location/hospitals/austin--texas",
+     "note": "1500 Red River St. ER (512) 324-7010",
+     "key": "hosp_austin"
+    }
    ]
   },
   {
@@ -1673,6 +1783,28 @@ window.TRIP = {
     {
      "key": "patel",
      "url": "https://communityimpact.com/cedar-park/business/patel-brothers-grocery-store-now-open-in-cedar-park/"
+    }
+   ],
+   "phones": [
+    {
+     "name": "Emergency: police, fire, ambulance",
+     "phone": "911",
+     "note": "Free from any phone, works without a US SIM",
+     "key": "emergency"
+    },
+    {
+     "name": "Radha Madhav Dham temple",
+     "phone": "(512) 288-7180",
+     "source": "https://shop.radhamadhavdham.org/contact-us/",
+     "note": "400 Barsana Rd, Austin",
+     "key": "radha_madhav"
+    },
+    {
+     "name": "Dell Seton Medical Center (Austin ER)",
+     "phone": "(512) 324-7000",
+     "source": "https://healthcare.ascension.org/find-care/location/hospitals/austin--texas",
+     "note": "1500 Red River St. ER (512) 324-7010",
+     "key": "hosp_austin"
     }
    ]
   },
@@ -1719,6 +1851,49 @@ window.TRIP = {
     {
      "key": "fbg_lights",
      "url": "https://www.visitfredericksburgtx.com/events/major-events-festivals/holiday-lights/"
+    }
+   ],
+   "phones": [
+    {
+     "name": "Emergency: police, fire, ambulance",
+     "phone": "911",
+     "note": "Free from any phone, works without a US SIM",
+     "key": "emergency"
+    },
+    {
+     "name": "Jacob's Well Natural Area",
+     "phone": "(512) 214-4593",
+     "source": "https://www.hayscountytx.gov/444/Jacobs-Well-Natural-Area",
+     "note": "8 am–6 pm",
+     "key": "jacobs_well"
+    },
+    {
+     "name": "Wimberley Glassworks",
+     "phone": "(512) 393-3316",
+     "source": "https://wimberleyglassart.com/",
+     "note": "Glassblowing Thu–Sun 10:30–3:30",
+     "key": "wimberley_glass"
+    },
+    {
+     "name": "Fredericksburg Visitor Center",
+     "phone": "(830) 997-6523",
+     "source": "https://www.visitfredericksburgtx.com/plan/visitor-center/",
+     "note": "302 E Austin St",
+     "key": "fbg_visitor"
+    },
+    {
+     "name": "National Museum of the Pacific War",
+     "phone": "(830) 997-8600",
+     "source": "https://www.pacificwarmuseum.org/contact",
+     "note": "Closed Tuesdays",
+     "key": "pacific_war"
+    },
+    {
+     "name": "Hill Country Memorial, Fredericksburg (ER)",
+     "phone": "(830) 997-4353",
+     "source": "https://www.hillcountrymemorial.org/",
+     "note": "1020 S State Hwy 16",
+     "key": "hosp_fbg"
     }
    ],
    "route": {
@@ -3267,6 +3442,35 @@ window.TRIP = {
     {
      "key": "buescher",
      "url": "https://tpwd.texas.gov/state-parks/buescher"
+    }
+   ],
+   "phones": [
+    {
+     "name": "Emergency: police, fire, ambulance",
+     "phone": "911",
+     "note": "Free from any phone, works without a US SIM",
+     "key": "emergency"
+    },
+    {
+     "name": "Buescher State Park",
+     "phone": "(512) 237-2241",
+     "source": "https://tpwd.texas.gov/state-parks/buescher",
+     "note": "100 Park Rd 1E, Smithville",
+     "key": "buescher"
+    },
+    {
+     "name": "Texas State Parks reservations",
+     "phone": "(512) 389-8900",
+     "source": "https://tpwd.texas.gov/state-parks/mckinney-falls/fees-facilities/entrance-fees",
+     "note": "Mon–Fri",
+     "key": "tx_parks_reservations"
+    },
+    {
+     "name": "Ascension Seton Bastrop (ER)",
+     "phone": "(737) 881-7400",
+     "source": "https://healthcare.ascension.org/locations/texas/txaus/bastrop-ascension-seton-bastrop/departments/emergency",
+     "note": "630 W SH 71, Bastrop",
+     "key": "hosp_bastrop"
     }
    ],
    "route": {
@@ -5912,6 +6116,28 @@ window.TRIP = {
     {
      "key": "buescher",
      "url": "https://tpwd.texas.gov/state-parks/buescher"
+    }
+   ],
+   "phones": [
+    {
+     "name": "Emergency: police, fire, ambulance",
+     "phone": "911",
+     "note": "Free from any phone, works without a US SIM",
+     "key": "emergency"
+    },
+    {
+     "name": "Buescher State Park",
+     "phone": "(512) 237-2241",
+     "source": "https://tpwd.texas.gov/state-parks/buescher",
+     "note": "100 Park Rd 1E, Smithville",
+     "key": "buescher"
+    },
+    {
+     "name": "Ascension Seton Bastrop (ER)",
+     "phone": "(737) 881-7400",
+     "source": "https://healthcare.ascension.org/locations/texas/txaus/bastrop-ascension-seton-bastrop/departments/emergency",
+     "note": "630 W SH 71, Bastrop",
+     "key": "hosp_bastrop"
     }
    ],
    "route": {
@@ -8629,6 +8855,21 @@ window.TRIP = {
      "url": "https://www.austintexas.gov/parks/locations/mayfield-park"
     }
    ],
+   "phones": [
+    {
+     "name": "Emergency: police, fire, ambulance",
+     "phone": "911",
+     "note": "Free from any phone, works without a US SIM",
+     "key": "emergency"
+    },
+    {
+     "name": "Dell Seton Medical Center (Austin ER)",
+     "phone": "(512) 324-7000",
+     "source": "https://healthcare.ascension.org/find-care/location/hospitals/austin--texas",
+     "note": "1500 Red River St. ER (512) 324-7010",
+     "key": "hosp_austin"
+    }
+   ],
    "route": {
     "stops": [
      {
@@ -10105,7 +10346,22 @@ window.TRIP = {
     "Early night: leave ≈ 6:45 am"
    ],
    "tips": [],
-   "links": []
+   "links": [],
+   "phones": [
+    {
+     "name": "Emergency: police, fire, ambulance",
+     "phone": "911",
+     "note": "Free from any phone, works without a US SIM",
+     "key": "emergency"
+    },
+    {
+     "name": "Dell Seton Medical Center (Austin ER)",
+     "phone": "(512) 324-7000",
+     "source": "https://healthcare.ascension.org/find-care/location/hospitals/austin--texas",
+     "note": "1500 Red River St. ER (512) 324-7010",
+     "key": "hosp_austin"
+    }
+   ]
   },
   {
    "date": "2026-12-17",
@@ -10140,6 +10396,35 @@ window.TRIP = {
     {
      "key": "kemah",
      "url": "https://www.kemahboardwalk.com/know-before-you-go"
+    }
+   ],
+   "phones": [
+    {
+     "name": "Emergency: police, fire, ambulance",
+     "phone": "911",
+     "note": "Free from any phone, works without a US SIM",
+     "key": "emergency"
+    },
+    {
+     "name": "Space Center Houston",
+     "phone": "(281) 244-2100",
+     "source": "https://spacecenter.org/wp-content/uploads/2023/03/Media-Resources-One-Pager_1-26-23.pdf",
+     "note": "",
+     "key": "space_center"
+    },
+    {
+     "name": "Kemah Boardwalk",
+     "phone": "(877) 285-3624",
+     "source": "https://www.kemahboardwalk.com/visitor-info",
+     "note": "Local (281) 334-9880",
+     "key": "kemah"
+    },
+    {
+     "name": "HCA Houston Healthcare Clear Lake (ER)",
+     "phone": "(281) 332-2511",
+     "source": "https://www.hcahoustonhealthcare.com/locations/clear-lake/about-us/contact-us",
+     "note": "Near Space Center",
+     "key": "hosp_houston"
     }
    ],
    "route": {
@@ -11708,6 +11993,21 @@ window.TRIP = {
      "key": "southwest",
      "url": "https://www.southwest.com/air/manage-reservation/index.html"
     }
+   ],
+   "phones": [
+    {
+     "name": "Emergency: police, fire, ambulance",
+     "phone": "911",
+     "note": "Free from any phone, works without a US SIM",
+     "key": "emergency"
+    },
+    {
+     "name": "Southwest Airlines",
+     "phone": "(800) 435-9792",
+     "source": "https://www.southwest.com/swa-resources/pdfs/corporate-commitments/customer-service-plan.pdf",
+     "note": "Reservations & changes",
+     "key": "southwest"
+    }
    ]
   },
   {
@@ -11741,6 +12041,49 @@ window.TRIP = {
     {
      "key": "embassy",
      "url": "https://www.google.com/maps/search/Embassy+Suites+by+Hilton+San+Francisco+Airport+Oyster+Point"
+    }
+   ],
+   "phones": [
+    {
+     "name": "Emergency: police, fire, ambulance",
+     "phone": "911",
+     "note": "Free from any phone, works without a US SIM",
+     "key": "emergency"
+    },
+    {
+     "name": "Southwest Airlines",
+     "phone": "(800) 435-9792",
+     "source": "https://www.southwest.com/swa-resources/pdfs/corporate-commitments/customer-service-plan.pdf",
+     "note": "Reservations & changes",
+     "key": "southwest"
+    },
+    {
+     "name": "Austin airport (AUS)",
+     "phone": "(512) 530-2242",
+     "source": "https://www.flyaustin.com/contact",
+     "note": "24/7. Lost & found (512) 530-5678",
+     "key": "aus_airport"
+    },
+    {
+     "name": "SFO Airport",
+     "phone": "(650) 821-8211",
+     "source": "https://fly.sfo.gov/faqs",
+     "note": "Toll-free (800) 435-9736",
+     "key": "sfo_airport"
+    },
+    {
+     "name": "Embassy Suites SFO Airport – Oyster Point",
+     "phone": "(650) 589-3400",
+     "source": "https://www.hilton.com/en/hotels/sfosoes-embassy-suites-san-francisco-airport-oyster-point/",
+     "note": "250 Gateway Blvd, South San Francisco. Ask for the airport shuttle",
+     "key": "embassy_suites_sfo"
+    },
+    {
+     "name": "Kaiser South San Francisco (ER)",
+     "phone": "(650) 742-2000",
+     "source": "https://healthy.kaiserpermanente.org/northern-california/facilities/south-san-francisco-medical-center-100319",
+     "note": "ER (650) 742-2511; open to non-members in emergencies",
+     "key": "hosp_sfo"
     }
    ]
   },
@@ -11788,6 +12131,56 @@ window.TRIP = {
     {
      "key": "heavenly",
      "url": "https://www.skiheavenly.com/"
+    }
+   ],
+   "phones": [
+    {
+     "name": "Emergency: police, fire, ambulance",
+     "phone": "911",
+     "note": "Free from any phone, works without a US SIM",
+     "key": "emergency"
+    },
+    {
+     "name": "Embassy Suites SFO Airport – Oyster Point",
+     "phone": "(650) 589-3400",
+     "source": "https://www.hilton.com/en/hotels/sfosoes-embassy-suites-san-francisco-airport-oyster-point/",
+     "note": "250 Gateway Blvd, South San Francisco. Ask for the airport shuttle",
+     "key": "embassy_suites_sfo"
+    },
+    {
+     "name": "SFO Airport",
+     "phone": "(650) 821-8211",
+     "source": "https://fly.sfo.gov/faqs",
+     "note": "Toll-free (800) 435-9736",
+     "key": "sfo_airport"
+    },
+    {
+     "name": "California road & chain conditions (Caltrans)",
+     "phone": "(800) 427-7623",
+     "source": "https://dot.ca.gov/travel/winter-driving-tips",
+     "note": "Say the highway number, e.g. '50' or '5'",
+     "key": "caltrans_roads"
+    },
+    {
+     "name": "Progressive claims (rental car accident)",
+     "phone": "(800) 776-4737",
+     "source": "https://www.progressive.com/claims/",
+     "note": "24/7. Roadside help (877) 537-7878",
+     "key": "progressive_claims"
+    },
+    {
+     "name": "Airbnb support (US)",
+     "phone": "(415) 800-5959",
+     "source": "https://www.airbnb.com/help/article/1542",
+     "note": "For host issues; in-app chat is faster. Toll-free (844) 234-2500",
+     "key": "airbnb"
+    },
+    {
+     "name": "Barton Memorial Hospital, South Lake Tahoe (ER)",
+     "phone": "(530) 541-3420",
+     "source": "https://www.bartonhealth.org/find-a-location/locations-profile/barton-memorial-hospital/",
+     "note": "2170 South Ave",
+     "key": "hosp_tahoe"
     }
    ],
    "route": {
@@ -13338,6 +13731,49 @@ window.TRIP = {
      "url": "https://www.bayareafastrak.org/en/tolls/pay-a-toll.shtml"
     }
    ],
+   "phones": [
+    {
+     "name": "Emergency: police, fire, ambulance",
+     "phone": "911",
+     "note": "Free from any phone, works without a US SIM",
+     "key": "emergency"
+    },
+    {
+     "name": "California road & chain conditions (Caltrans)",
+     "phone": "(800) 427-7623",
+     "source": "https://dot.ca.gov/travel/winter-driving-tips",
+     "note": "Say the highway number, e.g. '50' or '5'",
+     "key": "caltrans_roads"
+    },
+    {
+     "name": "Bay Area FasTrak (bridge tolls)",
+     "phone": "(877) 229-8655",
+     "source": "https://www.bayareafastrak.org/en/support/fastrak-basics-faq8.shtml",
+     "note": "",
+     "key": "fastrak"
+    },
+    {
+     "name": "Airbnb support (US)",
+     "phone": "(415) 800-5959",
+     "source": "https://www.airbnb.com/help/article/1542",
+     "note": "For host issues; in-app chat is faster. Toll-free (844) 234-2500",
+     "key": "airbnb"
+    },
+    {
+     "name": "Barton Memorial Hospital, South Lake Tahoe (ER)",
+     "phone": "(530) 541-3420",
+     "source": "https://www.bartonhealth.org/find-a-location/locations-profile/barton-memorial-hospital/",
+     "note": "2170 South Ave",
+     "key": "hosp_tahoe"
+    },
+    {
+     "name": "Highland Hospital, Oakland (ER)",
+     "phone": "(510) 437-4800",
+     "source": "https://www.alamedahealthsystem.org/locations/highland-hospital/",
+     "note": "1411 E 31st St",
+     "key": "hosp_oakland"
+    }
+   ],
    "route": {
     "stops": [
      {
@@ -14880,6 +15316,42 @@ window.TRIP = {
      "key": "bart",
      "url": "https://www.bart.gov/tickets"
     }
+   ],
+   "phones": [
+    {
+     "name": "Emergency: police, fire, ambulance",
+     "phone": "911",
+     "note": "Free from any phone, works without a US SIM",
+     "key": "emergency"
+    },
+    {
+     "name": "Alcatraz City Cruises",
+     "phone": "(415) 981-7625",
+     "source": "https://alcatrazcitycruises.com/contact-us",
+     "note": "9 am–5 pm PT",
+     "key": "alcatraz"
+    },
+    {
+     "name": "BART trip info",
+     "phone": "(510) 465-2278",
+     "source": "https://www.bart.gov/contact",
+     "note": "Customer service (510) 464-7134",
+     "key": "bart"
+    },
+    {
+     "name": "SF 311 / Muni (from outside SF)",
+     "phone": "(415) 701-2311",
+     "source": "https://www.sf.gov/departments--311-customer-service-center",
+     "note": "Dial 311 inside SF",
+     "key": "muni"
+    },
+    {
+     "name": "Highland Hospital, Oakland (ER)",
+     "phone": "(510) 437-4800",
+     "source": "https://www.alamedahealthsystem.org/locations/highland-hospital/",
+     "note": "1411 E 31st St",
+     "key": "hosp_oakland"
+    }
    ]
   },
   {
@@ -14921,6 +15393,49 @@ window.TRIP = {
     {
      "key": "camp_nelson",
      "url": "https://www.airbnb.com/rooms/18070596?adults=5&check_in=2026-12-23&check_out=2026-12-25"
+    }
+   ],
+   "phones": [
+    {
+     "name": "Emergency: police, fire, ambulance",
+     "phone": "911",
+     "note": "Free from any phone, works without a US SIM",
+     "key": "emergency"
+    },
+    {
+     "name": "Monterey Bay Aquarium",
+     "phone": "(831) 648-4800",
+     "source": "https://www.montereybayaquarium.org/about-us/contact-us",
+     "note": "9 am–4 pm",
+     "key": "aquarium"
+    },
+    {
+     "name": "California road & chain conditions (Caltrans)",
+     "phone": "(800) 427-7623",
+     "source": "https://dot.ca.gov/travel/winter-driving-tips",
+     "note": "Say the highway number, e.g. '50' or '5'",
+     "key": "caltrans_roads"
+    },
+    {
+     "name": "Airbnb support (US)",
+     "phone": "(415) 800-5959",
+     "source": "https://www.airbnb.com/help/article/1542",
+     "note": "For host issues; in-app chat is faster. Toll-free (844) 234-2500",
+     "key": "airbnb"
+    },
+    {
+     "name": "Community Hospital of the Monterey Peninsula (ER)",
+     "phone": "(831) 624-5311",
+     "source": "https://www.montagehealth.org/locations/profile/community-hospital-monterey-peninsula/",
+     "note": "23625 Holman Hwy",
+     "key": "hosp_monterey"
+    },
+    {
+     "name": "Sierra View Medical Center, Porterville (ER near Camp Nelson)",
+     "phone": "(559) 784-1110",
+     "source": "https://www.sierra-view.com/contact-us/",
+     "note": "465 W Putnam Ave",
+     "key": "hosp_porterville"
     }
    ],
    "route": {
@@ -16432,6 +16947,42 @@ window.TRIP = {
     {
      "key": "gsnm",
      "url": "https://www.fs.usda.gov/r05/sequoia/recreation/giant-sequoia-national-monument-south-0"
+    }
+   ],
+   "phones": [
+    {
+     "name": "Emergency: police, fire, ambulance",
+     "phone": "911",
+     "note": "Free from any phone, works without a US SIM",
+     "key": "emergency"
+    },
+    {
+     "name": "Sequoia NP roads & chains",
+     "phone": "(559) 565-3341",
+     "source": "https://www.nps.gov/seki/planyourvisit/road-conditions.htm",
+     "note": "Press 1, then 1. 24 h recording",
+     "key": "seki_roads"
+    },
+    {
+     "name": "California road & chain conditions (Caltrans)",
+     "phone": "(800) 427-7623",
+     "source": "https://dot.ca.gov/travel/winter-driving-tips",
+     "note": "Say the highway number, e.g. '50' or '5'",
+     "key": "caltrans_roads"
+    },
+    {
+     "name": "Sierra View Medical Center, Porterville (ER near Camp Nelson)",
+     "phone": "(559) 784-1110",
+     "source": "https://www.sierra-view.com/contact-us/",
+     "note": "465 W Putnam Ave",
+     "key": "hosp_porterville"
+    },
+    {
+     "name": "Kaweah Health, Visalia (ER near Sequoia)",
+     "phone": "(559) 624-2000",
+     "source": "https://www.kaweahhealth.org/location/kaweah-health-medical-center",
+     "note": "400 W Mineral King Ave",
+     "key": "hosp_visalia"
     }
    ],
    "route": {
@@ -17949,6 +18500,35 @@ window.TRIP = {
     {
      "key": "quickmap",
      "url": "https://quickmap.dot.ca.gov/"
+    }
+   ],
+   "phones": [
+    {
+     "name": "Emergency: police, fire, ambulance",
+     "phone": "911",
+     "note": "Free from any phone, works without a US SIM",
+     "key": "emergency"
+    },
+    {
+     "name": "California road & chain conditions (Caltrans)",
+     "phone": "(800) 427-7623",
+     "source": "https://dot.ca.gov/travel/winter-driving-tips",
+     "note": "Say the highway number, e.g. '50' or '5'",
+     "key": "caltrans_roads"
+    },
+    {
+     "name": "Residence Inn LAX/Century Blvd",
+     "phone": "(310) 568-7700",
+     "source": "https://www.marriott.com/en-us/hotels/laxax-residence-inn-los-angeles-lax-century-boulevard/overview/",
+     "note": "5933 W Century Blvd. Free 24 h airport shuttle",
+     "key": "residence_inn_lax"
+    },
+    {
+     "name": "Centinela Hospital, Inglewood (ER near LAX)",
+     "phone": "(310) 673-4660",
+     "source": "https://www.centinelamed.com/",
+     "note": "555 E Hardy St",
+     "key": "hosp_lax"
     }
    ],
    "route": {
@@ -19531,6 +20111,49 @@ window.TRIP = {
     {
      "key": "universal",
      "url": "https://www.universalstudioshollywood.com/web/en/us/theme-park-tickets"
+    }
+   ],
+   "phones": [
+    {
+     "name": "Emergency: police, fire, ambulance",
+     "phone": "911",
+     "note": "Free from any phone, works without a US SIM",
+     "key": "emergency"
+    },
+    {
+     "name": "Griffith Observatory",
+     "phone": "(213) 473-0800",
+     "source": "https://griffithobservatory.org/about/",
+     "note": "Closed Mondays",
+     "key": "griffith"
+    },
+    {
+     "name": "Getty Center",
+     "phone": "(310) 440-7300",
+     "source": "https://www.getty.edu/about/contact/",
+     "note": "Free timed reservations",
+     "key": "getty"
+    },
+    {
+     "name": "Universal Studios Hollywood",
+     "phone": "(800) 864-8377",
+     "source": "https://www.universalstudioshollywood.com/tridiondata/ush/en/us/files/documents/universal_riders_guide.pdf",
+     "note": "Optional stop",
+     "key": "universal"
+    },
+    {
+     "name": "Residence Inn LAX/Century Blvd",
+     "phone": "(310) 568-7700",
+     "source": "https://www.marriott.com/en-us/hotels/laxax-residence-inn-los-angeles-lax-century-boulevard/overview/",
+     "note": "5933 W Century Blvd. Free 24 h airport shuttle",
+     "key": "residence_inn_lax"
+    },
+    {
+     "name": "Centinela Hospital, Inglewood (ER near LAX)",
+     "phone": "(310) 673-4660",
+     "source": "https://www.centinelamed.com/",
+     "note": "555 E Hardy St",
+     "key": "hosp_lax"
     }
    ],
    "route": {
@@ -21181,6 +21804,42 @@ window.TRIP = {
      "url": "https://www.uber.com/us/en/ride/uberxl/"
     }
    ],
+   "phones": [
+    {
+     "name": "Emergency: police, fire, ambulance",
+     "phone": "911",
+     "note": "Free from any phone, works without a US SIM",
+     "key": "emergency"
+    },
+    {
+     "name": "Residence Inn LAX/Century Blvd",
+     "phone": "(310) 568-7700",
+     "source": "https://www.marriott.com/en-us/hotels/laxax-residence-inn-los-angeles-lax-century-boulevard/overview/",
+     "note": "5933 W Century Blvd. Free 24 h airport shuttle",
+     "key": "residence_inn_lax"
+    },
+    {
+     "name": "United Airlines",
+     "phone": "(800) 864-8331",
+     "source": "https://cloud.enews.united.com/text-messaging-terms.html",
+     "note": "Reservations & changes",
+     "key": "united"
+    },
+    {
+     "name": "LAX information",
+     "phone": "(855) 463-5252",
+     "source": "https://www.flylax.com/lax-frequently-asked-questions-faq",
+     "note": "Lost & found (424) 646-5678",
+     "key": "lax_airport"
+    },
+    {
+     "name": "Austin airport (AUS)",
+     "phone": "(512) 530-2242",
+     "source": "https://www.flyaustin.com/contact",
+     "note": "24/7. Lost & found (512) 530-5678",
+     "key": "aus_airport"
+    }
+   ],
    "route": {
     "stops": [
      {
@@ -21447,7 +22106,22 @@ window.TRIP = {
     "Evening walk at Mueller Lake Park"
    ],
    "tips": [],
-   "links": []
+   "links": [],
+   "phones": [
+    {
+     "name": "Emergency: police, fire, ambulance",
+     "phone": "911",
+     "note": "Free from any phone, works without a US SIM",
+     "key": "emergency"
+    },
+    {
+     "name": "Dell Seton Medical Center (Austin ER)",
+     "phone": "(512) 324-7000",
+     "source": "https://healthcare.ascension.org/find-care/location/hospitals/austin--texas",
+     "note": "1500 Red River St. ER (512) 324-7010",
+     "key": "hosp_austin"
+    }
+   ]
   },
   {
    "date": "2026-12-29",
@@ -21466,7 +22140,22 @@ window.TRIP = {
     "South Congress shops"
    ],
    "tips": [],
-   "links": []
+   "links": [],
+   "phones": [
+    {
+     "name": "Emergency: police, fire, ambulance",
+     "phone": "911",
+     "note": "Free from any phone, works without a US SIM",
+     "key": "emergency"
+    },
+    {
+     "name": "Dell Seton Medical Center (Austin ER)",
+     "phone": "(512) 324-7000",
+     "source": "https://healthcare.ascension.org/find-care/location/hospitals/austin--texas",
+     "note": "1500 Red River St. ER (512) 324-7010",
+     "key": "hosp_austin"
+    }
+   ]
   },
   {
    "date": "2026-12-30",
@@ -21488,6 +22177,21 @@ window.TRIP = {
     {
      "key": "outlets",
      "url": "https://www.google.com/maps/search/San+Marcos+Premium+Outlets"
+    }
+   ],
+   "phones": [
+    {
+     "name": "Emergency: police, fire, ambulance",
+     "phone": "911",
+     "note": "Free from any phone, works without a US SIM",
+     "key": "emergency"
+    },
+    {
+     "name": "Dell Seton Medical Center (Austin ER)",
+     "phone": "(512) 324-7000",
+     "source": "https://healthcare.ascension.org/find-care/location/hospitals/austin--texas",
+     "note": "1500 Red River St. ER (512) 324-7010",
+     "key": "hosp_austin"
     }
    ]
   },
@@ -21514,6 +22218,21 @@ window.TRIP = {
      "key": "nye",
      "url": "https://www.austintexas.gov/ace/austins-new-year"
     }
+   ],
+   "phones": [
+    {
+     "name": "Emergency: police, fire, ambulance",
+     "phone": "911",
+     "note": "Free from any phone, works without a US SIM",
+     "key": "emergency"
+    },
+    {
+     "name": "Dell Seton Medical Center (Austin ER)",
+     "phone": "(512) 324-7000",
+     "source": "https://healthcare.ascension.org/find-care/location/hospitals/austin--texas",
+     "note": "1500 Red River St. ER (512) 324-7010",
+     "key": "hosp_austin"
+    }
    ]
   },
   {
@@ -21537,6 +22256,28 @@ window.TRIP = {
      "key": "radha",
      "url": "https://radhamadhavdham.org/"
     }
+   ],
+   "phones": [
+    {
+     "name": "Emergency: police, fire, ambulance",
+     "phone": "911",
+     "note": "Free from any phone, works without a US SIM",
+     "key": "emergency"
+    },
+    {
+     "name": "Radha Madhav Dham temple",
+     "phone": "(512) 288-7180",
+     "source": "https://shop.radhamadhavdham.org/contact-us/",
+     "note": "400 Barsana Rd, Austin",
+     "key": "radha_madhav"
+    },
+    {
+     "name": "Dell Seton Medical Center (Austin ER)",
+     "phone": "(512) 324-7000",
+     "source": "https://healthcare.ascension.org/find-care/location/hospitals/austin--texas",
+     "note": "1500 Red River St. ER (512) 324-7010",
+     "key": "hosp_austin"
+    }
    ]
   },
   {
@@ -21558,6 +22299,21 @@ window.TRIP = {
     {
      "key": "hamilton",
      "url": "https://parks.traviscountytx.gov/find-a-park/hamilton-pool"
+    }
+   ],
+   "phones": [
+    {
+     "name": "Emergency: police, fire, ambulance",
+     "phone": "911",
+     "note": "Free from any phone, works without a US SIM",
+     "key": "emergency"
+    },
+    {
+     "name": "Dell Seton Medical Center (Austin ER)",
+     "phone": "(512) 324-7000",
+     "source": "https://healthcare.ascension.org/find-care/location/hospitals/austin--texas",
+     "note": "1500 Red River St. ER (512) 324-7010",
+     "key": "hosp_austin"
     }
    ]
   },
@@ -21583,6 +22339,28 @@ window.TRIP = {
     {
      "key": "bullock",
      "url": "https://www.thestoryoftexas.com/visit"
+    }
+   ],
+   "phones": [
+    {
+     "name": "Emergency: police, fire, ambulance",
+     "phone": "911",
+     "note": "Free from any phone, works without a US SIM",
+     "key": "emergency"
+    },
+    {
+     "name": "Bullock Texas State History Museum",
+     "phone": "(512) 936-8746",
+     "source": "https://www.thestoryoftexas.com/about/contact-us/",
+     "note": "",
+     "key": "bullock"
+    },
+    {
+     "name": "Dell Seton Medical Center (Austin ER)",
+     "phone": "(512) 324-7000",
+     "source": "https://healthcare.ascension.org/find-care/location/hospitals/austin--texas",
+     "note": "1500 Red River St. ER (512) 324-7010",
+     "key": "hosp_austin"
     }
    ]
   },
@@ -21615,6 +22393,49 @@ window.TRIP = {
     {
      "key": "dfw_cell",
      "url": "https://www.dfwairport.com/park/cellphonelots/"
+    }
+   ],
+   "phones": [
+    {
+     "name": "Emergency: police, fire, ambulance",
+     "phone": "911",
+     "note": "Free from any phone, works without a US SIM",
+     "key": "emergency"
+    },
+    {
+     "name": "Austin airport (AUS)",
+     "phone": "(512) 530-2242",
+     "source": "https://www.flyaustin.com/contact",
+     "note": "24/7. Lost & found (512) 530-5678",
+     "key": "aus_airport"
+    },
+    {
+     "name": "DFW Airport",
+     "phone": "(972) 973-3112",
+     "source": "https://www.dfwairport.com/contact/",
+     "note": "Customer service",
+     "key": "dfw_airport"
+    },
+    {
+     "name": "Texas road conditions (TxDOT)",
+     "phone": "(800) 452-9292",
+     "source": "https://www.txdot.gov/about/newsroom/stories/be-your-own-traffic-reporter.html",
+     "note": "Also drivetexas.org",
+     "key": "txdot_roads"
+    },
+    {
+     "name": "India Consulate Houston: emergency only",
+     "phone": "(832) 283-1568",
+     "source": "https://www.cgihouston.gov.in/page/contact/",
+     "note": "Lost passport or emergencies; call/text/WhatsApp",
+     "key": "india_cg_houston_emerg"
+    },
+    {
+     "name": "Baylor Scott & White Grapevine (near DFW ER)",
+     "phone": "(817) 481-1588",
+     "source": "https://www.bswhealth.com/locations/hospital/grapevine/phone-directory",
+     "note": "≈ 10 min from DFW",
+     "key": "hosp_dfw"
     }
    ],
    "route": {
@@ -24082,6 +24903,423 @@ window.TRIP = {
    "How claims work",
    "Prefer plans with a US network (e.g. UnitedHealthcare/First Health PPO) so hospitals bill the insurer directly. Keep the insurance card on each phone and in their wallets."
   ]
+ ],
+ "phoneGroups": [
+  {
+   "group": "Emergency & health",
+   "items": [
+    {
+     "name": "Emergency: police, fire, ambulance",
+     "phone": "911",
+     "note": "Free from any phone, works without a US SIM",
+     "key": "emergency"
+    },
+    {
+     "name": "Poison Control",
+     "phone": "(800) 222-1222",
+     "source": "https://www.poison.org/contact-us",
+     "note": "24/7, free",
+     "key": "poison"
+    },
+    {
+     "name": "VisitorGuard (visitor insurance seller)",
+     "phone": "(804) 325-1385",
+     "source": "https://www.visitorguard.com/contact-us",
+     "note": "For a medical emergency or claim, use the 24/7 number on the insurance ID card",
+     "key": "visitorguard"
+    }
+   ]
+  },
+  {
+   "group": "Indian consulates (lost passport, emergencies)",
+   "items": [
+    {
+     "name": "India Consulate Houston: emergency only",
+     "phone": "(832) 283-1568",
+     "source": "https://www.cgihouston.gov.in/page/contact/",
+     "note": "Lost passport or emergencies; call/text/WhatsApp",
+     "key": "india_cg_houston_emerg"
+    },
+    {
+     "name": "Consulate General of India, Houston (covers Texas)",
+     "phone": "(713) 626-2148",
+     "source": "https://www.cgihouston.gov.in/page/contact/",
+     "note": "Office hours",
+     "key": "india_cg_houston"
+    },
+    {
+     "name": "India Consulate SF: 24/7 emergency",
+     "phone": "(415) 483-6629",
+     "source": "https://www.cgisf.gov.in/page/contact-us/",
+     "note": "Indian nationals; call/text/WhatsApp",
+     "key": "india_cg_sf_emerg"
+    },
+    {
+     "name": "Consulate General of India, San Francisco (covers California)",
+     "phone": "(415) 891-4080",
+     "source": "https://www.cgisf.gov.in/page/contact-us/",
+     "note": "Office hours",
+     "key": "india_cg_sf"
+    }
+   ]
+  },
+  {
+   "group": "Airlines, bookings & insurance",
+   "items": [
+    {
+     "name": "Southwest Airlines",
+     "phone": "(800) 435-9792",
+     "source": "https://www.southwest.com/swa-resources/pdfs/corporate-commitments/customer-service-plan.pdf",
+     "note": "Reservations & changes",
+     "key": "southwest"
+    },
+    {
+     "name": "United Airlines",
+     "phone": "(800) 864-8331",
+     "source": "https://cloud.enews.united.com/text-messaging-terms.html",
+     "note": "Reservations & changes",
+     "key": "united"
+    },
+    {
+     "name": "Airbnb support (US)",
+     "phone": "(415) 800-5959",
+     "source": "https://www.airbnb.com/help/article/1542",
+     "note": "For host issues; in-app chat is faster. Toll-free (844) 234-2500",
+     "key": "airbnb"
+    },
+    {
+     "name": "Progressive claims (rental car accident)",
+     "phone": "(800) 776-4737",
+     "source": "https://www.progressive.com/claims/",
+     "note": "24/7. Roadside help (877) 537-7878",
+     "key": "progressive_claims"
+    }
+   ]
+  },
+  {
+   "group": "Airports",
+   "items": [
+    {
+     "name": "Austin airport (AUS)",
+     "phone": "(512) 530-2242",
+     "source": "https://www.flyaustin.com/contact",
+     "note": "24/7. Lost & found (512) 530-5678",
+     "key": "aus_airport"
+    },
+    {
+     "name": "DFW Airport",
+     "phone": "(972) 973-3112",
+     "source": "https://www.dfwairport.com/contact/",
+     "note": "Customer service",
+     "key": "dfw_airport"
+    },
+    {
+     "name": "SFO Airport",
+     "phone": "(650) 821-8211",
+     "source": "https://fly.sfo.gov/faqs",
+     "note": "Toll-free (800) 435-9736",
+     "key": "sfo_airport"
+    },
+    {
+     "name": "LAX information",
+     "phone": "(855) 463-5252",
+     "source": "https://www.flylax.com/lax-frequently-asked-questions-faq",
+     "note": "Lost & found (424) 646-5678",
+     "key": "lax_airport"
+    }
+   ]
+  },
+  {
+   "group": "Roads & tolls",
+   "items": [
+    {
+     "name": "Texas road conditions (TxDOT)",
+     "phone": "(800) 452-9292",
+     "source": "https://www.txdot.gov/about/newsroom/stories/be-your-own-traffic-reporter.html",
+     "note": "Also drivetexas.org",
+     "key": "txdot_roads"
+    },
+    {
+     "name": "California road & chain conditions (Caltrans)",
+     "phone": "(800) 427-7623",
+     "source": "https://dot.ca.gov/travel/winter-driving-tips",
+     "note": "Say the highway number, e.g. '50' or '5'",
+     "key": "caltrans_roads"
+    },
+    {
+     "name": "Sequoia NP roads & chains",
+     "phone": "(559) 565-3341",
+     "source": "https://www.nps.gov/seki/planyourvisit/road-conditions.htm",
+     "note": "Press 1, then 1. 24 h recording",
+     "key": "seki_roads"
+    },
+    {
+     "name": "Bay Area FasTrak (bridge tolls)",
+     "phone": "(877) 229-8655",
+     "source": "https://www.bayareafastrak.org/en/support/fastrak-basics-faq8.shtml",
+     "note": "",
+     "key": "fastrak"
+    }
+   ]
+  },
+  {
+   "group": "Hotels",
+   "items": [
+    {
+     "name": "Embassy Suites SFO Airport – Oyster Point",
+     "phone": "(650) 589-3400",
+     "source": "https://www.hilton.com/en/hotels/sfosoes-embassy-suites-san-francisco-airport-oyster-point/",
+     "note": "250 Gateway Blvd, South San Francisco. Ask for the airport shuttle",
+     "key": "embassy_suites_sfo"
+    },
+    {
+     "name": "Residence Inn LAX/Century Blvd",
+     "phone": "(310) 568-7700",
+     "source": "https://www.marriott.com/en-us/hotels/laxax-residence-inn-los-angeles-lax-century-boulevard/overview/",
+     "note": "5933 W Century Blvd. Free 24 h airport shuttle",
+     "key": "residence_inn_lax"
+    }
+   ]
+  },
+  {
+   "group": "Texas places",
+   "items": [
+    {
+     "name": "Buescher State Park",
+     "phone": "(512) 237-2241",
+     "source": "https://tpwd.texas.gov/state-parks/buescher",
+     "note": "100 Park Rd 1E, Smithville",
+     "key": "buescher"
+    },
+    {
+     "name": "McKinney Falls State Park",
+     "phone": "(512) 243-1643",
+     "source": "https://tpwd.texas.gov/state-parks/nearby/austin",
+     "note": "",
+     "key": "mckinney"
+    },
+    {
+     "name": "Texas State Parks reservations",
+     "phone": "(512) 389-8900",
+     "source": "https://tpwd.texas.gov/state-parks/mckinney-falls/fees-facilities/entrance-fees",
+     "note": "Mon–Fri",
+     "key": "tx_parks_reservations"
+    },
+    {
+     "name": "Jacob's Well Natural Area",
+     "phone": "(512) 214-4593",
+     "source": "https://www.hayscountytx.gov/444/Jacobs-Well-Natural-Area",
+     "note": "8 am–6 pm",
+     "key": "jacobs_well"
+    },
+    {
+     "name": "Wimberley Glassworks",
+     "phone": "(512) 393-3316",
+     "source": "https://wimberleyglassart.com/",
+     "note": "Glassblowing Thu–Sun 10:30–3:30",
+     "key": "wimberley_glass"
+    },
+    {
+     "name": "National Museum of the Pacific War",
+     "phone": "(830) 997-8600",
+     "source": "https://www.pacificwarmuseum.org/contact",
+     "note": "Closed Tuesdays",
+     "key": "pacific_war"
+    },
+    {
+     "name": "Fredericksburg Visitor Center",
+     "phone": "(830) 997-6523",
+     "source": "https://www.visitfredericksburgtx.com/plan/visitor-center/",
+     "note": "302 E Austin St",
+     "key": "fbg_visitor"
+    },
+    {
+     "name": "Space Center Houston",
+     "phone": "(281) 244-2100",
+     "source": "https://spacecenter.org/wp-content/uploads/2023/03/Media-Resources-One-Pager_1-26-23.pdf",
+     "note": "",
+     "key": "space_center"
+    },
+    {
+     "name": "Kemah Boardwalk",
+     "phone": "(877) 285-3624",
+     "source": "https://www.kemahboardwalk.com/visitor-info",
+     "note": "Local (281) 334-9880",
+     "key": "kemah"
+    },
+    {
+     "name": "Texas Capitol Visitors Center",
+     "phone": "(512) 305-8400",
+     "source": "https://tspb.texas.gov/plan/hours/hours.html",
+     "note": "Tour guides (512) 463-0063",
+     "key": "capitol_tours"
+    },
+    {
+     "name": "Bullock Texas State History Museum",
+     "phone": "(512) 936-8746",
+     "source": "https://www.thestoryoftexas.com/about/contact-us/",
+     "note": "",
+     "key": "bullock"
+    },
+    {
+     "name": "Radha Madhav Dham temple",
+     "phone": "(512) 288-7180",
+     "source": "https://shop.radhamadhavdham.org/contact-us/",
+     "note": "400 Barsana Rd, Austin",
+     "key": "radha_madhav"
+    }
+   ]
+  },
+  {
+   "group": "California places",
+   "items": [
+    {
+     "name": "Alcatraz City Cruises",
+     "phone": "(415) 981-7625",
+     "source": "https://alcatrazcitycruises.com/contact-us",
+     "note": "9 am–5 pm PT",
+     "key": "alcatraz"
+    },
+    {
+     "name": "BART trip info",
+     "phone": "(510) 465-2278",
+     "source": "https://www.bart.gov/contact",
+     "note": "Customer service (510) 464-7134",
+     "key": "bart"
+    },
+    {
+     "name": "SF 311 / Muni (from outside SF)",
+     "phone": "(415) 701-2311",
+     "source": "https://www.sf.gov/departments--311-customer-service-center",
+     "note": "Dial 311 inside SF",
+     "key": "muni"
+    },
+    {
+     "name": "Heavenly Mountain Resort",
+     "phone": "(775) 586-7000",
+     "source": "https://www.skiheavenly.com/footer/contactus.aspx",
+     "note": "Gondola info",
+     "key": "heavenly"
+    },
+    {
+     "name": "Monterey Bay Aquarium",
+     "phone": "(831) 648-4800",
+     "source": "https://www.montereybayaquarium.org/about-us/contact-us",
+     "note": "9 am–4 pm",
+     "key": "aquarium"
+    },
+    {
+     "name": "Griffith Observatory",
+     "phone": "(213) 473-0800",
+     "source": "https://griffithobservatory.org/about/",
+     "note": "Closed Mondays",
+     "key": "griffith"
+    },
+    {
+     "name": "Getty Center",
+     "phone": "(310) 440-7300",
+     "source": "https://www.getty.edu/about/contact/",
+     "note": "Free timed reservations",
+     "key": "getty"
+    },
+    {
+     "name": "Universal Studios Hollywood",
+     "phone": "(800) 864-8377",
+     "source": "https://www.universalstudioshollywood.com/tridiondata/ush/en/us/files/documents/universal_riders_guide.pdf",
+     "note": "Optional stop",
+     "key": "universal"
+    }
+   ]
+  },
+  {
+   "group": "Hospitals with ER near each stop",
+   "items": [
+    {
+     "name": "Dell Seton Medical Center (Austin ER)",
+     "phone": "(512) 324-7000",
+     "source": "https://healthcare.ascension.org/find-care/location/hospitals/austin--texas",
+     "note": "1500 Red River St. ER (512) 324-7010",
+     "key": "hosp_austin"
+    },
+    {
+     "name": "Baylor Scott & White Grapevine (near DFW ER)",
+     "phone": "(817) 481-1588",
+     "source": "https://www.bswhealth.com/locations/hospital/grapevine/phone-directory",
+     "note": "≈ 10 min from DFW",
+     "key": "hosp_dfw"
+    },
+    {
+     "name": "Ascension Seton Bastrop (ER)",
+     "phone": "(737) 881-7400",
+     "source": "https://healthcare.ascension.org/locations/texas/txaus/bastrop-ascension-seton-bastrop/departments/emergency",
+     "note": "630 W SH 71, Bastrop",
+     "key": "hosp_bastrop"
+    },
+    {
+     "name": "HCA Houston Healthcare Clear Lake (ER)",
+     "phone": "(281) 332-2511",
+     "source": "https://www.hcahoustonhealthcare.com/locations/clear-lake/about-us/contact-us",
+     "note": "Near Space Center",
+     "key": "hosp_houston"
+    },
+    {
+     "name": "Hill Country Memorial, Fredericksburg (ER)",
+     "phone": "(830) 997-4353",
+     "source": "https://www.hillcountrymemorial.org/",
+     "note": "1020 S State Hwy 16",
+     "key": "hosp_fbg"
+    },
+    {
+     "name": "Kaiser South San Francisco (ER)",
+     "phone": "(650) 742-2000",
+     "source": "https://healthy.kaiserpermanente.org/northern-california/facilities/south-san-francisco-medical-center-100319",
+     "note": "ER (650) 742-2511; open to non-members in emergencies",
+     "key": "hosp_sfo"
+    },
+    {
+     "name": "Barton Memorial Hospital, South Lake Tahoe (ER)",
+     "phone": "(530) 541-3420",
+     "source": "https://www.bartonhealth.org/find-a-location/locations-profile/barton-memorial-hospital/",
+     "note": "2170 South Ave",
+     "key": "hosp_tahoe"
+    },
+    {
+     "name": "Highland Hospital, Oakland (ER)",
+     "phone": "(510) 437-4800",
+     "source": "https://www.alamedahealthsystem.org/locations/highland-hospital/",
+     "note": "1411 E 31st St",
+     "key": "hosp_oakland"
+    },
+    {
+     "name": "Community Hospital of the Monterey Peninsula (ER)",
+     "phone": "(831) 624-5311",
+     "source": "https://www.montagehealth.org/locations/profile/community-hospital-monterey-peninsula/",
+     "note": "23625 Holman Hwy",
+     "key": "hosp_monterey"
+    },
+    {
+     "name": "Sierra View Medical Center, Porterville (ER near Camp Nelson)",
+     "phone": "(559) 784-1110",
+     "source": "https://www.sierra-view.com/contact-us/",
+     "note": "465 W Putnam Ave",
+     "key": "hosp_porterville"
+    },
+    {
+     "name": "Kaweah Health, Visalia (ER near Sequoia)",
+     "phone": "(559) 624-2000",
+     "source": "https://www.kaweahhealth.org/location/kaweah-health-medical-center",
+     "note": "400 W Mineral King Ave",
+     "key": "hosp_visalia"
+    },
+    {
+     "name": "Centinela Hospital, Inglewood (ER near LAX)",
+     "phone": "(310) 673-4660",
+     "source": "https://www.centinelamed.com/",
+     "note": "555 E Hardy St",
+     "key": "hosp_lax"
+    }
+   ]
+  }
  ],
  "bookingsApi": "https://script.google.com/macros/s/AKfycby4wJCq2euzOPYDSnrjPNStXa8xtgL_dD6qhAL8B70TRgN__8vvND_7hV7P-o9lP38RYA/exec",
  "bookingsEdit": "https://docs.google.com/spreadsheets/d/1jqNuzNnaSQSjtEj5n3MgIqRKl17hSZ4XGOqjkJ6pAh4/edit",

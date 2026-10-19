@@ -284,6 +284,23 @@ for i, (k, v) in enumerate(T.INSURANCE_PRIMER, start=1):
     op.merge_cells(start_row=r0 + i, start_column=2, end_row=r0 + i, end_column=4)
     op.row_dimensions[r0 + i].height = 42
 
+# ------------------------------------------------------------------ Phone numbers
+ph = wb.create_sheet("Phone Numbers", 3)
+header(ph, 1, ["Group", "Name", "Phone", "Notes", "Source"], [30, 52, 18, 50, 12])
+PH = T.phones()
+r_ = 2
+for g, keys in T.PHONE_GROUPS:
+    for k in keys:
+        if k not in PH:
+            continue
+        v = PH[k]
+        for c, val in enumerate([g, v["name"], v["phone"], v.get("note", "")], start=1):
+            cell = ph.cell(r_, c, val); cell.font = BODY; cell.alignment = WRAP; cell.border = THIN
+        ph.cell(r_, 3).font = BOLD
+        if v.get("source"):
+            sc = ph.cell(r_, 5, "Source ↗"); sc.hyperlink = v["source"]; sc.font = LINK
+        r_ += 1
+
 # ------------------------------------------------------------------ All links
 al = wb.create_sheet("All Links")
 header(al, 1, ["Key", "URL"], [20, 120])

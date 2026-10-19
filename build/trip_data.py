@@ -432,3 +432,56 @@ def budget_id(cat, item):
     if item in ID_ALIASES:
         return ID_ALIASES[item]
     return re.sub(r"[^a-z0-9]+", "-", f"{cat} {item}".lower()).strip("-")[:48].rstrip("-")
+
+# ---------------------------------------------------------------- phone numbers
+# Verified numbers live in phones.json (key -> {name, phone, source, note}); unverified ones are skipped.
+FIXED_PHONES = {
+    "emergency": {"name": "Emergency: police, fire, ambulance", "phone": "911", "note": "Free from any phone, works without a US SIM"},
+}
+PHONE_GROUPS = [
+    ("Emergency & health", ["emergency", "poison", "visitorguard", "uhc_global"]),
+    ("Indian consulates (lost passport, emergencies)", ["india_cg_houston_emerg", "india_cg_houston", "india_cg_sf_emerg", "india_cg_sf"]),
+    ("Airlines, bookings & insurance", ["southwest", "united", "expedia", "airbnb", "progressive_claims"]),
+    ("Airports", ["aus_airport", "dfw_airport", "sfo_airport", "lax_airport"]),
+    ("Roads & tolls", ["txdot_roads", "caltrans_roads", "seki_roads", "fastrak"]),
+    ("Hotels", ["embassy_suites_sfo", "residence_inn_lax"]),
+    ("Texas places", ["buescher", "mckinney", "tx_parks_reservations", "jacobs_well", "wimberley_glass", "pacific_war", "fbg_visitor", "space_center", "kemah", "capitol_tours", "bullock", "radha_madhav"]),
+    ("California places", ["alcatraz", "bart", "muni", "heavenly", "aquarium", "griffith", "getty", "universal"]),
+    ("Hospitals with ER near each stop", ["hosp_austin", "hosp_dfw", "hosp_bastrop", "hosp_houston", "hosp_fbg", "hosp_sfo", "hosp_tahoe", "hosp_oakland", "hosp_monterey", "hosp_porterville", "hosp_visalia", "hosp_lax"]),
+]
+DAY_PHONES = {  # numbers shown on each day card (911 is always added)
+    "2026-12-06": ["aus_airport", "dfw_airport", "txdot_roads", "hosp_dfw"],
+    "2026-12-07": ["hosp_austin"],
+    "2026-12-08": ["mckinney", "hosp_austin"],
+    "2026-12-09": ["capitol_tours", "hosp_austin"],
+    "2026-12-10": ["hosp_austin"],
+    "2026-12-11": ["radha_madhav", "hosp_austin"],
+    "2026-12-12": ["jacobs_well", "wimberley_glass", "fbg_visitor", "pacific_war", "hosp_fbg"],
+    "2026-12-13": ["buescher", "tx_parks_reservations", "hosp_bastrop"],
+    "2026-12-14": ["buescher", "hosp_bastrop"],
+    "2026-12-15": ["hosp_austin"],
+    "2026-12-16": ["hosp_austin"],
+    "2026-12-17": ["space_center", "kemah", "hosp_houston"],
+    "2026-12-18": ["southwest"],
+    "2026-12-19": ["southwest", "aus_airport", "sfo_airport", "embassy_suites_sfo", "hosp_sfo"],
+    "2026-12-20": ["embassy_suites_sfo", "sfo_airport", "caltrans_roads", "progressive_claims", "airbnb", "hosp_tahoe"],
+    "2026-12-21": ["caltrans_roads", "fastrak", "airbnb", "hosp_tahoe", "hosp_oakland"],
+    "2026-12-22": ["alcatraz", "bart", "muni", "hosp_oakland"],
+    "2026-12-23": ["aquarium", "caltrans_roads", "airbnb", "hosp_monterey", "hosp_porterville"],
+    "2026-12-24": ["seki_roads", "caltrans_roads", "hosp_porterville", "hosp_visalia"],
+    "2026-12-25": ["caltrans_roads", "residence_inn_lax", "hosp_lax"],
+    "2026-12-26": ["griffith", "getty", "universal", "residence_inn_lax", "hosp_lax"],
+    "2026-12-27": ["residence_inn_lax", "united", "lax_airport", "aus_airport"],
+    "2026-12-28": ["hosp_austin"], "2026-12-29": ["hosp_austin"], "2026-12-30": ["hosp_austin"],
+    "2026-12-31": ["hosp_austin"], "2027-01-01": ["radha_madhav", "hosp_austin"], "2027-01-02": ["hosp_austin"],
+    "2027-01-03": ["bullock", "hosp_austin"],
+    "2027-01-04": ["aus_airport", "dfw_airport", "txdot_roads", "india_cg_houston_emerg", "hosp_dfw"],
+}
+
+
+def phones():
+    import json as _j, os as _o, re as _r
+    path = _o.path.join(_o.path.dirname(_o.path.abspath(__file__)), "phones.json")
+    raw = _j.load(open(path)) if _o.path.exists(path) else {}
+    ok = {k: v for k, v in raw.items() if isinstance(v, dict) and _r.search(r"\d{3}.*\d{4}", str(v.get("phone", "")))}
+    return {**ok, **FIXED_PHONES}

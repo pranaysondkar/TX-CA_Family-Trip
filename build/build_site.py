@@ -36,6 +36,8 @@ for d in T.DAYS:
     d["plan"] = [public(p) for p in d["plan"]]
     d["tips"] = [public(t) for t in d["tips"]]
     d["links"] = [{"key": k, "url": T.L[k]} for k in d["links"] if k in T.L]
+    PH = T.phones()
+    d["phones"] = [dict(PH[k], key=k) for k in ["emergency"] + T.DAY_PHONES.get(d["date"], []) if k in PH]
     stops = T.ROUTES.get(d["date"])
     if stops:
         r = ROUTE_DATA[d["date"]]
@@ -64,7 +66,8 @@ data = dict(checked=T.PRICES_CHECKED, budget=T.BUDGET_TOTAL, days=days,
             categories=[dict(name=k, planned=round(v["planned"]), lean=round(v["lean"])) for k, v in cats.items()],
             todo=todo, lines=lines, options=[dict(section=sec, option=public(opt), price=price, details=public(det), status=st, url=T.L.get(lk))
                      for (sec, opt, price, det, st, lk) in T.OPTIONS],
-            insurancePrimer=T.INSURANCE_PRIMER, bookingsApi=T.BOOKINGS_API, bookingsEdit=T.BOOKINGS_EDIT, climate=T.CLIMATE, alertsNote=T.ALERTS_NOTE, credits=credits,
+            insurancePrimer=T.INSURANCE_PRIMER,
+            phoneGroups=[dict(group=g, items=[dict(T.phones()[k], key=k) for k in keys if k in T.phones()]) for g, keys in T.PHONE_GROUPS], bookingsApi=T.BOOKINGS_API, bookingsEdit=T.BOOKINGS_EDIT, climate=T.CLIMATE, alertsNote=T.ALERTS_NOTE, credits=credits,
             quick=[{"label": a, "url": T.L[b]} for a, b in [
                 ("Caltrans QuickMap", "quickmap"), ("Chain controls", "chains"), ("Sequoia roads", "seki_roads"),
                 ("Sequoia alerts", "seki_conditions"), ("NWS", "nws"), ("FasTrak toll pay", "fastrak"),
