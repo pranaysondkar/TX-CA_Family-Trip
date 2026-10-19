@@ -11756,8 +11756,8 @@ window.TRIP = {
    "tz": "America/Los_Angeles",
    "photo": "tahoe",
    "plan": [
-    "Free breakfast at the hotel",
-    "≈ 8 am hotel shuttle back to SFO → AirTrain to the Rental Car Center; pick up the minivan",
+    "Free breakfast at the hotel (check-out by 12 pm)",
+    "≈ 8:30 am hotel shuttle back to SFO → AirTrain to the Rental Car Center; pick up the minivan",
     "Drive US-101 → Bay Bridge → I-80 → US-50 (≈ 200 mi, ≈ 4 h); lunch in Placerville",
     "Check chain controls on Echo Summit before leaving",
     "Afternoon: Emerald Bay viewpoint (if open), Lakeview Commons sunset",
@@ -23146,8 +23146,8 @@ window.TRIP = {
   },
   {
    "name": "CA – Lodging",
-   "planned": 2198,
-   "lean": 1953
+   "planned": 2100,
+   "lean": 1855
   },
   {
    "name": "CA – Car & driving",
@@ -23502,11 +23502,11 @@ window.TRIP = {
    "id": "ca-lodging-springhill-suites-milpitas-suite-airb",
    "cat": "CA – Lodging",
    "item": "Embassy Suites SFO Airport – Oyster Point, breakfast incl.",
-   "planned": 315.78,
+   "planned": 217.5,
    "inPlan": true,
    "paid": null,
    "booked": true,
-   "lean": 315.78
+   "lean": 217.5
   },
   {
    "id": "ca-lodging-cozy-cabin-close-to-the-lake-south-la",
@@ -23923,7 +23923,7 @@ window.TRIP = {
   {
    "section": "Lodging Dec 19",
    "option": "Embassy Suites by Hilton SFO Airport – Oyster Point",
-   "price": "≈ $277 + tax",
+   "price": "$217.50 paid",
    "details": "Booked. Free breakfast, airport shuttle (check hours/fee).",
    "status": "Booked",
    "url": "https://www.google.com/maps/search/Embassy+Suites+by+Hilton+San+Francisco+Airport+Oyster+Point"
