@@ -13,6 +13,8 @@ L = {  # booking / info links
     "gf_out": "https://www.google.com/travel/flights?q=Flights%20to%20SFO%20from%20AUS%20on%202026-12-19%20one%20way%205%20adults%20nonstop",
     "gf_back": "https://www.google.com/travel/flights?q=Flights%20to%20AUS%20from%20LAX%20on%202026-12-27%20one%20way%205%20adults%20nonstop",
     "united": "https://www.united.com/en/us",
+    "southwest": "https://www.southwest.com/air/manage-reservation/index.html",
+    "southwest_bags": "https://www.southwest.com/help/baggage/checked-bags",
     "united_bags": "https://www.united.com/en/us/fly/baggage/checked-bags.html",
     "kayak_ca_van": "https://www.kayak.com/cars/SFO/LAX/2026-12-19-09h/2026-12-27-06h?sort=price_a&fs=carclass=VAN",
     "kayak_ca_suv": "https://www.kayak.com/cars/SFO/LAX/2026-12-19-09h/2026-12-27-06h?sort=price_a&fs=carclass=SUV",
@@ -122,10 +124,10 @@ BUDGET = [
     ("Insurance & phones", "Visitor medical insurance, 3 people, 30 days (if not yet bought)", "Dec 6–Jan 4", 3, 150, 0, "To book", None, "ins_insubuy", "Not legally required for a US visitor visa, but strongly recommended: one ER visit can cost $5k+. Buy before they leave Mumbai, covering the whole stay. Look for ≥ $100k medical per person, ≤ $250 deductible, a comprehensive (not fixed-benefit) plan, and acute onset of pre-existing conditions. Sample: age 60, 30 days, $100k ≈ $195 (NerdWallet). Compare options in the Booking Options tab."),
     ("Insurance & phones", "US prepaid SIM / eSIM for 3 visitors (1 month)", "Dec 6–Jan 4", 3, 25, 0, "Estimate", None, None, "Tello / Mint / T-Mobile prepaid style plans. Or India roaming pack."),
 
-    ("CA – Flights", "United AUS→SFO 6:05a–8:12a nonstop, Economy (5)", "Sat Dec 19", 1, 1325, 0, "To book", 1025, "gf_out", "Live Google Flights total incl. taxes for 5. Basic Economy $1,025 but NO carry-on bag. 8:40a nonstop is $1,831."),
+    ("CA – Flights", "Southwest AUS→SFO 6:50p–10:20p via Burbank, Basic (5)", "Sat Dec 19", 1, 891, 0, "Booked", None, "southwest", "Booked (WN2662 + WN3074, change planes in Burbank). Planned figure is the Google Flights price seen Oct 18; enter the actual amount paid on the website."),
     ("CA – Flights", "United LAX→AUS 8:40a–1:40p nonstop, Economy (5)", "Sun Dec 27", 1, 1698, 0, "To book", 1422, "gf_back", "Live Google Flights total incl. taxes for 5. Basic Economy $1,422 (no carry-on). Southwest 10:40a 1-stop $1,291."),
-    ("CA – Flights", "United checked bags, $50 first bag (3 bags each way)", "Dec 19, 27", 6, 50, 0, "Pay at check-in", 10 * 50, "united_bags", "United shows $50 first checked bag. Economy includes 1 carry-on each. Lean = Basic Economy needs a bag for all 5."),
-    ("CA – Flights", "Uber XL home ↔ AUS (4:15 am + afternoon return)", "Dec 19, 27", 2, 35, 0.2, "Estimate", None, "uber", "Home is ~10 min from AUS. Alternative: AUS economy parking $14/day × 9 = $126."),
+    ("CA – Flights", "Checked bags: Southwest $35 out + United $50 back (3 bags each way)", "Dec 19, 27", 1, 3 * 35 + 3 * 50, 0, "Pay at check-in", 5 * 35 + 5 * 50, "southwest_bags", "Southwest: $35 first bag, $45 second (Rapid Rewards credit card = 1 free bag). United: $50 first bag; Economy includes a carry-on. Lean = United Basic Economy needs a bag for all 5."),
+    ("CA – Flights", "Uber XL home ↔ AUS (Dec 19 evening + Dec 27 return)", "Dec 19, 27", 2, 35, 0.2, "Estimate", None, "uber", "Home is ~10 min from AUS. Alternative: AUS economy parking $14/day × 9 = $126."),
 
     ("CA – Lodging", "SpringHill Suites Milpitas suite (Airbnb), breakfast incl.", "Dec 19 (1 night)", 1, 132, 0.14, "To book", None, "milpitas", "From the family planning sheet. $132 incl. fees (was $149). 2 queens + trundle. +$25/night refundable deposit."),
     ("CA – Lodging", "Milpitas parking", "Dec 19", 1, 15, 0, "Pay there", None, "milpitas", "$15/night on-site."),
@@ -158,7 +160,8 @@ BUDGET = [
 # ---------------------------------------------------------------- options to compare
 OPTIONS = [
     # (section, option, price, details, status, link_key)
-    ("Flights AUS→SFO Dec 19", "United 6:05a–8:12a nonstop, Economy", "$1,325 / 5", "Recommended. Full first day. 1 carry-on each.", "Chosen", "gf_out"),
+    ("Flights AUS→SFO Dec 19", "Southwest 6:50p–10:20p via Burbank, Basic", "≈ $891 / 5", "Booked. Arrives SFO 10:20 pm; ~midnight at the Milpitas hotel.", "Booked", "southwest"),
+    ("Flights AUS→SFO Dec 19", "United 6:05a–8:12a nonstop, Economy", "$1,325 / 5", "Full first day in SF. 1 carry-on each.", "Alt", "gf_out"),
     ("Flights AUS→SFO Dec 19", "United 6:05a nonstop, Basic Economy", "$1,025 / 5", "No carry-on, last to board, no seat choice.", "Lean", "gf_out"),
     ("Flights AUS→SFO Dec 19", "United 8:40a–10:48a nonstop, Economy", "$1,831 / 5", "Easier wake-up, +$506.", "Alt", "gf_out"),
     ("Flights AUS→SFO Dec 19", "Southwest 11:05a–1:05p nonstop", "$1,217 / 5", "Southwest now charges bags.", "Alt", "gf_out"),
@@ -264,24 +267,31 @@ DAYS = [
        "space-center", drive="≈ 370 mi round trip, 7 h", place="Houston", lat=29.5518, lon=-95.0977,
        tips=["4 travelers go; 1 stays home in Austin", "Tram tour seats go first-come. Arrive at opening"], links=["space_center", "space_hours", "kemah"]),
     tx("2026-12-18", "Pack for California",
-       ["Laundry & packing (3 checked bags + carry-ons)", "Check in online for UA flight (24 h before)", "Early night: wake-up 3:30 am"],
+       ["Laundry & packing (3 checked bags + carry-ons)", "6:50 pm: check in online for the Southwest flight (opens 24 h before) so everyone gets seats", "Normal night. The flight is tomorrow evening"],
        "zilker", tips=["Pack warm layers. Tahoe & Sequoia nights are ≈ 18°F (−8°C)", "Pack all regular medicines for the whole trip + a few spare days, in carry-on bags, with prescriptions and a doctor's letter", "Bring passports for the 3 visitors (needed for Sequoia nonresident pass)"],
-       links=["united"]),
+       links=["southwest"]),
 
-    ca("2026-12-19", "Fly to SF → Golden Gate → Milpitas",
-       ["4:15 am Uber XL to AUS · United 6:05 am → SFO 8:12 am", "AirTrain to SFO Rental Car Center, pick up minivan", "Golden Gate Bridge: Battery Spencer / Vista Point (Marin side), Crissy Field", "Late lunch, then drive to Milpitas (≈ 1 h)", "Check in 4 pm, pool & early dinner"],
-       "golden-gate", "San Francisco → Milpitas", 37.4323, -121.8996, "SpringHill Suites Milpitas", "≈ 80 mi",
-       tips=["Never leave bags visible in the car. SF break-ins target rental cars", "Golden Gate toll is billed southbound only: pay online within 48 h"],
-       links=["gf_out", "milpitas", "fastrak", "ggb_rental"]),
+    ca("2026-12-19", "Evening flight to San Francisco → Milpitas",
+       ["Relaxed day at home; final packing, early dinner",
+        "4:45 pm Uber XL to AUS (≈ 10 min); drop bags by 5:50 pm",
+        "6:50 pm Southwest AUS → Burbank, change planes → SFO 10:20 pm (5 h 30 m)",
+        "≈ 11 pm AirTrain to the SFO Rental Car Center (open 24 h), pick up the minivan",
+        "Drive to SpringHill Suites Milpitas (35 mi, ≈ 45 min), arrive ≈ midnight"],
+       "golden-gate", "Austin → SFO → Milpitas", 37.6213, -122.3790, "SpringHill Suites Milpitas", "≈ 35 mi late night",
+       tips=["Message the hotel/host that you'll arrive ≈ 12:15 am (listed check-in window ends at midnight)",
+             "Pack snacks and dinner for the Burbank connection; regular medicines in carry-on",
+             "Golden Gate Bridge moves to Dec 21 (sunset stop on the way to Oakland)"],
+       links=["southwest", "milpitas", "kayak_ca_van"]),
     ca("2026-12-20", "Milpitas → South Lake Tahoe",
        ["Breakfast at hotel, leave 8:30 am", "I-680 → I-80 → US-50 (217 mi, ≈ 4.5 h); lunch in Placerville", "Check chain controls on Echo Summit before leaving", "Afternoon: Emerald Bay viewpoint (if open), Lakeview Commons sunset", "Evening: Heavenly Village stroll"],
        "tahoe", "South Lake Tahoe", 38.9399, -119.9772, "Cozy Cabin (Airbnb)", "217 mi, 4.5 h",
        tips=["Benicia Bridge toll northbound $8.50", "R1/R2 chain controls are common in December"],
        links=["tahoe_cabin", "quickmap", "chains", "heavenly"]),
-    ca("2026-12-21", "Tahoe morning → Oakland",
-       ["Lakeside walk and snow play in the morning", "Leave ≈ 11 am: US-50 → I-80 to Oakland (182 mi, ≈ 4 h)", "Evening walk around Lake Merritt; groceries"],
-       "oakland", "Oakland", 37.8044, -122.2711, "Oakland 2BR (Airbnb)", "182 mi, 4 h",
-       tips=["Carquinez Bridge toll westbound $8.50"], links=["oakland", "quickmap"]),
+    ca("2026-12-21", "Tahoe → Golden Gate Bridge at sunset → Oakland",
+       ["Lakeside walk and snow play in the morning", "Leave by 10:30 am: US-50 → I-80 toward the Bay (≈ 4 h with a lunch stop)", "≈ 3:30 pm cross the Bay Bridge into SF → Crissy Field for Golden Gate Bridge views; sunset ≈ 4:55 pm", "Back over the Bay Bridge to Oakland (≈ 30 min); groceries"],
+       "golden-gate", "Tahoe → San Francisco → Oakland", 37.8040, -122.4660, "Oakland 2BR (Airbnb)", "≈ 200 mi, 4.5 h",
+       tips=["Tolls: Carquinez Bridge $8.50 + Bay Bridge into SF $8.50; pay online at FasTrak within 48 h", "Too tired? Skip Crissy Field and go straight to Oakland; Golden Gate views also from the Alcatraz ferry on Dec 22", "Never leave bags visible in the parked car"],
+       links=["oakland", "quickmap", "fastrak"]),
     ca("2026-12-22", "San Francisco by BART (car stays parked)",
        ["BART to Embarcadero · Ferry Building", "Alcatraz day tour (book weeks ahead)", "Pier 39 sea lions, Fisherman's Wharf", "Cable car ride (Muni Visitor Passport)", "Lombard Street, Union Square tree & Chinatown", "BART back to Oakland"],
        "alcatraz", "San Francisco", 37.7749, -122.4194, "Oakland 2BR (Airbnb)", "No driving",
@@ -358,9 +368,9 @@ ROUTES = {  # date -> ordered stops
     "2026-12-14": ["BUE", "AUS"],
     "2026-12-15": ["AUS", "BON", "AUS"],
     "2026-12-17": ["AUS", "SCH", "KEM", "AUS"],
-    "2026-12-19": ["SFO", "BAT", "CRI", "MIL"],
+    "2026-12-19": ["SFO", "MIL"],
     "2026-12-20": ["MIL", "PLA", "SLT", "EMB"],
-    "2026-12-21": ["SLT", "OAK"],
+    "2026-12-21": ["SLT", "CRI", "OAK"],
     "2026-12-23": ["OAK", "MBA", "LC", "CAR", "POR", "CN"],
     "2026-12-24": ["CN", "GS", "CN"],
     "2026-12-25": ["CN", "RI", "SMP"],
@@ -405,7 +415,16 @@ BOOKINGS_TAB = "Bookings"
 BOOKINGS_EDIT = "https://docs.google.com/spreadsheets/d/1jqNuzNnaSQSjtEj5n3MgIqRKl17hSZ4XGOqjkJ6pAh4/edit"
 
 
+ID_ALIASES = {  # renamed budget lines keep the ID already used in the Google Sheet
+    "Southwest AUS→SFO 6:50p–10:20p via Burbank, Basic (5)": "ca-flights-united-aus-sfo-6-05a-8-12a-nonstop-ec",
+    "Checked bags: Southwest $35 out + United $50 back (3 bags each way)": "ca-flights-united-checked-bags-50-first-bag-3-ba",
+    "Uber XL home ↔ AUS (Dec 19 evening + Dec 27 return)": "ca-flights-uber-xl-home-aus-4-15-am-afternoon-re",
+}
+
+
 def budget_id(cat, item):
     """Stable ID that links a budget line to its row in the Bookings tab. Don't change once imported."""
     import re
+    if item in ID_ALIASES:
+        return ID_ALIASES[item]
     return re.sub(r"[^a-z0-9]+", "-", f"{cat} {item}".lower()).strip("-")[:48].rstrip("-")
