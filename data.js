@@ -12114,7 +12114,7 @@ window.TRIP = {
    "links": [
     {
      "key": "kayak_ca_van",
-     "url": "https://www.kayak.com/cars/SFO/LAX/2026-12-20-08h/2026-12-27-06h?sort=price_a&fs=carclass=VAN"
+     "url": "https://www.kayak.com/cars/SFO/LAX/2026-12-20-08h/2026-12-26-16h?sort=price_a&fs=carclass=VAN"
     },
     {
      "key": "tahoe_cabin",
@@ -18486,12 +18486,13 @@ window.TRIP = {
    ],
    "tips": [
     "I-5 Grapevine can close for snow; check QuickMap",
-    "Griffith Observatory is closed on Dec 25"
+    "Griffith Observatory is closed on Dec 25",
+    "7:10 pm tonight: check in for tomorrow's Delta flight on the app to get seats"
    ],
    "links": [
     {
      "key": "resinn",
-     "url": "https://www.booking.com/hotel/us/residence-inn-by-marriott-los-angeles-lax-century-boulevard.html?checkin=2026-12-25&checkout=2026-12-27&group_adults=5&no_rooms=1"
+     "url": "https://www.booking.com/hotel/us/residence-inn-by-marriott-los-angeles-lax-century-boulevard.html?checkin=2026-12-25&checkout=2026-12-26&group_adults=5&no_rooms=1"
     },
     {
      "key": "santa_monica",
@@ -18522,6 +18523,13 @@ window.TRIP = {
      "source": "https://www.marriott.com/en-us/hotels/laxax-residence-inn-los-angeles-lax-century-boulevard/overview/",
      "note": "5933 W Century Blvd. Free 24 h airport shuttle",
      "key": "residence_inn_lax"
+    },
+    {
+     "name": "Delta Air Lines",
+     "phone": "(800) 221-1212",
+     "source": "https://www.delta.com/content/www/en_US/support/talk-to-us/reservations-and-refunds/reservations-offices.html",
+     "note": "Reservations & changes",
+     "key": "delta"
     },
     {
      "name": "Centinela Hospital, Inglewood (ER near LAX)",
@@ -20081,23 +20089,28 @@ window.TRIP = {
   {
    "date": "2026-12-26",
    "phase": "California",
-   "place": "Los Angeles",
-   "title": "Griffith Observatory · Hollywood · Getty",
-   "stay": "Residence Inn LAX/Century Blvd",
-   "drive": "≈ 60 mi local",
+   "place": "Los Angeles → Austin",
+   "title": "Last LA day → evening flight home",
+   "stay": "Home (Austin), late night",
+   "drive": "≈ 55 mi local",
    "lat": 34.1184,
    "lon": -118.3004,
    "tz": "America/Los_Angeles",
    "photo": "griffith",
    "plan": [
-    "Griffith Observatory (opens 10 am Sat, free entry)",
-    "Hollywood Walk of Fame & TCL Chinese Theatre",
-    "Hollywood Sign view from Lake Hollywood Park",
-    "Getty Center afternoon & sunset (free, timed reservation)",
-    "Refuel the van near LAX"
+    "Breakfast at the hotel, check out ≈ 9 am (bags in the van, out of sight)",
+    "10:00 Griffith Observatory (opens 10 am Sat, free)",
+    "11:45 Hollywood Walk of Fame & TCL Chinese Theatre, lunch; Hollywood Sign view from Lake Hollywood Park",
+    "Optional if on time: Getty Center (free, timed reservation), 2:30–3:30",
+    "≈ 4:15 refuel near LAX, return the van at the LAX rental car return by 4:30 pm",
+    "Shuttle to the terminal, drop bags by 6:00 · Delta 7:10 pm → Austin 12:09 am",
+    "Uber XL home, ≈ 12:45 am"
    ],
    "tips": [
-    "Optional instead: Universal Studios (~$160 pp)"
+    "Check in on the Delta app at 7:10 pm on Dec 25 to get seat assignments (Basic: seats are assigned at check-in)",
+    "Delta Basic includes a carry-on; checked bags $45 each",
+    "Hollywood & Griffith lots are break-in targets. Keep luggage covered in the trunk",
+    "Skip the Getty if traffic is heavy: the van must be back by ≈ 4:30 pm"
    ],
    "links": [
     {
@@ -20109,8 +20122,16 @@ window.TRIP = {
      "url": "https://www.getty.edu/visit/center/"
     },
     {
-     "key": "universal",
-     "url": "https://www.universalstudioshollywood.com/web/en/us/theme-park-tickets"
+     "key": "delta",
+     "url": "https://www.delta.com/"
+    },
+    {
+     "key": "delta_basic",
+     "url": "https://www.delta.com/us/en/basic-economy/overview"
+    },
+    {
+     "key": "uber",
+     "url": "https://www.uber.com/us/en/ride/uberxl/"
     }
    ],
    "phones": [
@@ -20135,18 +20156,32 @@ window.TRIP = {
      "key": "getty"
     },
     {
-     "name": "Universal Studios Hollywood",
-     "phone": "(800) 864-8377",
-     "source": "https://www.universalstudioshollywood.com/tridiondata/ush/en/us/files/documents/universal_riders_guide.pdf",
-     "note": "Optional stop",
-     "key": "universal"
-    },
-    {
      "name": "Residence Inn LAX/Century Blvd",
      "phone": "(310) 568-7700",
      "source": "https://www.marriott.com/en-us/hotels/laxax-residence-inn-los-angeles-lax-century-boulevard/overview/",
      "note": "5933 W Century Blvd. Free 24 h airport shuttle",
      "key": "residence_inn_lax"
+    },
+    {
+     "name": "Delta Air Lines",
+     "phone": "(800) 221-1212",
+     "source": "https://www.delta.com/content/www/en_US/support/talk-to-us/reservations-and-refunds/reservations-offices.html",
+     "note": "Reservations & changes",
+     "key": "delta"
+    },
+    {
+     "name": "LAX information",
+     "phone": "(855) 463-5252",
+     "source": "https://www.flylax.com/lax-frequently-asked-questions-faq",
+     "note": "Lost & found (424) 646-5678",
+     "key": "lax_airport"
+    },
+    {
+     "name": "Austin airport (AUS)",
+     "phone": "(512) 530-2242",
+     "source": "https://www.flyaustin.com/contact",
+     "note": "24/7. Lost & found (512) 530-5678",
+     "key": "aus_airport"
     },
     {
      "name": "Centinela Hospital, Inglewood (ER near LAX)",
@@ -20179,9 +20214,9 @@ window.TRIP = {
       "lon": -118.4741
      },
      {
-      "name": "Residence Inn LAX",
-      "lat": 33.9455,
-      "lon": -118.387
+      "name": "LAX airport",
+      "lat": 33.9416,
+      "lon": -118.4085
      }
     ],
     "line": [
@@ -21670,92 +21705,112 @@ window.TRIP = {
       -118.3923
      ],
      [
-      33.9777,
-      -118.3899
+      33.9775,
+      -118.3902
      ],
      [
-      33.9743,
-      -118.3826
+      33.9763,
+      -118.3897
      ],
      [
-      33.9723,
-      -118.3796
+      33.9751,
+      -118.3901
      ],
      [
-      33.9715,
-      -118.3784
+      33.975,
+      -118.3938
      ],
      [
-      33.9705,
-      -118.3795
+      33.9726,
+      -118.3948
      ],
      [
-      33.9689,
-      -118.3812
+      33.9717,
+      -118.3949
      ],
      [
-      33.9664,
-      -118.3841
+      33.9706,
+      -118.3952
      ],
      [
-      33.9651,
-      -118.3853
+      33.9682,
+      -118.3958
      ],
      [
-      33.9644,
-      -118.3853
+      33.9669,
+      -118.3961
      ],
      [
-      33.9604,
-      -118.3855
+      33.9641,
+      -118.3962
      ],
      [
-      33.9595,
-      -118.3855
+      33.9634,
+      -118.3962
      ],
      [
-      33.9562,
-      -118.3857
+      33.9614,
+      -118.3963
      ],
      [
-      33.9546,
-      -118.3858
+      33.9601,
+      -118.3963
      ],
      [
-      33.9526,
-      -118.3859
+      33.9581,
+      -118.3963
      ],
      [
-      33.9513,
-      -118.3859
+      33.9563,
+      -118.3963
      ],
      [
-      33.95,
-      -118.3859
+      33.9549,
+      -118.3963
      ],
      [
-      33.9484,
-      -118.386
+      33.9534,
+      -118.3963
+     ],
+     [
+      33.9524,
+      -118.3964
+     ],
+     [
+      33.9493,
+      -118.3963
      ],
      [
       33.9473,
-      -118.386
+      -118.3963
      ],
      [
-      33.9461,
-      -118.386
+      33.9455,
+      -118.3964
      ],
      [
-      33.9456,
-      -118.387
+      33.9455,
+      -118.3988
      ],
      [
-      33.9456,
-      -118.387
+      33.9455,
+      -118.401
+     ],
+     [
+      33.9448,
+      -118.4075
+     ],
+     [
+      33.9444,
+      -118.4083
+     ],
+     [
+      33.9425,
+      -118.4078
      ]
     ],
-    "miles": 52,
-    "minutes": 91,
+    "miles": 53,
+    "minutes": 92,
     "legs": [
      {
       "miles": 19,
@@ -21770,40 +21825,30 @@ window.TRIP = {
       "minutes": 23
      },
      {
-      "miles": 11,
-      "minutes": 16
+      "miles": 12,
+      "minutes": 17
      }
     ],
-    "gmaps": "https://www.google.com/maps/dir/?api=1&origin=33.9455,-118.387&destination=33.9455,-118.387&travelmode=driving&waypoints=34.1184,-118.3004|34.1022,-118.3409|34.078,-118.4741"
+    "gmaps": "https://www.google.com/maps/dir/?api=1&origin=33.9455,-118.387&destination=33.9416,-118.4085&travelmode=driving&waypoints=34.1184,-118.3004|34.1022,-118.3409|34.078,-118.4741"
    }
   },
   {
    "date": "2026-12-27",
-   "phase": "California",
-   "place": "LAX → Austin",
-   "title": "Fly home LAX → AUS",
+   "phase": "Texas",
+   "place": "Austin",
+   "title": "Rest day after the late flight",
    "stay": "Home (Austin)",
-   "drive": "≈ 5 mi",
-   "lat": 33.9416,
-   "lon": -118.4085,
-   "tz": "America/Los_Angeles",
-   "photo": "hollywood-sign",
+   "drive": "",
+   "lat": 30.2672,
+   "lon": -97.7431,
+   "tz": "America/Chicago",
+   "photo": "austin-skyline",
    "plan": [
-    "5:30 am return van at LAX rental car center",
-    "United 8:40 am → AUS 1:40 pm",
-    "Uber XL home, rest"
+    "Sleep in after landing ≈ 12:09 am",
+    "Unpack, laundry, rest"
    ],
    "tips": [],
-   "links": [
-    {
-     "key": "gf_back",
-     "url": "https://www.google.com/travel/flights?q=Flights%20to%20AUS%20from%20LAX%20on%202026-12-27%20one%20way%205%20adults%20nonstop"
-    },
-    {
-     "key": "uber",
-     "url": "https://www.uber.com/us/en/ride/uberxl/"
-    }
-   ],
+   "links": [],
    "phones": [
     {
      "name": "Emergency: police, fire, ambulance",
@@ -21812,289 +21857,19 @@ window.TRIP = {
      "key": "emergency"
     },
     {
-     "name": "Residence Inn LAX/Century Blvd",
-     "phone": "(310) 568-7700",
-     "source": "https://www.marriott.com/en-us/hotels/laxax-residence-inn-los-angeles-lax-century-boulevard/overview/",
-     "note": "5933 W Century Blvd. Free 24 h airport shuttle",
-     "key": "residence_inn_lax"
-    },
-    {
-     "name": "United Airlines",
-     "phone": "(800) 864-8331",
-     "source": "https://cloud.enews.united.com/text-messaging-terms.html",
-     "note": "Reservations & changes",
-     "key": "united"
-    },
-    {
-     "name": "LAX information",
-     "phone": "(855) 463-5252",
-     "source": "https://www.flylax.com/lax-frequently-asked-questions-faq",
-     "note": "Lost & found (424) 646-5678",
-     "key": "lax_airport"
-    },
-    {
-     "name": "Austin airport (AUS)",
-     "phone": "(512) 530-2242",
-     "source": "https://www.flyaustin.com/contact",
-     "note": "24/7. Lost & found (512) 530-5678",
-     "key": "aus_airport"
+     "name": "Dell Seton Medical Center (Austin ER)",
+     "phone": "(512) 324-7000",
+     "source": "https://healthcare.ascension.org/find-care/location/hospitals/austin--texas",
+     "note": "1500 Red River St. ER (512) 324-7010",
+     "key": "hosp_austin"
     }
-   ],
-   "route": {
-    "stops": [
-     {
-      "name": "Residence Inn LAX",
-      "lat": 33.9455,
-      "lon": -118.387
-     },
-     {
-      "name": "LAX airport",
-      "lat": 33.9416,
-      "lon": -118.4085
-     }
-    ],
-    "line": [
-     [
-      33.9456,
-      -118.387
-     ],
-     [
-      33.9456,
-      -118.3887
-     ],
-     [
-      33.9456,
-      -118.389
-     ],
-     [
-      33.9456,
-      -118.39
-     ],
-     [
-      33.9456,
-      -118.3901
-     ],
-     [
-      33.9456,
-      -118.3902
-     ],
-     [
-      33.9456,
-      -118.3903
-     ],
-     [
-      33.9456,
-      -118.3912
-     ],
-     [
-      33.9456,
-      -118.3914
-     ],
-     [
-      33.9456,
-      -118.3918
-     ],
-     [
-      33.9456,
-      -118.3919
-     ],
-     [
-      33.9456,
-      -118.3925
-     ],
-     [
-      33.9456,
-      -118.3928
-     ],
-     [
-      33.9456,
-      -118.393
-     ],
-     [
-      33.9456,
-      -118.3932
-     ],
-     [
-      33.9456,
-      -118.3934
-     ],
-     [
-      33.9456,
-      -118.3939
-     ],
-     [
-      33.9456,
-      -118.3946
-     ],
-     [
-      33.9456,
-      -118.3947
-     ],
-     [
-      33.9456,
-      -118.3953
-     ],
-     [
-      33.9456,
-      -118.3955
-     ],
-     [
-      33.9456,
-      -118.3958
-     ],
-     [
-      33.9455,
-      -118.396
-     ],
-     [
-      33.9455,
-      -118.3961
-     ],
-     [
-      33.9455,
-      -118.3963
-     ],
-     [
-      33.9455,
-      -118.3964
-     ],
-     [
-      33.9455,
-      -118.3966
-     ],
-     [
-      33.9455,
-      -118.3968
-     ],
-     [
-      33.9455,
-      -118.3976
-     ],
-     [
-      33.9455,
-      -118.3978
-     ],
-     [
-      33.9455,
-      -118.3985
-     ],
-     [
-      33.9455,
-      -118.3988
-     ],
-     [
-      33.9455,
-      -118.3994
-     ],
-     [
-      33.9455,
-      -118.3995
-     ],
-     [
-      33.9455,
-      -118.3999
-     ],
-     [
-      33.9455,
-      -118.4002
-     ],
-     [
-      33.9455,
-      -118.4008
-     ],
-     [
-      33.9455,
-      -118.401
-     ],
-     [
-      33.9455,
-      -118.401
-     ],
-     [
-      33.9454,
-      -118.4018
-     ],
-     [
-      33.9453,
-      -118.4033
-     ],
-     [
-      33.9451,
-      -118.405
-     ],
-     [
-      33.9449,
-      -118.4065
-     ],
-     [
-      33.9448,
-      -118.4075
-     ],
-     [
-      33.9448,
-      -118.4077
-     ],
-     [
-      33.9448,
-      -118.4079
-     ],
-     [
-      33.9448,
-      -118.4081
-     ],
-     [
-      33.9447,
-      -118.4082
-     ],
-     [
-      33.9446,
-      -118.4083
-     ],
-     [
-      33.9444,
-      -118.4083
-     ],
-     [
-      33.944,
-      -118.4083
-     ],
-     [
-      33.9428,
-      -118.4081
-     ],
-     [
-      33.9427,
-      -118.408
-     ],
-     [
-      33.9426,
-      -118.408
-     ],
-     [
-      33.9425,
-      -118.4078
-     ],
-     [
-      33.9425,
-      -118.4078
-     ]
-    ],
-    "miles": 1,
-    "minutes": 2,
-    "legs": [
-     {
-      "miles": 1,
-      "minutes": 2
-     }
-    ],
-    "gmaps": "https://www.google.com/maps/dir/?api=1&origin=33.9455,-118.387&destination=33.9416,-118.4085&travelmode=driving"
-   }
+   ]
   },
   {
    "date": "2026-12-28",
    "phase": "Texas",
    "place": "Austin",
-   "title": "Rest & laundry day",
+   "title": "Easy day + Mueller Lake Park",
    "stay": "Home (Austin)",
    "drive": "",
    "lat": 30.2672,
@@ -22102,8 +21877,8 @@ window.TRIP = {
    "tz": "America/Chicago",
    "photo": "san-antonio",
    "plan": [
-    "Sleep in, unpack",
-    "Evening walk at Mueller Lake Park"
+    "Groceries and errands",
+    "Evening walk around Mueller Lake Park"
    ],
    "tips": [],
    "links": [],
@@ -23962,13 +23737,13 @@ window.TRIP = {
   },
   {
    "name": "CA – Flights",
-   "planned": 2928,
-   "lean": 2822
+   "planned": 2069,
+   "lean": 2069
   },
   {
    "name": "CA – Lodging",
-   "planned": 2100,
-   "lean": 1855
+   "planned": 1770,
+   "lean": 1618
   },
   {
    "name": "CA – Car & driving",
@@ -23982,7 +23757,7 @@ window.TRIP = {
   },
   {
    "name": "CA – Food & misc",
-   "planned": 2086,
+   "planned": 1958,
    "lean": 1424
   }
  ],
@@ -24020,14 +23795,6 @@ window.TRIP = {
    "cost": 450
   },
   {
-   "id": "ca-flights-united-lax-aus-8-40a-1-40p-nonstop-ec",
-   "item": "United LAX→AUS 8:40a–1:40p nonstop, Economy (5)",
-   "dates": "Sun Dec 27",
-   "status": "To book",
-   "url": "https://www.google.com/travel/flights?q=Flights%20to%20AUS%20from%20LAX%20on%202026-12-27%20one%20way%205%20adults%20nonstop",
-   "cost": 1698
-  },
-  {
    "id": "ca-lodging-cozy-cabin-close-to-the-lake-south-la",
    "item": "Cozy Cabin close to the lake, South Lake Tahoe",
    "dates": "Dec 20 (1 night)",
@@ -24045,18 +23812,18 @@ window.TRIP = {
   },
   {
    "id": "ca-lodging-residence-inn-lax-century-blvd-larger",
-   "item": "Residence Inn LAX/Century Blvd, larger studio (2Q + sofa), breakfast",
-   "dates": "Dec 25–27 (2 nights)",
+   "item": "Residence Inn LAX/Century Blvd, larger studio, 1 night, breakfast",
+   "dates": "Dec 25 (1 night)",
    "status": "To book",
-   "url": "https://www.booking.com/hotel/us/residence-inn-by-marriott-los-angeles-lax-century-boulevard.html?checkin=2026-12-25&checkout=2026-12-27&group_adults=5&no_rooms=1",
-   "cost": 542
+   "url": "https://www.booking.com/hotel/us/residence-inn-by-marriott-los-angeles-lax-century-boulevard.html?checkin=2026-12-25&checkout=2026-12-26&group_adults=5&no_rooms=1",
+   "cost": 271
   },
   {
    "id": "ca-car-driving-one-way-minivan-sfo-lax-chrysler",
    "item": "One-way minivan SFO → LAX (Chrysler Pacifica or similar)",
-   "dates": "Dec 20–27",
+   "dates": "Dec 20–26",
    "status": "To book",
-   "url": "https://www.kayak.com/cars/SFO/LAX/2026-12-20-08h/2026-12-27-06h?sort=price_a&fs=carclass=VAN",
+   "url": "https://www.kayak.com/cars/SFO/LAX/2026-12-20-08h/2026-12-26-16h?sort=price_a&fs=carclass=VAN",
    "cost": 900
   },
   {
@@ -24292,32 +24059,32 @@ window.TRIP = {
   {
    "id": "ca-flights-united-lax-aus-8-40a-1-40p-nonstop-ec",
    "cat": "CA – Flights",
-   "item": "United LAX→AUS 8:40a–1:40p nonstop, Economy (5)",
-   "planned": 1698,
+   "item": "Delta LAX→AUS 7:10p–12:09a nonstop (DL 622), Basic (5)",
+   "planned": 842,
    "inPlan": true,
    "paid": null,
-   "booked": false,
-   "lean": 1422
+   "booked": true,
+   "lean": 842
   },
   {
    "id": "ca-flights-united-checked-bags-50-first-bag-3-ba",
    "cat": "CA – Flights",
-   "item": "Checked bags: Southwest $35 out + United $50 back (3 bags each way)",
-   "planned": 255,
+   "item": "Checked bags: Southwest $35 out + Delta $45 back (3 bags each way)",
+   "planned": 240,
    "inPlan": true,
    "paid": null,
    "booked": false,
-   "lean": 425
+   "lean": 240
   },
   {
    "id": "ca-flights-uber-xl-home-aus-4-15-am-afternoon-re",
    "cat": "CA – Flights",
-   "item": "Uber XL home ↔ AUS (Dec 19 evening + Dec 27 return)",
-   "planned": 84.0,
+   "item": "Uber XL home ↔ AUS (Dec 19 evening + Dec 27 ≈ 12:30 am return)",
+   "planned": 96.0,
    "inPlan": true,
    "paid": null,
    "booked": false,
-   "lean": 84.0
+   "lean": 96.0
   },
   {
    "id": "ca-lodging-springhill-suites-milpitas-suite-airb",
@@ -24362,22 +24129,22 @@ window.TRIP = {
   {
    "id": "ca-lodging-residence-inn-lax-century-blvd-larger",
    "cat": "CA – Lodging",
-   "item": "Residence Inn LAX/Century Blvd, larger studio (2Q + sofa), breakfast",
-   "planned": 542.28,
+   "item": "Residence Inn LAX/Century Blvd, larger studio, 1 night, breakfast",
+   "planned": 271.14,
    "inPlan": true,
    "paid": null,
    "booked": false,
-   "lean": 426
+   "lean": 247.87
   },
   {
    "id": "ca-lodging-residence-inn-parking-2-nights-54",
    "cat": "CA – Lodging",
-   "item": "Residence Inn parking (2 nights × $54)",
-   "planned": 118.8,
+   "item": "Residence Inn parking (1 night, $54)",
+   "planned": 59.4,
    "inPlan": true,
    "paid": null,
    "booked": false,
-   "lean": 118.8
+   "lean": 59.4
   },
   {
    "id": "ca-car-driving-one-way-minivan-sfo-lax-chrysler",
@@ -24512,8 +24279,8 @@ window.TRIP = {
   {
    "id": "ca-food-misc-restaurant-meals-12-family-meals-5",
    "cat": "CA – Food & misc",
-   "item": "Restaurant meals (≈ 12 family meals × 5 × $20)",
-   "planned": 1536.0,
+   "item": "Restaurant meals (≈ 11 family meals × 5 × $20)",
+   "planned": 1408.0,
    "inPlan": true,
    "paid": null,
    "booked": false,
@@ -24590,44 +24357,36 @@ window.TRIP = {
    "url": "https://www.google.com/travel/flights?q=Flights%20to%20SFO%20from%20AUS%20on%202026-12-19%20one%20way%205%20adults%20nonstop"
   },
   {
-   "section": "Flights LAX→AUS Dec 27",
-   "option": "United 8:40a–1:40p nonstop, Economy",
-   "price": "$1,698 / 5",
-   "details": "Recommended. Home by afternoon.",
-   "status": "Chosen",
-   "url": "https://www.google.com/travel/flights?q=Flights%20to%20AUS%20from%20LAX%20on%202026-12-27%20one%20way%205%20adults%20nonstop"
+   "section": "Flights LAX→AUS",
+   "option": "Delta 7:10p–12:09a nonstop, Sat Dec 26 (DL 622), Basic",
+   "price": "$842 / 5 paid",
+   "details": "Booked. Carry-on included; seats assigned at check-in.",
+   "status": "Booked",
+   "url": "https://www.delta.com/"
   },
   {
-   "section": "Flights LAX→AUS Dec 27",
-   "option": "United 8:40a nonstop, Basic Economy",
-   "price": "$1,422 / 5",
-   "details": "No carry-on.",
-   "status": "Lean",
-   "url": "https://www.google.com/travel/flights?q=Flights%20to%20AUS%20from%20LAX%20on%202026-12-27%20one%20way%205%20adults%20nonstop"
-  },
-  {
-   "section": "Flights LAX→AUS Dec 27",
-   "option": "Southwest 10:40a–5:10p, 1 stop",
-   "price": "$1,291 / 5",
-   "details": "Cheapest reasonable daytime option.",
-   "status": "Alt",
-   "url": "https://www.google.com/travel/flights?q=Flights%20to%20AUS%20from%20LAX%20on%202026-12-27%20one%20way%205%20adults%20nonstop"
-  },
-  {
-   "section": "Flights LAX→AUS Dec 27",
-   "option": "Southwest 4:30p–9:20p nonstop",
+   "section": "Flights LAX→AUS",
+   "option": "Southwest 4:30p–9:20p nonstop, Sun Dec 27",
    "price": "$1,542 / 5",
-   "details": "Late arrival.",
+   "details": "Was the best Dec 27 option.",
    "status": "Alt",
-   "url": "https://www.google.com/travel/flights?q=Flights%20to%20AUS%20from%20LAX%20on%202026-12-27%20one%20way%205%20adults%20nonstop"
+   "url": "https://www.google.com/travel/flights?q=Flights%20to%20AUS%20from%20LAX%20on%202026-12-26%20one%20way%205%20adults%20nonstop"
   },
   {
-   "section": "Flights LAX→AUS Dec 27",
-   "option": "Delta 1:50p–6:50p nonstop",
-   "price": "$1,992 / 5",
-   "details": "",
+   "section": "Flights LAX→AUS",
+   "option": "United 8:40a–1:40p nonstop, Sun Dec 27, Economy",
+   "price": "$1,698 / 5",
+   "details": "Previous plan.",
    "status": "Alt",
-   "url": "https://www.google.com/travel/flights?q=Flights%20to%20AUS%20from%20LAX%20on%202026-12-27%20one%20way%205%20adults%20nonstop"
+   "url": "https://www.google.com/travel/flights?q=Flights%20to%20AUS%20from%20LAX%20on%202026-12-26%20one%20way%205%20adults%20nonstop"
+  },
+  {
+   "section": "Flights LAX→AUS",
+   "option": "American 3:22p nonstop, Sun Dec 27, Main Cabin",
+   "price": "$1,972 / 5",
+   "details": "No Basic Economy left (checked Oct 19).",
+   "status": "Alt",
+   "url": "https://www.google.com/travel/flights?q=Flights%20to%20AUS%20from%20LAX%20on%202026-12-26%20one%20way%205%20adults%20nonstop"
   },
   {
    "section": "Visitor insurance: learn first",
@@ -24703,27 +24462,27 @@ window.TRIP = {
   },
   {
    "section": "Car SFO→LAX one-way",
-   "option": "Chrysler Pacifica minivan, Dec 20–27",
+   "option": "Chrysler Pacifica minivan, Dec 20–26",
    "price": "$882–952 total",
    "details": "Best for seniors: sliding doors, low step, room for bags.",
    "status": "Chosen",
-   "url": "https://www.kayak.com/cars/SFO/LAX/2026-12-20-08h/2026-12-27-06h?sort=price_a&fs=carclass=VAN"
+   "url": "https://www.kayak.com/cars/SFO/LAX/2026-12-20-08h/2026-12-26-16h?sort=price_a&fs=carclass=VAN"
   },
   {
    "section": "Car SFO→LAX one-way",
-   "option": "GMC Acadia 7-seat SUV, Dec 20–27",
+   "option": "GMC Acadia 7-seat SUV, Dec 20–26",
    "price": "$561 total",
    "details": "Fold 3rd row for luggage. Higher step.",
    "status": "Lean",
-   "url": "https://www.kayak.com/cars/SFO/LAX/2026-12-20-08h/2026-12-27-06h?sort=price_a&fs=carclass=SUV"
+   "url": "https://www.kayak.com/cars/SFO/LAX/2026-12-20-08h/2026-12-26-16h?sort=price_a&fs=carclass=SUV"
   },
   {
    "section": "Car SFO→LAX one-way",
    "option": "Nissan Rogue (original sheet)",
    "price": "$610–720 total",
-   "details": "Only 5 seats, too little luggage space for 9 days.",
+   "details": "Only 5 seats, too little luggage space for a week.",
    "status": "Not advised",
-   "url": "https://www.kayak.com/cars/SFO/LAX/2026-12-20-08h/2026-12-27-06h?sort=price_a&fs=carclass=SUV"
+   "url": "https://www.kayak.com/cars/SFO/LAX/2026-12-20-08h/2026-12-26-16h?sort=price_a&fs=carclass=SUV"
   },
   {
    "section": "Car Austin (DFW runs)",
@@ -24846,25 +24605,25 @@ window.TRIP = {
    "url": "https://www.airbnb.com/rooms/1196404010060432835?adults=5&check_in=2026-12-23&check_out=2026-12-25"
   },
   {
-   "section": "Lodging Dec 25–27",
-   "option": "Residence Inn LAX larger studio (planning sheet)",
-   "price": "$466 + 16.4% tax",
-   "details": "Breakfast, LAX shuttle, $54/night parking.",
+   "section": "Lodging Dec 25",
+   "option": "Residence Inn LAX larger studio (planning sheet), 1 night",
+   "price": "$233 + 16.4% tax",
+   "details": "Breakfast, LAX shuttle, $54/night parking. Standard studio $213.",
    "status": "Chosen",
-   "url": "https://www.booking.com/hotel/us/residence-inn-by-marriott-los-angeles-lax-century-boulevard.html?checkin=2026-12-25&checkout=2026-12-27&group_adults=5&no_rooms=1"
+   "url": "https://www.booking.com/hotel/us/residence-inn-by-marriott-los-angeles-lax-century-boulevard.html?checkin=2026-12-25&checkout=2026-12-26&group_adults=5&no_rooms=1"
   },
   {
-   "section": "Lodging Dec 25–27",
+   "section": "Lodging Dec 25",
    "option": "Burbank 2BR home near Universal",
-   "price": "$767 / 2 nights",
+   "price": "≈ $384 / night (2-night price $767)",
    "details": "4.92★ (353).",
    "status": "Alt",
    "url": "https://www.airbnb.com/rooms/874209746086100294?adults=5&check_in=2026-12-25&check_out=2026-12-27"
   },
   {
-   "section": "Lodging Dec 25–27",
+   "section": "Lodging Dec 25",
    "option": "LA renovated 2BR, gated parking",
-   "price": "$619 / 2 nights",
+   "price": "≈ $310 / night (2-night price $619)",
    "details": "4.9★ (195).",
    "status": "Alt",
    "url": "https://www.airbnb.com/rooms/1078592452122778614?adults=5&check_in=2026-12-25&check_out=2026-12-27"
@@ -24972,6 +24731,13 @@ window.TRIP = {
      "source": "https://www.southwest.com/swa-resources/pdfs/corporate-commitments/customer-service-plan.pdf",
      "note": "Reservations & changes",
      "key": "southwest"
+    },
+    {
+     "name": "Delta Air Lines",
+     "phone": "(800) 221-1212",
+     "source": "https://www.delta.com/content/www/en_US/support/talk-to-us/reservations-and-refunds/reservations-offices.html",
+     "note": "Reservations & changes",
+     "key": "delta"
     },
     {
      "name": "United Airlines",

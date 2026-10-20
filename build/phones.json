@@ -310,5 +310,11 @@
   "phone": "(310) 673-4660",
   "source": "https://www.centinelamed.com/",
   "note": "555 E Hardy St"
+ },
+ "delta": {
+  "name": "Delta Air Lines",
+  "phone": "(800) 221-1212",
+  "source": "https://www.delta.com/content/www/en_US/support/talk-to-us/reservations-and-refunds/reservations-offices.html",
+  "note": "Reservations & changes"
  }
 }

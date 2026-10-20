@@ -188,7 +188,7 @@ sm.cell(tot + 2, 1, "Over (+) / under (−) budget").font = BOLD
 sm.cell(tot + 2, 2, f"=B{tot}-B{tot + 1}").number_format = USD
 sm.cell(tot + 2, 3, f"=C{tot}-C{tot + 1}").number_format = USD
 sm.cell(tot + 2, 4, f"=D{tot}-D{tot + 1}").number_format = USD
-sm.cell(tot + 3, 1, "California part only (Dec 19–27)").font = BODY
+sm.cell(tot + 3, 1, "California part only (Dec 19–26)").font = BODY
 sm.cell(tot + 3, 2, f'=SUMIF(Budget!$A:$A,"CA*",Budget!$I:$I)').number_format = USD
 sm.cell(tot + 3, 3, f'=SUMIF(Budget!$A:$A,"CA*",Budget!$K:$K)').number_format = USD
 sm.cell(tot + 3, 4, f'=SUMIF(Budget!$A:$A,"CA*",Budget!$O:$O)').number_format = USD

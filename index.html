@@ -287,7 +287,7 @@ footer li{margin:2px 0}
   <div class="wrap">
     <div class="kicker">Dec 6, 2026 – Jan 4, 2027 · 5 travelers</div>
     <h1>Texas &amp; California<br>Family Trip</h1>
-    <p>From the DFW pick-up to the DFW goodbye: Austin and the Hill Country, then 9 days on the road from San Francisco through Tahoe, Monterey and the Giant Sequoias to Los Angeles.</p>
+    <p>From the DFW pick-up to the DFW goodbye: Austin and the Hill Country, then 8 days on the road from San Francisco through Tahoe, Monterey and the Giant Sequoias to Los Angeles.</p>
     <div class="status"><span class="dot"></span><span id="status">Loading…</span></div>
   </div>
 </header>
@@ -534,8 +534,8 @@ window.addEventListener("beforeprint", () => { document.querySelectorAll("[data-
 
 function renderDays(){
   let html = "", phase = null, block = [];
-  const phaseName = (d, idx) => d.phase === "California" ? "California road trip · Dec 19–27" :
-    (d.date < "2026-12-19" ? "Austin & Hill Country · Dec 6–18" : "Back in Austin · Dec 28 – Jan 4");
+  const phaseName = (d, idx) => d.phase === "California" ? "California road trip · Dec 19–26" :
+    (d.date < "2026-12-19" ? "Austin & Hill Country · Dec 6–18" : "Back in Austin · Dec 27 – Jan 4");
   T.days.forEach((d, i) => {
     const p = phaseName(d);
     if (p !== phase){ if (block.length) html += `<div class="days">${block.join("")}</div>`; block = [];
