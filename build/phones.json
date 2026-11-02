@@ -215,12 +215,6 @@
   "source": "https://www.sf.gov/departments--311-customer-service-center",
   "note": "Dial 311 inside SF"
  },
- "heavenly": {
-  "name": "Heavenly Mountain Resort",
-  "phone": "(775) 586-7000",
-  "source": "https://www.skiheavenly.com/footer/contactus.aspx",
-  "note": "Gondola info"
- },
  "griffith": {
   "name": "Griffith Observatory",
   "phone": "(213) 473-0800",
@@ -275,12 +269,6 @@
   "source": "https://healthy.kaiserpermanente.org/northern-california/facilities/south-san-francisco-medical-center-100319",
   "note": "ER (650) 742-2511; open to non-members in emergencies"
  },
- "hosp_tahoe": {
-  "name": "Barton Memorial Hospital, South Lake Tahoe (ER)",
-  "phone": "(530) 541-3420",
-  "source": "https://www.bartonhealth.org/find-a-location/locations-profile/barton-memorial-hospital/",
-  "note": "2170 South Ave"
- },
  "hosp_oakland": {
   "name": "Highland Hospital, Oakland (ER)",
   "phone": "(510) 437-4800",
@@ -328,5 +316,11 @@
   "phone": "(209) 536-5000",
   "source": "https://backup.adventisthealth.org/sonora/patient-resources/phone-directory/",
   "note": "1000 Greenley Rd, Sonora. ≈ 20 min from Mi-Wuk"
+ },
+ "railtown": {
+  "name": "Railtown 1897 State Historic Park",
+  "phone": "(209) 984-3953",
+  "source": "https://parks.ca.gov/?page_id=491",
+  "note": "Winter 10 am–3 pm"
  }
 }
