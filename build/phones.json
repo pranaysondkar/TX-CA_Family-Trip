@@ -95,12 +95,6 @@
   "source": "https://dot.ca.gov/travel/winter-driving-tips",
   "note": "Say the highway number, e.g. '50' or '5'"
  },
- "seki_roads": {
-  "name": "Sequoia NP roads & chains",
-  "phone": "(559) 565-3341",
-  "source": "https://www.nps.gov/seki/planyourvisit/road-conditions.htm",
-  "note": "Press 1, then 1. 24 h recording"
- },
  "fastrak": {
   "name": "Bay Area FasTrak (bridge tolls)",
   "phone": "(877) 229-8655",
@@ -269,29 +263,11 @@
   "source": "https://healthy.kaiserpermanente.org/northern-california/facilities/south-san-francisco-medical-center-100319",
   "note": "ER (650) 742-2511; open to non-members in emergencies"
  },
- "hosp_oakland": {
-  "name": "Highland Hospital, Oakland (ER)",
-  "phone": "(510) 437-4800",
-  "source": "https://www.alamedahealthsystem.org/locations/highland-hospital/",
-  "note": "1411 E 31st St"
- },
  "hosp_monterey": {
   "name": "Community Hospital of the Monterey Peninsula (ER)",
   "phone": "(831) 624-5311",
   "source": "https://www.montagehealth.org/locations/profile/community-hospital-monterey-peninsula/",
   "note": "23625 Holman Hwy"
- },
- "hosp_porterville": {
-  "name": "Sierra View Medical Center, Porterville (ER near Camp Nelson)",
-  "phone": "(559) 784-1110",
-  "source": "https://www.sierra-view.com/contact-us/",
-  "note": "465 W Putnam Ave"
- },
- "hosp_visalia": {
-  "name": "Kaweah Health, Visalia (ER near Sequoia)",
-  "phone": "(559) 624-2000",
-  "source": "https://www.kaweahhealth.org/location/kaweah-health-medical-center",
-  "note": "400 W Mineral King Ave"
  },
  "hosp_lax": {
   "name": "Centinela Hospital, Inglewood (ER near LAX)",

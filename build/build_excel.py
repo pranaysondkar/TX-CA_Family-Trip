@@ -160,7 +160,7 @@ desc = {
     "CA – Flights": "United AUS↔CA for 5, bags, airport rides",
     "CA – Lodging": "8 nights incl. taxes & parking",
     "CA – Car & driving": "One-way minivan, CDW, gas, tolls, chains, parking",
-    "CA – Activities": "Sequoia pass, Alcatraz, cable cars, aquarium",
+    "CA – Activities": "Yosemite pass, cable cars, aquarium, 17-Mile Drive",
     "CA – Food & misc": "Restaurants, groceries, souvenirs",
 }
 first = row + 1
@@ -204,8 +204,7 @@ sm.cell(n, 1, "Key findings").font = BOLD
 notes = [
     "Real prices are well above the sheet's $7,670. Main drivers: peak holiday fares, California gas at $6.18/gal (near record), and 5 adults needing a minivan.",
     "Lean plan: Basic Economy fares, a 7-seat SUV instead of a minivan, card-covered CDW, fewer meals out, and skipping the aquarium.",
-    "Yosemite and Sequoia charge $100 per non-US resident from 2026. One $250 America the Beautiful nonresident pass covers the car at both parks.",
-    "Camp Nelson cabin is booked. Dec 24 means ≈ 5.5 h of driving to see General Sherman. Leave early and check chain status first.",
+    "Yosemite charges $100 per non-US resident from 2026 ($335 for your car). One $250 America the Beautiful nonresident pass covers the whole car.",
     "The Mi-Wuk Village cabin (Dec 20–21) is ≈ 2.5–3 h each way from Yosemite Valley; Dec 21 has a local backup plan (Pinecrest Lake, Columbia).",
     "Strong El Niño this winter: carry chains, check Caltrans QuickMap & NPS road status every morning.",
     "Visitor medical insurance for the 3 visitors is the most important 'hidden' cost if not already purchased.",
@@ -327,9 +326,7 @@ k = 5 + len(T.CLIMATE) + 1
 ws.cell(k, 1, "Check every morning").font = BOLD
 for j, (label, key) in enumerate([("Caltrans QuickMap (chain controls, closures)", "quickmap"),
                                    ("Caltrans chain-control rules R1/R2/R3", "chains"),
-                                   ("Sequoia NP road conditions (559-565-3341)", "seki_roads"),
-                                   ("Sequoia NP current conditions & alerts", "seki_conditions"),
-                                   ("NWS forecasts & alerts", "nws"),
+                                                                                                         ("NWS forecasts & alerts", "nws"),
                                    ("Enterprise chain policy", "enterprise_chains")], start=1):
     ws.cell(k + j, 1, label).font = BODY
     link(ws.cell(k + j, 2), key)
