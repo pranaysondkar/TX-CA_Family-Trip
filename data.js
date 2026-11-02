@@ -25520,8 +25520,8 @@ window.TRIP = {
   },
   {
    "name": "CA – Lodging",
-   "planned": 1884,
-   "lean": 1860
+   "planned": 1660,
+   "lean": 1636
   },
   {
    "name": "CA – Car & driving",
@@ -25862,11 +25862,11 @@ window.TRIP = {
    "id": "ca-lodging-cozy-cabin-close-to-the-lake-south-la",
    "cat": "CA – Lodging",
    "item": "Mountain cabin, Mi-Wuk Village (Yosemite trip), 2 nights",
-   "planned": 616.0,
+   "planned": 392,
    "inPlan": true,
    "paid": null,
    "booked": true,
-   "lean": 616.0
+   "lean": 392
   },
   {
    "id": "ca-lodging-oakland-2br-guest-suite-6-beds-washer",
@@ -26289,7 +26289,7 @@ window.TRIP = {
   {
    "section": "Lodging Dec 20–21",
    "option": "Mountain cabin, Mi-Wuk Village (Airbnb)",
-   "price": "≈ $550 / 2 nights (enter actual)",
+   "price": "$392 / 2 nights",
    "details": "Booked. Pine-forest village at 4,000 ft, fireplace; 2.5–3 h to Yosemite Valley.",
    "status": "Booked",
    "url": "https://www.airbnb.com/rooms/1806593362987783736"
