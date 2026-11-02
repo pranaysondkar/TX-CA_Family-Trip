@@ -298,5 +298,11 @@
   "phone": "(209) 984-3953",
   "source": "https://parks.ca.gov/?page_id=491",
   "note": "Winter 10 am–3 pm"
+ },
+ "courtyard_sf": {
+  "name": "Courtyard by Marriott Fisherman's Wharf, SF",
+  "phone": "(415) 775-3800",
+  "source": "https://www.google.com/maps/search/Courtyard+by+Marriott+Fishermans+Wharf+580+Beach+St+San+Francisco",
+  "note": "580 Beach St (from your booking confirmation)"
  }
 }
