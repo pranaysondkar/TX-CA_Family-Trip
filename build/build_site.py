@@ -69,7 +69,7 @@ data = dict(checked=T.PRICES_CHECKED, budget=T.BUDGET_TOTAL, days=days,
             insurancePrimer=T.INSURANCE_PRIMER,
             phoneGroups=[dict(group=g, items=[dict(T.phones()[k], key=k) for k in keys if k in T.phones()]) for g, keys in T.PHONE_GROUPS], bookingsApi=T.BOOKINGS_API, bookingsEdit=T.BOOKINGS_EDIT, climate=T.CLIMATE, alertsNote=T.ALERTS_NOTE, credits=credits,
             quick=[{"label": a, "url": T.L[b]} for a, b in [
-                ("Caltrans QuickMap", "quickmap"), ("Chain controls", "chains"), ("Sequoia roads", "seki_roads"),
+                ("Caltrans QuickMap", "quickmap"), ("Chain controls", "chains"), ("Yosemite conditions", "yose_roads"), ("Sequoia roads", "seki_roads"),
                 ("Sequoia alerts", "seki_conditions"), ("NWS", "nws"), ("FasTrak toll pay", "fastrak"),
                 ("DFW cell lot", "dfw_cell"), ("Trail of Lights", "trail_lights")]])
 with open(OUT, "w") as f:

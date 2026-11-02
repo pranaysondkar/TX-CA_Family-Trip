@@ -5,18 +5,6 @@
   "license": "CC BY-SA 4.0",
   "page": "https://commons.wikimedia.org/wiki/File:Golden_Gate_Bridge,_North_view.jpg"
  },
- "alcatraz": {
-  "title": "File:Alcatraz recreation yard, NW view.jpg",
-  "artist": "Photograph:  Radomianin",
-  "license": "Public domain",
-  "page": "https://commons.wikimedia.org/wiki/File:Alcatraz_recreation_yard,_NW_view.jpg"
- },
- "tahoe": {
-  "title": "File:Emerald Bay, Lake Tahoe, Nevada (21560966962).jpg",
-  "artist": "Ken Lund from Reno, Nevada, USA",
-  "license": "CC BY-SA 2.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Emerald_Bay,_Lake_Tahoe,_Nevada_(21560966962).jpg"
- },
  "lone-cypress": {
   "title": "File:Lone Cypress 17-Mile Drive 2013.jpg",
   "artist": "Tuxyso",
@@ -46,12 +34,6 @@
   "artist": "Michael Barera",
   "license": "CC BY-SA 4.0",
   "page": "https://commons.wikimedia.org/wiki/File:View_of_Dallas_from_Reunion_Tower_August_2015_13.jpg"
- },
- "hollywood-sign": {
-  "title": "File:Hollywood Sign.jpg",
-  "artist": "Thomas Wolf, www.foto-tw.de",
-  "license": "CC BY-SA 3.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Hollywood_Sign.jpg"
  },
  "austin-skyline": {
   "title": "File:Austin August 2019 19 (skyline and Lady Bird Lake).jpg",
@@ -95,12 +77,6 @@
   "license": "CC BY 4.0",
   "page": "https://commons.wikimedia.org/wiki/File:Buescher_state_park_2007.jpg"
  },
- "oakland": {
-  "title": "File:Lake Merritt Oakland aerial.jpg",
-  "artist": "Dicklyon",
-  "license": "CC BY-SA 4.0",
-  "page": "https://commons.wikimedia.org/wiki/File:Lake_Merritt_Oakland_aerial.jpg"
- },
  "san-antonio": {
   "title": "File:Butler Hike and Bike Trail Boardwalk.jpg",
   "artist": "Larry D. Moore",
@@ -124,5 +100,17 @@
   "artist": "Carol M. Highsmith",
   "license": "Public domain",
   "page": "https://commons.wikimedia.org/wiki/File:Radha_Madhav_Dham_(2014)_by_Highsmith,_Carol.png"
+ },
+ "yosemite": {
+  "title": "File:Tunnel View, Yosemite Valley, Yosemite NP - Diliff.jpg",
+  "artist": "Diliff",
+  "license": "CC BY-SA 3.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Tunnel_View,_Yosemite_Valley,_Yosemite_NP_-_Diliff.jpg"
+ },
+ "pinecrest": {
+  "title": "File:Pinecrest Lake 2021.jpg",
+  "artist": "Codytoshiro",
+  "license": "CC BY 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Pinecrest_Lake_2021.jpg"
  }
 }

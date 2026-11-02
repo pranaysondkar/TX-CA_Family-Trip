@@ -316,5 +316,17 @@
   "phone": "(800) 221-1212",
   "source": "https://www.delta.com/content/www/en_US/support/talk-to-us/reservations-and-refunds/reservations-offices.html",
   "note": "Reservations & changes"
+ },
+ "yose_info": {
+  "name": "Yosemite NP info & road/chain conditions",
+  "phone": "(209) 372-0200",
+  "source": "https://www.nps.gov/yose/planyourvisit/fees.htm",
+  "note": "Press 1, then 1 for roads & chains"
+ },
+ "hosp_sonora": {
+  "name": "Adventist Health Sonora (ER nearest the cabin)",
+  "phone": "(209) 536-5000",
+  "source": "https://backup.adventisthealth.org/sonora/patient-resources/phone-directory/",
+  "note": "1000 Greenley Rd, Sonora. ≈ 20 min from Mi-Wuk"
  }
 }

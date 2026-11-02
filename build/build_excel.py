@@ -204,8 +204,9 @@ sm.cell(n, 1, "Key findings").font = BOLD
 notes = [
     "Real prices are well above the sheet's $7,670. Main drivers: peak holiday fares, California gas at $6.18/gal (near record), and 5 adults needing a minivan.",
     "Lean plan: Basic Economy fares, a 7-seat SUV instead of a minivan, card-covered CDW, fewer meals out, and skipping the aquarium.",
-    "Sequoia NP charges $100 per non-US resident from 2026. Buy one $250 nonresident annual pass for the car (confirm at the gate).",
+    "Yosemite and Sequoia charge $100 per non-US resident from 2026. One $250 America the Beautiful nonresident pass covers the car at both parks.",
     "Camp Nelson cabin is booked. Dec 24 means ≈ 5.5 h of driving to see General Sherman. Leave early and check chain status first.",
+    "The Mi-Wuk Village cabin (Dec 20–21) is ≈ 2.5–3 h each way from Yosemite Valley; Dec 21 has a local backup plan (Pinecrest Lake, Columbia).",
     "Strong El Niño this winter: carry chains, check Caltrans QuickMap & NPS road status every morning.",
     "Visitor medical insurance for the 3 visitors is the most important 'hidden' cost if not already purchased.",
 ]
