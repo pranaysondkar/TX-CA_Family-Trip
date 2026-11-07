@@ -27544,7 +27544,39 @@ window.TRIP = {
    "Occasional ice in Jan"
   ]
  ],
- "alertsNote": "No active NWS alerts at any trip location on Oct 18, 2026. NOAA declared a strong El Niño (advisory Oct 8, 2026) and favors above-normal Nov–Jan rain for California. Expect at least one atmospheric-river storm and Sierra chain controls. The web itinerary pulls live NWS alerts and Open-Meteo forecasts automatically (forecasts appear ≈ 16 days before each date).",
+ "wxPoints": [
+  [
+   37.7749,
+   -122.4194,
+   "America/Los_Angeles"
+  ],
+  [
+   37.7456,
+   -119.5936,
+   "America/Los_Angeles"
+  ],
+  [
+   36.6002,
+   -121.8947,
+   "America/Los_Angeles"
+  ],
+  [
+   34.0522,
+   -118.2437,
+   "America/Los_Angeles"
+  ],
+  [
+   30.2672,
+   -97.7431,
+   "America/Chicago"
+  ],
+  [
+   32.8998,
+   -97.0403,
+   "America/Chicago"
+  ]
+ ],
+ "alertsNote": "NOAA declared a strong El Niño (advisory Oct 8, 2026) and favors above-normal Nov–Jan rain for California. Expect at least one atmospheric-river storm and Sierra chain controls. The live table and alerts above refresh every time the page is opened; day-by-day forecasts appear ≈ 16 days before each date.",
  "credits": {
   "golden-gate": {
    "title": "File:Golden Gate Bridge, North view.jpg",

@@ -79,7 +79,9 @@ section{padding:36px 0 8px}
 .chip.ok{color:var(--ok)}
 
 /* alerts */
-#alerts{margin-top:14px;display:grid;gap:8px}
+#alerts,#wx-alerts{margin-top:14px;display:grid;gap:8px}
+.wx-sub{margin-top:26px}.wx-sub h3{margin:0;font-size:18px}
+#wx-status{margin:10px 0 0}
 .alert{padding:12px 14px;border-radius:12px;background:var(--warn-soft);color:var(--ink);border:1px solid color-mix(in srgb,var(--warn) 35%,transparent);font-size:14px}
 .alert b{color:var(--warn)}
 .alert.calm{background:var(--surface);border-color:var(--line);color:var(--muted)}
@@ -238,7 +240,7 @@ footer li{margin:2px 0}
   .gm{text-align:center}
   table{font-size:13px}
   th,td{padding:8px 8px}
-  #climate th:nth-child(4),#climate td:nth-child(4),#climate th:nth-child(5),#climate td:nth-child(5){display:none}
+  #wx-now th:nth-child(4),#wx-now td:nth-child(4),#climate th:nth-child(4),#climate td:nth-child(4),#climate th:nth-child(5),#climate td:nth-child(5){display:none}
   td small.mob{display:block}
   .primer{padding:14px}
   .bars{padding:12px}
@@ -345,7 +347,11 @@ footer li{margin:2px 0}
   </section>
 
   <section id="weather">
-    <div class="sec-h"><h2>Weather &amp; road safety</h2><span class="sub">December normals (NOAA 1991–2020)</span></div>
+    <div class="sec-h"><h2>Weather &amp; road safety</h2><span class="sub">Right now · refreshes every time the page opens</span></div>
+    <div class="card" style="overflow-x:auto"><table id="wx-now"></table></div>
+    <p class="sub" id="wx-status">Loading live weather…</p>
+    <div id="wx-alerts"></div>
+    <div class="sec-h wx-sub"><h3>December normals</h3><span class="sub">NOAA 1991–2020</span></div>
     <div class="card" style="overflow-x:auto"><table id="climate"></table></div>
     <p class="sub" id="alerts-note" style="max-width:780px"></p>
     <div class="quick" id="quick"></div>
@@ -444,6 +450,63 @@ async function loadAlerts(){
   $("#alerts").innerHTML = out.length ? out.join("") :
     `<div class="alert calm">No active National Weather Service alerts for the next stops (checked ${when}).</div>`;
 }
+
+// ---- live "right now" weather for every trip area (refreshes on every page load)
+const dayName = iso => toDate(iso).toLocaleDateString("en-US",{weekday:"short"});
+async function loadLiveWeather(){
+  const pts = T.wxPoints || [];
+  if (!pts.length) { $("#wx-status").textContent = ""; return; }
+  let ok = 0;
+  const rows = await Promise.all(pts.map(async ([lat, lon, tz], i) => {
+    const name = T.climate[i][0];
+    try{
+      const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,apparent_temperature,weather_code,wind_speed_10m&daily=temperature_2m_max,temperature_2m_min,precipitation_probability_max,weather_code&temperature_unit=fahrenheit&wind_speed_unit=mph&timezone=${encodeURIComponent(tz)}&forecast_days=4`;
+      const r = await fetch(url, {cache:"no-store"}); if (!r.ok) throw 0;
+      const j = await r.json(), c = j.current, dl = j.daily;
+      const [ic, tx] = WMO[c.weather_code] || ["🌡",""];
+      const rain = p => p != null ? ` · ${p}% rain` : "";
+      const next = [1,2,3].map(k => `${dayName(dl.time[k])} ${(WMO[dl.weather_code[k]]||["🌡"])[0]} ${Math.round(dl.temperature_2m_max[k])}°/${Math.round(dl.temperature_2m_min[k])}°`).join(" · ");
+      ok++;
+      return `<tr><td>${esc(name)}<small class="mob">${next}</small></td>
+        <td class="num">${ic} ${Math.round(c.temperature_2m)}°F<small>${C(c.temperature_2m)}°C · ${esc(tx)} · feels ${Math.round(c.apparent_temperature)}°F · wind ${Math.round(c.wind_speed_10m)} mph</small></td>
+        <td class="num">${Math.round(dl.temperature_2m_max[0])}° / ${Math.round(dl.temperature_2m_min[0])}°F<small>${C(dl.temperature_2m_max[0])}° / ${C(dl.temperature_2m_min[0])}°C${rain(dl.precipitation_probability_max[0])}</small></td>
+        <td>${next}</td></tr>`;
+    }catch(e){
+      return `<tr><td>${esc(name)}</td><td class="num" colspan="3"><small>Couldn't load right now</small></td></tr>`;
+    }
+  }));
+  $("#wx-now").innerHTML = `<tr><th>Place</th><th>Now</th><th>Today</th><th>Next 3 days</th></tr>` + rows.join("");
+  const when = new Date().toLocaleString([], {month:"short", day:"numeric", hour:"numeric", minute:"2-digit"});
+  $("#wx-status").textContent = ok ? `Updated ${when} · Open-Meteo forecasts, National Weather Service alerts.`
+                                   : `Couldn't reach the weather service (${when}). Check your connection and reload.`;
+}
+async function loadLiveAlerts(){
+  const pts = T.wxPoints || [];
+  const seen = new Set(), out = [];
+  let failed = 0;
+  await Promise.all(pts.map(async ([lat, lon], i) => {
+    try{
+      const r = await fetch(`https://api.weather.gov/alerts/active?point=${lat.toFixed(4)},${lon.toFixed(4)}`, {headers:{Accept:"application/geo+json"}, cache:"no-store"});
+      if (!r.ok) throw 0;
+      const j = await r.json();
+      (j.features||[]).forEach(f => { if (seen.has(f.id)) return; seen.add(f.id);
+        out.push(`<div class="alert"><b>${esc(f.properties.event)}</b> · ${esc(T.climate[i][0])}<br>${esc(f.properties.headline||"")}</div>`); });
+    }catch(e){ failed++; }
+  }));
+  $("#wx-alerts").innerHTML = out.length ? out.join("") :
+    failed === pts.length ? `<div class="alert calm">Couldn't check National Weather Service alerts right now.</div>` :
+    `<div class="alert calm">No active National Weather Service alerts for any trip area right now.</div>`;
+}
+let wxLoadedAt = 0;
+function refreshWeather(){
+  wxLoadedAt = Date.now();
+  loadLiveWeather(); loadLiveAlerts();
+  loadForecasts().then(renderAll); loadAlerts();
+}
+// Phones keep tabs open for days: refresh again when the page comes back after 30+ minutes.
+document.addEventListener("visibilitychange", () => {
+  if (document.visibilityState === "visible" && Date.now() - wxLoadedAt > 30 * 60 * 1000) refreshWeather();
+});
 
 // ---- render
 function weatherChip(d){
@@ -682,8 +745,7 @@ renderAll(); renderBudget(); renderTodo(); renderOptions(); renderPrimer(); rend
 loadBookings();
 setInterval(loadBookings, 5 * 60 * 1000);
 window.reloadBookings = loadBookings;
-loadForecasts().then(renderAll);
-loadAlerts();
+refreshWeather();
 
 $("#jump").addEventListener("click", () => document.getElementById("d-" + focus.date)?.scrollIntoView({behavior:"smooth", block:"start"}));
 const root = document.documentElement, saved = store.get("trip.theme");

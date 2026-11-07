@@ -451,10 +451,20 @@ CLIMATE = [  # place, avg high F, avg low F, precip days, snow note
     ("DFW", 58, 38, 6.5, "Occasional ice in Jan"),
 ]
 
-ALERTS_NOTE = ("No active NWS alerts at any trip location on Oct 18, 2026. NOAA declared a strong El Niño "
-               "(advisory Oct 8, 2026) and favors above-normal Nov–Jan rain for California. Expect at least one "
-               "atmospheric-river storm and Sierra chain controls. The web itinerary pulls live NWS alerts and "
-               "Open-Meteo forecasts automatically (forecasts appear ≈ 16 days before each date).")
+# Live "right now" weather on the site: one point per CLIMATE row (same order): lat, lon, time zone
+WX_POINTS = [
+    (37.7749, -122.4194, "America/Los_Angeles"),   # San Francisco
+    (37.7456, -119.5936, "America/Los_Angeles"),   # Yosemite Valley
+    (36.6002, -121.8947, "America/Los_Angeles"),   # Monterey
+    (34.0522, -118.2437, "America/Los_Angeles"),   # Los Angeles
+    (AUS[0], AUS[1], AUS[2]),                      # Austin
+    (32.8998, -97.0403, "America/Chicago"),        # DFW
+]
+
+ALERTS_NOTE = ("NOAA declared a strong El Niño (advisory Oct 8, 2026) and favors above-normal Nov–Jan rain for "
+               "California. Expect at least one atmospheric-river storm and Sierra chain controls. The live table "
+               "and alerts above refresh every time the page is opened; day-by-day forecasts appear ≈ 16 days "
+               "before each date.")
 
 # ---------------------------------------------------------------- live bookings (online Google Sheet "Bookings" tab)
 # BOOKINGS_API: the Google Apps Script web-app URL (ends in /exec) from build/apps_script.gs. Empty = plan only.
