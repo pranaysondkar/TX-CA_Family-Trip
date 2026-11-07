@@ -160,7 +160,7 @@ desc = {
     "CA – Flights": "United AUS↔CA for 5, bags, airport rides",
     "CA – Lodging": "8 nights incl. taxes & parking",
     "CA – Car & driving": "One-way minivan, CDW, gas, tolls, chains, parking",
-    "CA – Activities": "Yosemite pass, cable cars, aquarium, 17-Mile Drive",
+    "CA – Activities": "Yosemite pass, cable cars, 17-Mile Drive",
     "CA – Food & misc": "Restaurants, groceries, souvenirs",
 }
 first = row + 1
@@ -203,7 +203,7 @@ n = tot + 7
 sm.cell(n, 1, "Key findings").font = BOLD
 notes = [
     "Real prices are well above the sheet's $7,670. Main drivers: peak holiday fares, California gas at $6.18/gal (near record), and 5 adults needing a minivan.",
-    "Lean plan: Basic Economy fares, a 7-seat SUV instead of a minivan, card-covered CDW, fewer meals out, and skipping the aquarium.",
+    "Lean plan: Basic Economy fares, a 7-seat SUV instead of a minivan, card-covered CDW, and fewer meals out.",
     "Yosemite charges $100 per non-US resident from 2026 ($335 for your car). One $250 America the Beautiful nonresident pass covers the whole car.",
     "The Mi-Wuk Village cabin (Dec 20–21) is ≈ 2.5–3 h each way from Yosemite Valley; Dec 21 has a local backup plan (Pinecrest Lake, Columbia).",
     "Strong El Niño this winter: carry chains, check Caltrans QuickMap & NPS road status every morning.",

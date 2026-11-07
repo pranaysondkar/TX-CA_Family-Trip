@@ -17341,7 +17341,7 @@ window.TRIP = {
    "date": "2026-12-23",
    "phase": "California",
    "place": "Monterey & Carmel",
-   "title": "Monterey Bay: aquarium, 17-Mile Drive & Carmel",
+   "title": "Monterey Bay: Cannery Row, 17-Mile Drive & Carmel",
    "stay": "Stage Coach Lodge, Monterey",
    "drive": "≈ 130 mi, 3 h",
    "lat": 36.5895,
@@ -17349,9 +17349,8 @@ window.TRIP = {
    "tz": "America/Los_Angeles",
    "photo": "lone-cypress",
    "plan": [
-    "Check out of the Courtyard (by noon), leave ≈ 8:00 am → Monterey (≈ 120 mi, ≈ 2.5 h)",
-    "10:30 Monterey Bay Aquarium (closed Dec 25; ≈ 2.5 h)",
-    "Lunch on Cannery Row",
+    "Relaxed morning: check out of the Courtyard (by noon), leave ≈ 9:30 am → Monterey (≈ 120 mi, ≈ 2.5 h)",
+    "≈ 12:00 Lunch on Cannery Row, then stroll the waterfront and Old Fisherman's Wharf (free)",
     "≈ 2:00 pm 17-Mile Drive & the Lone Cypress ($12.50 per car)",
     "≈ 4:00 pm Carmel-by-the-Sea: village stroll and Carmel Beach for sunset (≈ 4:55 pm)",
     "Check in at Stage Coach Lodge (from 4 pm); dinner on Alvarado Street or Old Fisherman's Wharf"
@@ -17362,10 +17361,6 @@ window.TRIP = {
     "Buy picnic food and snacks tonight for Christmas Eve on Big Sur, where few places are open"
    ],
    "links": [
-    {
-     "key": "aquarium",
-     "url": "https://www.montereybayaquarium.org/visit/admission-tickets"
-    },
     {
      "key": "17mile",
      "url": "https://pebblebeach.com/17-mile-drive"
@@ -17394,13 +17389,6 @@ window.TRIP = {
      "key": "courtyard_sf"
     },
     {
-     "name": "Monterey Bay Aquarium",
-     "phone": "(831) 648-4800",
-     "source": "https://www.montereybayaquarium.org/about-us/contact-us",
-     "note": "9 am–4 pm",
-     "key": "aquarium"
-    },
-    {
      "name": "Community Hospital of the Monterey Peninsula (ER)",
      "phone": "(831) 624-5311",
      "source": "https://www.montagehealth.org/locations/profile/community-hospital-monterey-peninsula/",
@@ -17414,11 +17402,6 @@ window.TRIP = {
       "name": "Courtyard Fisherman's Wharf",
       "lat": 37.807,
       "lon": -122.4185
-     },
-     {
-      "name": "Monterey Bay Aquarium",
-      "lat": 36.6182,
-      "lon": -121.9019
      },
      {
       "name": "Lone Cypress, 17-Mile Drive",
@@ -18866,12 +18849,8 @@ window.TRIP = {
     "minutes": 180,
     "legs": [
      {
-      "miles": 116,
-      "minutes": 150
-     },
-     {
-      "miles": 8,
-      "minutes": 14
+      "miles": 124,
+      "minutes": 164
      },
      {
       "miles": 4,
@@ -18882,7 +18861,7 @@ window.TRIP = {
       "minutes": 7
      }
     ],
-    "gmaps": "https://www.google.com/maps/dir/?api=1&origin=37.807,-122.4185&destination=36.5895,-121.879&travelmode=driving&waypoints=36.6182,-121.9019|36.5687,-121.9655|36.5552,-121.9233"
+    "gmaps": "https://www.google.com/maps/dir/?api=1&origin=37.807,-122.4185&destination=36.5895,-121.879&travelmode=driving&waypoints=36.5687,-121.9655|36.5552,-121.9233"
    }
   },
   {
@@ -26297,7 +26276,7 @@ window.TRIP = {
   },
   {
    "name": "CA – Activities",
-   "planned": 789,
+   "planned": 464,
    "lean": 464
   },
   {
@@ -26370,14 +26349,6 @@ window.TRIP = {
    "status": "Buy at gate",
    "url": "https://www.nps.gov/yose/planyourvisit/fees.htm",
    "cost": 250
-  },
-  {
-   "id": "ca-activities-monterey-bay-aquarium-5-adults",
-   "item": "Monterey Bay Aquarium (5 adults)",
-   "dates": "Dec 23",
-   "status": "Book",
-   "url": "https://www.montereybayaquarium.org/visit/admission-tickets",
-   "cost": 325
   }
  ],
  "lines": [
@@ -26750,16 +26721,6 @@ window.TRIP = {
    "paid": null,
    "booked": false,
    "lean": 75
-  },
-  {
-   "id": "ca-activities-monterey-bay-aquarium-5-adults",
-   "cat": "CA – Activities",
-   "item": "Monterey Bay Aquarium (5 adults)",
-   "planned": 325,
-   "inPlan": true,
-   "paid": null,
-   "booked": false,
-   "lean": 0
   },
   {
    "id": "ca-activities-17-mile-drive-vehicle-fee",
@@ -27398,13 +27359,6 @@ window.TRIP = {
      "source": "https://www.sf.gov/departments--311-customer-service-center",
      "note": "Dial 311 inside SF",
      "key": "muni"
-    },
-    {
-     "name": "Monterey Bay Aquarium",
-     "phone": "(831) 648-4800",
-     "source": "https://www.montereybayaquarium.org/about-us/contact-us",
-     "note": "9 am–4 pm",
-     "key": "aquarium"
     },
     {
      "name": "Griffith Observatory",
