@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Travel Itinerary</title>
+<meta name="description" content="Printable travel itinerary: dates, flights, stays and places visited, Dec 6 2026 – Jan 4 2027.">
+<style>
+:root{--ink:#111;--muted:#555;--line:#cfcfcf;--head:#f2f2f2;--field:#fff8d6;--accent:#1f4e8c}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:#e9e9e9;color:var(--ink);font:13px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.bar{position:sticky;top:0;z-index:2;display:flex;gap:8px;align-items:center;justify-content:center;flex-wrap:wrap;padding:10px 16px;background:#1d2433;color:#fff;font-size:13px}
+.bar button,.bar a{font:600 14px/1 inherit;font-family:inherit;padding:10px 14px;border-radius:999px;border:0;cursor:pointer;text-decoration:none}
+.bar button{background:#fff;color:#1d2433}.bar a{color:#fff;border:1px solid #fff6}
+.bar span{opacity:.8;flex-basis:100%;text-align:center}
+.page{max-width:8.5in;margin:18px auto;background:#fff;padding:.6in .6in;box-shadow:0 2px 12px #0002}
+h1{font:700 24px/1.15 Georgia,"Times New Roman",serif;margin:0}
+.sub{color:var(--muted);margin:4px 0 0}
+h2{font:700 14px/1.2 Georgia,"Times New Roman",serif;margin:20px 0 6px;padding-bottom:4px;border-bottom:2px solid var(--ink);text-transform:uppercase;letter-spacing:.04em}
+table{width:100%;border-collapse:collapse}
+th,td{border:1px solid var(--line);padding:5px 7px;text-align:left;vertical-align:top}
+th{background:var(--head);font-size:11px;text-transform:uppercase;letter-spacing:.04em}
+td.n{white-space:nowrap}
+.info td:first-child{width:28%;font-weight:600;background:var(--head)}
+tr.away td{background:#f7f9fc}
+[contenteditable]{background:var(--field);border-bottom:1px dashed #b59b2b;outline:none;min-width:60px;display:inline-block;padding:0 2px;border-radius:2px}
+[contenteditable]:empty::before{content:attr(data-ph);color:#9a8a4a;font-style:italic}
+[contenteditable]:focus{background:#fff2a8}
+.foot{margin-top:14px;color:var(--muted);font-size:11px}
+@media (max-width:640px){
+  .page{margin:0;padding:20px 16px;box-shadow:none}
+  .scroll{overflow-x:auto}
+  .scroll table{min-width:560px}
+}
+@page{size:letter;margin:.5in}
+@media print{
+  body{background:#fff;font-size:10.5px}
+  .bar{display:none}
+  .page{margin:0;padding:0;box-shadow:none;max-width:none}
+  h1{font-size:20px} h2{margin-top:14px}
+  th,td{padding:3px 6px}
+  tr{break-inside:avoid}
+  [contenteditable]{background:none;border-bottom:0;padding:0}
+  [contenteditable]:empty{border-bottom:1px solid #000;min-width:180px;min-height:1.2em}
+  td [contenteditable]:empty{display:block;min-width:0;width:100%}
+  [contenteditable]:empty::before{content:""}
+  tr.away td{background:none}
+}
+</style>
+</head>
+<body>
+<div class="bar">
+  <button onclick="window.print()">Print / Save as PDF</button>
+  <a href="./">Back to the trip site</a>
+  <span>Tap the yellow fields to fill them in. They're saved on this device only, never online.</span>
+</div>
+
+<div class="page">
+  <h1>Travel Itinerary</h1>
+  <p class="sub" id="span"></p>
+
+  <h2>Travelers &amp; host</h2>
+  <table class="info">
+    <tr><td>Travelers</td><td><span contenteditable data-k="travelers" data-ph="Full names as on passports"></span></td></tr>
+    <tr><td>Purpose of visit</td><td><span contenteditable data-k="purpose" data-ph="Purpose">Tourism and visiting family</span></td></tr>
+    <tr><td>Host in the US</td><td><span contenteditable data-k="host" data-ph="Host name and relationship"></span></td></tr>
+    <tr><td>US address</td><td><span contenteditable data-k="hostAddr" data-ph="Street, Austin, TX ZIP"></span></td></tr>
+    <tr><td>Host phone / email</td><td><span contenteditable data-k="hostPhone" data-ph="Phone and email"></span></td></tr>
+  </table>
+
+  <h2>Flights</h2>
+  <div class="scroll"><table id="flights"></table></div>
+
+  <h2>Accommodation</h2>
+  <div class="scroll"><table id="stays"></table></div>
+
+  <h2>Day by day</h2>
+  <div class="scroll"><table id="days"></table></div>
+
+  <p class="foot" id="foot"></p>
+</div>
+
+<script src="data.js"></script>
+<script>
+const T = window.TRIP, P = T.printout;
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const D = iso => new Date(iso + "T12:00:00");
+const fmt = (iso, o) => D(iso).toLocaleDateString("en-US", Object.assign({month:"short", day:"numeric"}, o||{}));
+const full = iso => fmt(iso, {weekday:"short", year:"numeric"});
+const nights = (a, b) => Math.round((D(b) - D(a)) / 864e5);
+const store = {
+  get(k){ try { return localStorage.getItem("print." + k); } catch(e){ return null; } },
+  set(k, v){ try { localStorage.setItem("print." + k, v); } catch(e){} }
+};
+const field = (k, ph) => `<span contenteditable data-k="${k}" data-ph="${esc(ph)}"></span>`;
+
+const first = T.days[0].date, last = T.days[T.days.length - 1].date;
+$("#span").textContent = `${full(first)} – ${full(last)} · ${nights(first, last) + 1} days, ${nights(first, last)} nights · Texas and California, USA`;
+
+$("#flights").innerHTML = `<tr><th>Date</th><th>From</th><th>To</th><th>Airline &amp; flight</th><th>Departs</th><th>Arrives</th><th>Confirmation</th></tr>` +
+  P.flights.map(([d, a, b, fl, dep, arr], i) => `<tr><td class="n">${full(d)}</td><td>${esc(a)}</td><td>${esc(b)}</td>
+    <td>${fl ? esc(fl) + (/\d/.test(fl) ? "" : " " + field("fl" + i, "flight no.")) : field("fl" + i, "Airline & flight no.")}</td>
+    <td>${dep ? esc(dep) : field("dep" + i, "time")}</td><td>${arr ? esc(arr) : field("arr" + i, "time")}</td><td>${field("conf" + i, "code")}</td></tr>`).join("");
+
+const hostAddr = () => `<span class="host-addr"></span>`;
+$("#stays").innerHTML = `<tr><th>Check-in</th><th>Check-out</th><th>Nights</th><th>Place</th><th>Address</th></tr>` +
+  P.stays.map(([a, b, name, addr]) => `<tr class="${addr === "HOST" ? "" : "away"}"><td class="n">${fmt(a, {weekday:"short"})}</td><td class="n">${fmt(b, {weekday:"short"})}</td>
+    <td>${nights(a, b)}</td><td>${esc(name)}</td><td>${addr === "HOST" ? hostAddr() : esc(addr)}</td></tr>`).join("") +
+  `<tr><td colspan="2"><b>Total</b></td><td><b>${P.stays.reduce((n, [a, b]) => n + nights(a, b), 0)}</b></td><td colspan="2"></td></tr>`;
+
+const cityOf = addr => { const p = addr.split(","); return p.length >= 3 ? p[p.length - 2].trim() + ", " + p[p.length - 1].trim().split(" ")[0] : addr; };
+const overnight = iso => {
+  const s = P.stays.find(([a, b]) => iso >= a && iso < b);
+  if (!s) return "Departs the US";
+  return s[3] === "HOST" ? "Host's home, Austin, TX" : `${s[2]}, ${cityOf(s[3])}`;
+};
+$("#days").innerHTML = `<tr><th>Day</th><th>Date</th><th>Places visited</th><th>Overnight</th></tr>` +
+  T.days.map((d, i) => `<tr class="${overnight(d.date).startsWith("Host") ? "" : "away"}"><td>${i + 1}</td><td class="n">${full(d.date)}</td>
+    <td>${esc(P.sights[d.date] || d.title)}</td><td>${esc(overnight(d.date))}</td></tr>`).join("");
+
+$("#foot").textContent = `All lodging and domestic flights above are booked. Itinerary prepared ${new Date().toLocaleDateString("en-US", {month:"long", day:"numeric", year:"numeric"})}.`;
+
+// fill-in fields: saved on this device only
+const syncHost = () => {
+  const v = store.get("hostAddr") || "";
+  document.querySelectorAll(".host-addr").forEach(el => el.textContent = v || "Host's address (above)");
+};
+document.querySelectorAll("[contenteditable]").forEach(el => {
+  const v = store.get(el.dataset.k);
+  if (v !== null) el.textContent = v;
+  el.addEventListener("input", () => { store.set(el.dataset.k, el.textContent.trim()); if (el.dataset.k === "hostAddr") syncHost(); });
+  el.addEventListener("keydown", e => { if (e.key === "Enter") { e.preventDefault(); el.blur(); } });
+});
+syncHost();
+</script>
+</body>
+</html>

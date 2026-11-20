@@ -554,3 +554,56 @@ def phones():
     raw = _j.load(open(path)) if _o.path.exists(path) else {}
     ok = {k: v for k, v in raw.items() if isinstance(v, dict) and _r.search(r"\d{3}.*\d{4}", str(v.get("phone", "")))}
     return {**ok, **FIXED_PHONES}
+
+# ---------------------------------------------------------------- printable itinerary (print.html, e.g. for immigration)
+# Public data only. Names, the home address and international flight numbers are typed on the page itself
+# and stay in that browser; they are never published.
+PRINT_FLIGHTS = [  # date, from, to, airline & flight (blank = fill in on the page), departs, arrives
+    ("2026-12-06", "Mumbai (BOM)", "Dallas/Fort Worth (DFW)", "", "", ""),
+    ("2026-12-19", "Austin (AUS)", "San Francisco (SFO), via Burbank (BUR)", "Southwest", "6:50 pm", "10:20 pm"),
+    ("2026-12-26", "Los Angeles (LAX)", "Austin (AUS)", "Delta DL 622", "7:10 pm", "12:09 am (Dec 27)"),
+    ("2027-01-04", "Dallas/Fort Worth (DFW)", "Mumbai (BOM)", "", "", ""),
+]
+PRINT_STAYS = [  # check-in, check-out, name, address ("HOST" = the host's home, typed on the page)
+    ("2026-12-06", "2026-12-13", "Host's home", "HOST"),
+    ("2026-12-13", "2026-12-14", "Buescher State Park cabin", "100 Park Rd 1E, Smithville, TX 78957"),
+    ("2026-12-14", "2026-12-19", "Host's home", "HOST"),
+    ("2026-12-19", "2026-12-20", "Embassy Suites San Francisco Airport – Oyster Point", "250 Gateway Blvd, South San Francisco, CA 94080"),
+    ("2026-12-20", "2026-12-22", "Vacation rental cabin (Airbnb)", "Mi-Wuk Village, CA 95346"),
+    ("2026-12-22", "2026-12-23", "Courtyard by Marriott Fisherman's Wharf", "580 Beach St, San Francisco, CA 94133"),
+    ("2026-12-23", "2026-12-24", "Stage Coach Lodge", "1111 10th St, Monterey, CA 93940"),
+    ("2026-12-24", "2026-12-26", "Residence Inn Los Angeles LAX/Century Blvd", "5933 W Century Blvd, Los Angeles, CA 90045"),
+    ("2026-12-26", "2027-01-04", "Host's home", "HOST"),
+]
+PRINT_SIGHTS = {  # date -> places visited, one short line
+    "2026-12-06": "Arrive at DFW International Airport; drive to Austin",
+    "2026-12-07": "Rest at home",
+    "2026-12-08": "McKinney Falls State Park",
+    "2026-12-09": "Downtown Austin, Texas State Capitol",
+    "2026-12-10": "Zilker Park, Trail of Lights",
+    "2026-12-11": "Radha Madhav Dham temple",
+    "2026-12-12": "Jacob's Well, Wimberley, Fredericksburg",
+    "2026-12-13": "Buescher State Park",
+    "2026-12-14": "Return to Austin; rest",
+    "2026-12-15": "Mount Bonnell, Mayfield Park",
+    "2026-12-16": "Rest at home",
+    "2026-12-17": "Day trip to Houston: Space Center Houston, Kemah Boardwalk",
+    "2026-12-18": "At home",
+    "2026-12-19": "Fly Austin → San Francisco",
+    "2026-12-20": "Knights Ferry, Sonora (Gold Country)",
+    "2026-12-21": "Yosemite National Park",
+    "2026-12-22": "San Francisco: Fisherman's Wharf, cable car, Golden Gate Bridge",
+    "2026-12-23": "Monterey: Cannery Row, 17-Mile Drive; Carmel-by-the-Sea",
+    "2026-12-24": "Big Sur coast (Highway 1): Bixby Creek Bridge, McWay Falls; drive to Los Angeles",
+    "2026-12-25": "Los Angeles: Hollywood, Santa Monica Pier, Venice Beach",
+    "2026-12-26": "Manhattan Beach, Griffith Observatory; fly Los Angeles → Austin",
+    "2026-12-27": "Rest at home",
+    "2026-12-28": "Mueller Lake Park",
+    "2026-12-29": "Lady Bird Lake, South Congress",
+    "2026-12-30": "Shopping in Austin",
+    "2026-12-31": "New Year's Eve in Austin",
+    "2027-01-01": "New Year's Day at home",
+    "2027-01-02": "Texas Hill Country nature day",
+    "2027-01-03": "Bullock Texas State History Museum",
+    "2027-01-04": "Depart from DFW International Airport",
+}
