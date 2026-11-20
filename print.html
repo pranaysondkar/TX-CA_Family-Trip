@@ -111,10 +111,11 @@ $("#stays").innerHTML = `<tr><th>Check-in</th><th>Check-out</th><th>Nights</th><
   `<tr><td colspan="2"><b>Total</b></td><td><b>${P.stays.reduce((n, [a, b]) => n + nights(a, b), 0)}</b></td><td colspan="2"></td></tr>`;
 
 const cityOf = addr => { const p = addr.split(","); return p.length >= 3 ? p[p.length - 2].trim() + ", " + p[p.length - 1].trim().split(" ")[0] : addr; };
+const hostCity = () => { const v = store.get("hostAddr") || ""; return v.split(",").length >= 3 ? cityOf(v) : "Austin, TX"; };
 const overnight = iso => {
   const s = P.stays.find(([a, b]) => iso >= a && iso < b);
   if (!s) return "Departs the US";
-  return s[3] === "HOST" ? "Host's home, Austin, TX" : `${s[2]}, ${cityOf(s[3])}`;
+  return s[3] === "HOST" ? "Host's home, " + hostCity() : `${s[2]}, ${cityOf(s[3])}`;
 };
 $("#days").innerHTML = `<tr><th>Day</th><th>Date</th><th>Places visited</th><th>Overnight</th></tr>` +
   T.days.map((d, i) => `<tr class="${overnight(d.date).startsWith("Host") ? "" : "away"}"><td>${i + 1}</td><td class="n">${full(d.date)}</td>
